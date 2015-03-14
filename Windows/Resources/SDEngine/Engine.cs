@@ -14,7 +14,7 @@ using Windows.Storage;
 
 namespace SDEngine
 {
-    class Engine
+    public class Engine
     {
         public static class Convertions
         {
