@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>WIN-BQIT3H3DDJU</Machine>
+    <WindowsUser>Gregory</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>87f68720-944e-4e05-9875-c1a415a9f6fc</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\obj\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\StrikeDistance-Windows.exe">
+      <PackagePath>StrikeDistance-Windows.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Logo.scale-140.png">
+      <PackagePath>Assets\Logo.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Logo.scale-180.png">
+      <PackagePath>Assets\Logo.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Logo.scale-80.png">
+      <PackagePath>Assets\Logo.scale-80.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SmallLogo.scale-140.png">
+      <PackagePath>Assets\SmallLogo.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SmallLogo.scale-180.png">
+      <PackagePath>Assets\SmallLogo.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SmallLogo.scale-80.png">
+      <PackagePath>Assets\SmallLogo.scale-80.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SplashScreen.scale-140.png">
+      <PackagePath>Assets\SplashScreen.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SplashScreen.scale-180.png">
+      <PackagePath>Assets\SplashScreen.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Square70x70.scale-100.png">
+      <PackagePath>Assets\Square70x70.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Square70x70.scale-140.png">
+      <PackagePath>Assets\Square70x70.scale-140.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Square70x70.scale-180.png">
+      <PackagePath>Assets\Square70x70.scale-180.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Square70x70.scale-80.png">
+      <PackagePath>Assets\Square70x70.scale-80.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SquareBig.scale-100.png">
+      <PackagePath>Assets\SquareBig.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SquareBig.scale-140.png">
+      <PackagePath>Assets\SquareBig.scale-140.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SquareBig.scale-180.png">
+      <PackagePath>Assets\SquareBig.scale-180.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\SquareBig.scale-80.png">
+      <PackagePath>Assets\SquareBig.scale-80.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\StoreLogo.scale-140.png">
+      <PackagePath>Assets\StoreLogo.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\StoreLogo.scale-180.png">
+      <PackagePath>Assets\StoreLogo.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Wide.scale-100.png">
+      <PackagePath>Assets\Wide.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Wide.scale-140.png">
+      <PackagePath>Assets\Wide.scale-140.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Wide.scale-180.png">
+      <PackagePath>Assets\Wide.scale-180.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Wide.scale-80.png">
+      <PackagePath>Assets\Wide.scale-80.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\AboutPage.xbf">
+      <PackagePath>AboutPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\CalculatorPage.xbf">
+      <PackagePath>CalculatorPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\LoadingPage.xbf">
+      <PackagePath>LoadingPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\SettingsPage.xbf">
+      <PackagePath>SettingsPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\StrikeDistance-Windows.xr.xml">
+      <PackagePath>StrikeDistance-Windows.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

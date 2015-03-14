@@ -1,0 +1,16 @@
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\bin\Release\SDEngine.dll
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\bin\Release\SDEngine.pdb
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\bin\Release\SDEngine.pri
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\SDEngine.dll
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\SDEngine.pdb
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\priconfig.xml
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\priconfig.xml.intermediate
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\layout.resfiles
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\layout.resfiles.intermediate
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\resources.resfiles
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\resources.resfiles.intermediate
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\pri.resfiles
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\pri.resfiles.intermediate
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\qualifiers.txt
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\qualifiers.txt.intermediate
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\MultipleQualifiersPerDimensionFound.txt

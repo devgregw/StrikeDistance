@@ -1,0 +1,17 @@
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\bin\Debug\SDEngine.dll
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\bin\Debug\SDEngine.pdb
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\bin\Debug\SDEngine.pri
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\SDEngine.csprojResolveAssemblyReference.cache
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\SDEngine.dll
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\SDEngine.pdb
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\priconfig.xml
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\priconfig.xml.intermediate
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\layout.resfiles
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\layout.resfiles.intermediate
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\resources.resfiles
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\resources.resfiles.intermediate
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\pri.resfiles
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\pri.resfiles.intermediate
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\qualifiers.txt
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\qualifiers.txt.intermediate
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Debug\MultipleQualifiersPerDimensionFound.txt
