@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E11CE4EC1AB4BC50007361B2"
-               BuildableName = "StrikeDistance-iPhone.app"
+               BuildableName = "StrikeDistance.app"
                BlueprintName = "StrikeDistance-iPhone"
                ReferencedContainer = "container:StrikeDistance-iPhone.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11CE4EC1AB4BC50007361B2"
-            BuildableName = "StrikeDistance-iPhone.app"
+            BuildableName = "StrikeDistance.app"
             BlueprintName = "StrikeDistance-iPhone"
             ReferencedContainer = "container:StrikeDistance-iPhone.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11CE4EC1AB4BC50007361B2"
-            BuildableName = "StrikeDistance-iPhone.app"
+            BuildableName = "StrikeDistance.app"
             BlueprintName = "StrikeDistance-iPhone"
             ReferencedContainer = "container:StrikeDistance-iPhone.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E11CE4EC1AB4BC50007361B2"
-            BuildableName = "StrikeDistance-iPhone.app"
+            BuildableName = "StrikeDistance.app"
             BlueprintName = "StrikeDistance-iPhone"
             ReferencedContainer = "container:StrikeDistance-iPhone.xcodeproj">
          </BuildableReference>
