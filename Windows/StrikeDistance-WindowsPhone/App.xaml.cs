@@ -91,7 +91,7 @@ namespace StrikeDistance_WindowsPhone
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                if (!rootFrame.Navigate(typeof(CalculatorPage), e.Arguments))
+                if (!rootFrame.Navigate(typeof(/*CalculatorPage*/LoadingPage), e.Arguments))
                 {
                     throw new Exception("Failed to create initial page");
                 }
@@ -109,7 +109,7 @@ namespace StrikeDistance_WindowsPhone
         private void RootFrame_FirstNavigated(object sender, NavigationEventArgs e)
         {
             var rootFrame = sender as Frame;
-            rootFrame.ContentTransitions = this.transitions ?? new TransitionCollection() { new NavigationThemeTransition() };
+            //rootFrame.ContentTransitions = this.transitions ?? new TransitionCollection() { new NavigationThemeTransition() };
             rootFrame.Navigated -= this.RootFrame_FirstNavigated;
         }
 

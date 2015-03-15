@@ -2,13 +2,70 @@
     x:Class="StrikeDistance_WindowsPhone.CalculatorPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:StrikeDistance_WindowsPhone"
+    xmlns:local="using:StrikeDistance.Win"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ad="using:AdDuplex.Universal.Controls.WinPhone.XAML"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
+    <Page.BottomAppBar>
+        <CommandBar x:Name="ButtonBar" Background="{StaticResource StrikeDistanceThemeBrush}" Foreground="{StaticResource StrikeDistanceForegroundBrush}" BorderBrush="White">
+            <CommandBar.ContentTransitions>
+                <TransitionCollection/>
+            </CommandBar.ContentTransitions>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="ReportButton" Label="report a bug" Click="ReportButton_Click"/>
+                <AppBarButton x:Name="SettingsButton" Label="settings" Click="SettingsButton_Click"/>
+                <AppBarButton x:Name="AboutButton" Label="about" Click="AboutButton_Click"/>
+                <AppBarButton x:Name="AppsButton" Label="more apps" Click="AppsButton_Click"/>
+                <AppBarButton x:Name="RateButton" Label="rate+review" Click="RateButton_Click"/>
+            </CommandBar.SecondaryCommands>
+            <AppBarButton x:Name="CalculateButton" Label="calculate" Click="CalculateButton_Click" Icon="Calculator"/>
+            <AppBarButton x:Name="ClearAllButton" Icon="Clear" Label="clear all" Click="ClearAllButton_Click"/>
+            <AppBarButton x:Name="HelpButton" Icon="Help" Label="help"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
+    <Grid Background="{ThemeResource PhoneBackgroundBrush}" x:Name="ContentRoot">
+        <Grid VerticalAlignment="Top" Background="{StaticResource StrikeDistanceThemeBrush}" Height="46" Margin="0,-27,0,0">
+            <TextBlock TextWrapping="Wrap" FontWeight="Black" FontSize="18" Text="CALCULATOR" Foreground="{StaticResource StrikeDistanceForegroundBrush}" Margin="0,0,276,0" VerticalAlignment="Bottom"/>
+        </Grid>
+        <TextBlock Margin="0,27,0,0" TextWrapping="Wrap" Text="OUTSIDE TEMPERATURE" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="{ThemeResource PhoneForegroundBrush}"/>
+        <TextBox x:Name="TempBox" Margin="10,56,153,0" TextWrapping="Wrap" VerticalAlignment="Top" InputScope="Number" IsTextPredictionEnabled="False" PlaceholderText="please wait" Text="0" TabIndex="1" TabNavigation="Once" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}" Background="{ThemeResource TextBoxBackgroundThemeBrush}" BorderBrush="{ThemeResource TextBoxBorderThemeBrush}"/>
+        <AppBarButton x:Name="LocationButton" HorizontalAlignment="Right" Icon="Globe" Label="use my location" Margin="0,44,5,0" VerticalAlignment="Top" Click="LocationButton_Click" TabIndex="3" TabNavigation="Once" Foreground="{ThemeResource PhoneForegroundBrush}"/>
+        <AppBarButton x:Name="InvertButton" HorizontalAlignment="Right" Icon="Sync" Label="invert" Margin="0,44,81,0" VerticalAlignment="Top" Click="InvertButton_Click" TabIndex="2" Foreground="{ThemeResource PhoneForegroundBrush}"/>
+        <TextBlock Margin="0,117,0,0" TextWrapping="Wrap" Text="TIME BETWEEN FLASH AND BOOM" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="{ThemeResource PhoneForegroundBrush}"/>
+        <TextBox x:Name="TimeBox" Margin="10,146,153,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" InputScope="Number" IsTextPredictionEnabled="False" PlaceholderText="" TabIndex="4" TabNavigation="Once" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}" Background="{ThemeResource TextBoxBackgroundThemeBrush}" BorderBrush="{ThemeResource TextBoxBorderThemeBrush}"/>
+        <AppBarToggleButton x:Name="StopwatchButton" HorizontalAlignment="Right" Label="stopwatch" Margin="0,135,81,0" VerticalAlignment="Top" IsChecked="False" Checked="StopwatchButton_Checked" Unchecked="StopwatchButton_Unchecked" TabIndex="5" TabNavigation="Once" Foreground="{ThemeResource PhoneForegroundBrush}">
+            <AppBarToggleButton.Icon>
+                <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Clock"/>
+            </AppBarToggleButton.Icon>
+        </AppBarToggleButton>
+        <AppBarButton x:Name="StopwatchClearButton" HorizontalAlignment="Right" Icon="Clear" Label="clear" Margin="0,135,5,0" VerticalAlignment="Top" Click="StopwatchClearButton_Click" TabIndex="6" TabNavigation="Once" Foreground="{ThemeResource PhoneForegroundBrush}"/>
+        <TextBlock Margin="0,208,0,0" TextWrapping="Wrap" Text="UNITS" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="{ThemeResource PhoneForegroundBrush}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,249,0,0" TextWrapping="Wrap" Text="Temperature: " VerticalAlignment="Top" FontSize="20" Foreground="{ThemeResource PhoneMidBrush}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,278,0,0" TextWrapping="Wrap" Text="Distance: " VerticalAlignment="Top" FontSize="20" Width="115" Foreground="{ThemeResource PhoneMidBrush}" TextAlignment="Right"/>
+        <HyperlinkButton x:Name="TempUnitButton" Content="Fahrenheit" HorizontalAlignment="Left" Margin="130,243,0,0" VerticalAlignment="Top" FontSize="20" Foreground="{ThemeResource PhoneAccentBrush}" Click="TempUnitButton_Click" TabIndex="4" TabNavigation="Once">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout Placement="Bottom">
+                    <MenuFlyoutItem Text="Fahrenheit"/>
+                    <MenuFlyoutItem Text="Celsius"/>
+                    <MenuFlyoutItem Text="Kelvin"/>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </HyperlinkButton>
+        <HyperlinkButton x:Name="DistUnitButton" Content="Feet/Miles" HorizontalAlignment="Left" Margin="131,272,0,0" VerticalAlignment="Top" FontSize="20" Foreground="{ThemeResource PhoneAccentBrush}" Click="DistUnitButton_Click" TabNavigation="Once" TabIndex="8">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout Placement="Bottom">
+                    <MenuFlyoutItem Text="Feet/Miles"/>
+                    <MenuFlyoutItem Text="Meters/Kilometers"/>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </HyperlinkButton>
+        <HyperlinkButton x:Name="SettingsButton2" Content="Change more settings..." HorizontalAlignment="Left" Margin="10,304,0,0" VerticalAlignment="Top" FontSize="22" Background="{StaticResource HyperlinkButtonBackgroundThemeBrush}" BorderBrush="{StaticResource HyperlinkButtonBorderThemeBrush}" Foreground="{ThemeResource HyperlinkForegroundThemeBrush}" Click="SettingsButton_Click"/>
     </Grid>
 </Page>

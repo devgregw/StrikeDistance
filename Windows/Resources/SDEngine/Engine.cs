@@ -80,7 +80,6 @@ namespace SDEngine
                 public const string DecimalPoints = "DecimalPoints";
                 public const string AutoGet = "AutoGet";
                 public const string AutoConvert = "AutoConvert";
-                public const string AutoRefresh = "AutoRefresh";
                 public const string VerboseMode = "VerboseMode";
                 public const string VB_UnitDetails = "VerboseMode:UnitDetails";
                 public const string VB_ConversionMath = "VerboseMode:ConversionMath";
