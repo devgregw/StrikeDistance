@@ -13,6 +13,7 @@
 		E11CE4FA1AB4BC50007361B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E11CE4F91AB4BC50007361B2 /* Images.xcassets */; };
 		E11CE4FD1AB4BC50007361B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E11CE4FB1AB4BC50007361B2 /* LaunchScreen.xib */; };
 		E11CE5091AB4BC50007361B2 /* StrikeDistance_iPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11CE5081AB4BC50007361B2 /* StrikeDistance_iPhoneTests.swift */; };
+		E11CE58F1AB5B5BD007361B2 /* iph_ios8_retinahd5.5_portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = E11CE58E1AB5B5BD007361B2 /* iph_ios8_retinahd5.5_portrait.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		E11CE5021AB4BC50007361B2 /* StrikeDistance-iPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StrikeDistance-iPhoneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11CE5071AB4BC50007361B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E11CE5081AB4BC50007361B2 /* StrikeDistance_iPhoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikeDistance_iPhoneTests.swift; sourceTree = "<group>"; };
+		E11CE58E1AB5B5BD007361B2 /* iph_ios8_retinahd5.5_portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iph_ios8_retinahd5.5_portrait.png; path = ../../Resources/LaunchScreen/iph_ios8_retinahd5.5_portrait.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		E11CE4EF1AB4BC50007361B2 /* StrikeDistance-iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				E11CE58E1AB5B5BD007361B2 /* iph_ios8_retinahd5.5_portrait.png */,
 				E11CE4F21AB4BC50007361B2 /* AppDelegate.swift */,
 				E11CE4F41AB4BC50007361B2 /* ViewController.swift */,
 				E11CE4F61AB4BC50007361B2 /* Main.storyboard */,
@@ -200,6 +203,7 @@
 				E11CE4F81AB4BC50007361B2 /* Main.storyboard in Resources */,
 				E11CE4FD1AB4BC50007361B2 /* LaunchScreen.xib in Resources */,
 				E11CE4FA1AB4BC50007361B2 /* Images.xcassets in Resources */,
+				E11CE58F1AB5B5BD007361B2 /* iph_ios8_retinahd5.5_portrait.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
