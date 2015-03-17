@@ -40,16 +40,22 @@
     <AssemblyOriginatorKeyFile>SDEngineKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="SDEngineKey.pfx" />
-  </ItemGroup>
-  <ItemGroup>
     <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
     <TargetPlatform Include="Windows, Version=8.1" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Engine.cs" />
+    <Compile Include="Convertions\Converter.cs" />
+    <Compile Include="Convertions\Enumerations\DistanceUnit.cs" />
+    <Compile Include="Convertions\Enumerations\TemperatureUnit.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Memory\Manager.cs" />
+    <Compile Include="Memory\Utility\Keys.cs" />
+    <Compile Include="Memory\Utility\UnitType.cs" />
+    <Compile Include="Memory\Utility\UtilityMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDEngineKey.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
