@@ -14,4 +14,3 @@ C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\o
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\qualifiers.txt
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\qualifiers.txt.intermediate
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\MultipleQualifiersPerDimensionFound.txt
-C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\SDEngine.csprojResolveAssemblyReference.cache
