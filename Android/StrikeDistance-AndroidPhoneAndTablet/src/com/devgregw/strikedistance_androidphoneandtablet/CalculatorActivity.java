@@ -1,9 +1,11 @@
 package com.devgregw.strikedistance_androidphoneandtablet;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toolbar;
 
 public class CalculatorActivity extends Activity {
 
@@ -11,6 +13,8 @@ public class CalculatorActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calculator);
+		ActionBar b = getActionBar();
+		b.setLogo(R.drawable.ic_logo);
 	}
 
 	@Override
