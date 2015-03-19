@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="StrikeDistanceTheme">#FFF200</color>
-    <color name="StrikeDistanceBackground">#464646</color>
+    <color name="StrikeDistanceBackground">#606060</color>
     
 </resources>
