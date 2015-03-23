@@ -7,7 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{StaticResource StrikeDistanceTheme}">
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="Assets/SplashScreen.png" Stretch="None"/>
+            </Grid.Background>
 
+        </Grid>
+        <ProgressBar Height="22" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="1366" IsIndeterminate="True" Foreground="{StaticResource StrikeDistanceBackground}" Background="Transparent">
+            <ProgressBar.Transitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition FromVerticalOffset="1000" FromHorizontalOffset="0"/>
+                </TransitionCollection>
+            </ProgressBar.Transitions>
+        </ProgressBar>
+        <TextBlock Margin="0,0,0,36" TextWrapping="Wrap" Text="Retrieving weather data..." VerticalAlignment="Bottom" Width="1366" Foreground="{StaticResource StrikeDistanceBackground}" FontSize="30" TextAlignment="Center" FontWeight="Light">
+            <TextBlock.Transitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition FromHorizontalOffset="0" FromVerticalOffset="1000"/>
+                </TransitionCollection>
+            </TextBlock.Transitions>
+        </TextBlock>
     </Grid>
 </Page>

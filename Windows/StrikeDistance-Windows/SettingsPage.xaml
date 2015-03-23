@@ -7,7 +7,43 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="{StaticResource StrikeDistanceBackground}">
+        <StackPanel Height="80" VerticalAlignment="Top" Background="{StaticResource StrikeDistanceTheme}" Orientation="Horizontal">
+            <TextBlock Text="Settings" FontSize="72" FontWeight="Light" Foreground="{StaticResource StrikeDistanceBackground}" Width="236">
+                <TextBlock.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition/>
+                    </TransitionCollection>
+                </TextBlock.Transitions>
+            </TextBlock>
+            <Button x:Name="BackButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0" Click="BackButton_Click">
+                <Button.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="80"/>
+                    </TransitionCollection>
+                </Button.Transitions>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="Back"/>
+                    <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text="Back"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <ScrollViewer x:Name="Scroller" Height="688" Margin="0,80,0,0" Width="1366" ZoomMode="Disabled" HorizontalScrollMode="Disabled">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap" Text="UNITS" HorizontalAlignment="Left" FontSize="24" FontWeight="Black" Margin="5,5,0,0"/>
+                <ComboBox HorizontalAlignment="Left" SelectedIndex="0" FontSize="18" Header="Temperature Unit" Width="200" Margin="10,0,0,0">
+                    <ComboBoxItem Content="Fahrenheit"/>
+                    <ComboBoxItem Content="Celsius"/>
+                    <ComboBoxItem Content="Kelvin"/>
+                </ComboBox>
+                <ComboBox HorizontalAlignment="Left" SelectedIndex="0" FontSize="18" Header="Distance Unit" Width="200" Margin="10,0,0,0">
+                    <ComboBoxItem Content="Feet/Miles"/>
+                    <ComboBoxItem Content="Meters/Kilometers"/>
+                </ComboBox>
+                <TextBlock TextWrapping="Wrap" Text="AUTOMATIC FUNCTIONS" HorizontalAlignment="Left" FontSize="24" FontWeight="Black" Margin="5,5,0,0"/>
+                <CheckBox Margin="10,0,0,0" Content="Retrieve weather data on startup" FontSize="18" HorizontalAlignment="Left" IsChecked="True"/>
+                <CheckBox Margin="10,0,0,0" Content="Convert affected numbers when units are changed" FontSize="18" HorizontalAlignment="Left" IsChecked="True"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

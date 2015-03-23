@@ -1,14 +1,171 @@
-﻿<Page
-    x:Class="StrikeDistance_Windows.CalculatorPage"
+﻿<Page x:ConnectionId='1'
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:StrikeDistance_Windows"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    x:Class="StrikeDistance_Windows.CalculatorPage"
+    mc:Ignorable="d"
+                        >
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="{StaticResource StrikeDistanceBackground}">
+        <StackPanel Height="80" VerticalAlignment="Top" Background="{StaticResource StrikeDistanceTheme}" Orientation="Horizontal">
+            <TextBlock x:Name="TitleBarT" Text="StrikeDistance" FontSize="72" FontWeight="Light" Foreground="{StaticResource StrikeDistanceBackground}" Width="420">
+                <TextBlock.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition/>
+                    </TransitionCollection>
+                </TextBlock.Transitions>
+            </TextBlock>
+            <Image x:Name="TitleBarI" Source="Assets/SquareBig.png" Stretch="Fill" Visibility="Collapsed">
+                <Image.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="10"/>
+                    </TransitionCollection>
+                </Image.Transitions>
+            </Image>
+            <Button x:ConnectionId='2' x:Name="CalculateButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0"                              >
+                <Button.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="80"/>
+                    </TransitionCollection>
+                </Button.Transitions>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="Calculator"/>
+                    <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text="Calculate"/>
+                </StackPanel>
+            </Button>
+            <Button x:ConnectionId='3' x:Name="ClearButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0" Height="80"                          >
+                <Button.ContentTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="120"/>
+                    </TransitionCollection>
+                </Button.ContentTransitions>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="Clear"/>
+                    <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text="Clear All"/>
+                </StackPanel>
+            </Button>
+            <Button x:ConnectionId='4' x:Name="RefreshButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0"                            >
+                <Button.ContentTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="160"/>
+                    </TransitionCollection>
+                </Button.ContentTransitions>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="Refresh"/>
+                    <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text="Refresh"/>
+                </StackPanel>
+            </Button>
+            <Button x:ConnectionId='5' x:Name="SettingsButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0" Height="80"                             >
+                <Button.ContentTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="200"/>
+                    </TransitionCollection>
+                </Button.ContentTransitions>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="Setting"/>
+                    <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text="Settings"/>
+                </StackPanel>
+            </Button>
+            <Button x:ConnectionId='6' x:Name="MoreButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0" Width="80"                          Visibility="Collapsed">
+                <Button.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="30"/>
+                    </TransitionCollection>
+                </Button.Transitions>
+                <FlyoutBase.AttachedFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem x:ConnectionId='7' x:Name="ClearMenuItem" Text="Clear All" FontSize="24"                          >
+                            <MenuFlyoutItem.Transitions>
+                                <TransitionCollection>
+                                    <EntranceThemeTransition FromHorizontalOffset="10"/>
+                                </TransitionCollection>
+                            </MenuFlyoutItem.Transitions>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem x:ConnectionId='8' x:Name="RefreshMenuItem" Text="Refresh" FontSize="24"                            >
+                            <MenuFlyoutItem.Transitions>
+                                <TransitionCollection>
+                                    <EntranceThemeTransition FromHorizontalOffset="20"/>
+                                </TransitionCollection>
+                            </MenuFlyoutItem.Transitions>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutSeparator BorderThickness="0" Background="Black" Foreground="{x:Null}" FontSize="24">
+                            <MenuFlyoutSeparator.Transitions>
+                                <TransitionCollection>
+                                    <EntranceThemeTransition FromHorizontalOffset="30"/>
+                                </TransitionCollection>
+                            </MenuFlyoutSeparator.Transitions>
+                        </MenuFlyoutSeparator>
+                        <MenuFlyoutItem x:ConnectionId='9' x:Name="SettingsMenuItem" Text="Settings" FontSize="24"                             >
+                            <MenuFlyoutItem.Transitions>
+                                <TransitionCollection>
+                                    <EntranceThemeTransition/>
+                                </TransitionCollection>
+                            </MenuFlyoutItem.Transitions>
+                        </MenuFlyoutItem>
+                    </MenuFlyout>
+                </FlyoutBase.AttachedFlyout>
+                <Button.ContentTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="200"/>
+                    </TransitionCollection>
+                </Button.ContentTransitions>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="More"/>
+                    <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text=""/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Grid x:Name="ContentPane" Margin="0,80,0,0" Width="1366">
+            <StackPanel x:Name="LeftPane" Width="683" HorizontalAlignment="Left">
+                <StackPanel.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="100"/>
+                    </TransitionCollection>
+                </StackPanel.Transitions>
+                <TextBlock TextWrapping="Wrap" Text="OUTSIDE TEMPERATURE" HorizontalAlignment="Center" FontSize="24" FontWeight="Black"/>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <TextBox x:Name="TemperatureBox" SelectionHighlightColor="{StaticResource StrikeDistanceTheme}" Text="0.0" InputScope="NumberFullWidth" Width="383" Margin="0" Height="40" FontSize="20" TextAlignment="Center"/>
+                    <Button x:Name="SwitchSignsButton" BorderThickness="0" VerticalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Switch"/>
+                            <TextBlock Text="Switch Signs" FontSize="16" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="MyLocationButton" BorderThickness="0" VerticalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Target"/>
+                            <TextBlock Text="My Location" FontSize="16" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <TextBlock TextWrapping="Wrap" Text="TIME BETWEEN FLASH AN BOOM" HorizontalAlignment="Center" FontSize="24" FontWeight="Black" Margin="0,10,0,0"/>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <TextBox x:Name="TimeBox" SelectionHighlightColor="{StaticResource StrikeDistanceTheme}" Text="0.0" InputScope="NumberFullWidth" Width="383" Margin="0" Height="40" FontSize="20" TextAlignment="Center"/>
+                    <Button x:Name="StopwatchButton" BorderThickness="0" VerticalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Clock"/>
+                            <TextBlock Text="Stopwatch" FontSize="16" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="ResetButton" BorderThickness="0" VerticalAlignment="Stretch">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Clear"/>
+                            <TextBlock Text="Reset" FontSize="16" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel x:Name="RightPane" Width="683" Margin="683,0,0,0" HorizontalAlignment="Left">
+                <StackPanel.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="200"/>
+                    </TransitionCollection>
+                </StackPanel.Transitions>
+                <TextBlock TextWrapping="Wrap" Text="CURRENT WEATHER" HorizontalAlignment="Center" FontSize="24" FontWeight="Black"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
 

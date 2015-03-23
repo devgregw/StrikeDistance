@@ -1,17 +1,153 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.RootTypes>
-    <RootType FullName="Windows.UI.Xaml.Application" />
+    <RootType FullName="Windows.UI.Xaml.Application">
+      <RootProperty Name="Resources" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
+      <RootEvent Name="Loaded" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Background" />
+      <RootProperty Name="Children" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="StrikeDistance_Windows.AboutPage" />
+    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="Height" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="Children" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Transitions" />
+      <RootProperty Name="Margin" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.EntranceThemeTransition">
+      <RootProperty Name="FromHorizontalOffset" />
+      <RootProperty Name="FromVerticalOffset" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Transitions" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="TextAlignment" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="SelectionHighlightColor" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="InputScope" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="TextAlignment" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Transitions" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="ContentTransitions" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Visibility" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.SymbolIcon">
+      <RootProperty Name="Symbol" />
+      <RootProperty Name="Foreground" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Source" />
+      <RootProperty Name="Stretch" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Transitions" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Primitives.FlyoutBase">
+      <RootMethod Name="GetAttachedFlyout" />
+      <RootMethod Name="SetAttachedFlyout" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.NullExtension" />
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout">
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
+      <RootProperty Name="Text" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Transitions" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutSeparator">
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Transitions" />
+    </RootType>
     <RootType FullName="StrikeDistance_Windows.CalculatorPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressBar">
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="IsIndeterminate" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Transitions" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
+      <RootProperty Name="ImageSource" />
+      <RootProperty Name="Stretch" />
+    </RootType>
     <RootType FullName="StrikeDistance_Windows.LoadingPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="ZoomMode" />
+      <RootProperty Name="HorizontalScrollMode" />
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="SelectedIndex" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="IsChecked" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
+      <RootProperty Name="Content" />
+    </RootType>
     <RootType FullName="StrikeDistance_Windows.SettingsPage" />
   </Roots.RootTypes>
 </Roots>

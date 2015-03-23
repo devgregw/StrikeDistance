@@ -3,5 +3,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:StrikeDistance_Windows">
-
+    
+    <Application.Resources>
+        <SolidColorBrush x:Key="StrikeDistanceTheme">#FFF200</SolidColorBrush>
+        <SolidColorBrush x:Key="StrikeDistanceBackground">#464646</SolidColorBrush>
+    </Application.Resources>
 </Application>

@@ -22,9 +22,12 @@ namespace StrikeDistance_Windows
     /// </summary>
     public sealed partial class SettingsPage : Page
     {
-        public SettingsPage()
-        {
+        public SettingsPage() {
             this.InitializeComponent();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e) {
+            Frame.GoBack();
         }
     }
 }
