@@ -28,8 +28,7 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <ScrollViewer x:Name="Scroller" Height="688" Margin="0,80,0,0" Width="1366" ZoomMode="Disabled" HorizontalScrollMode="Disabled">
-            <StackPanel>
+        <StackPanel Margin="0,80,0,0">
                 <TextBlock TextWrapping="Wrap" Text="UNITS" HorizontalAlignment="Left" FontSize="24" FontWeight="Black" Margin="5,5,0,0"/>
                 <ComboBox HorizontalAlignment="Left" SelectedIndex="0" FontSize="18" Header="Temperature Unit" Width="200" Margin="10,0,0,0">
                     <ComboBoxItem Content="Fahrenheit"/>
@@ -44,6 +43,5 @@
                 <CheckBox Margin="10,0,0,0" Content="Retrieve weather data on startup" FontSize="18" HorizontalAlignment="Left" IsChecked="True"/>
                 <CheckBox Margin="10,0,0,0" Content="Convert affected numbers when units are changed" FontSize="18" HorizontalAlignment="Left" IsChecked="True"/>
             </StackPanel>
-        </ScrollViewer>
     </Grid>
 </Page>

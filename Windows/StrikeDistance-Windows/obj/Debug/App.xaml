@@ -7,6 +7,107 @@
     <Application.Resources>
         <SolidColorBrush x:Key="StrikeDistanceTheme">#FFF200</SolidColorBrush>
         <SolidColorBrush x:Key="StrikeDistanceBackground">#464646</SolidColorBrush>
+            <TextBlock x:Key="TitleBarT" Text="StrikeDistance" FontSize="72" FontWeight="Light" Foreground="{StaticResource StrikeDistanceBackground}" Width="420">
+                <TextBlock.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="40"/>
+                    </TransitionCollection>
+                </TextBlock.Transitions>
+            </TextBlock>
+            <Image x:Key="TitleBarI" Source="Assets/SquareBig.png" Stretch="Fill" Visibility="Collapsed">
+                <Image.Transitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="False"/>
+                    </TransitionCollection>
+                </Image.Transitions>
+            </Image>
+            <Button x:Key="CalculateButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0">
+                <Button.ContentTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="80"/>
+                    </TransitionCollection>
+                </Button.ContentTransitions>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="Calculator"/>
+                    <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text="Calculate"/>
+                </StackPanel>
+            </Button>
+            <Button x:Key="ClearButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0" Height="80">
+                <Button.ContentTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="120"/>
+                    </TransitionCollection>
+                </Button.ContentTransitions>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="Clear"/>
+                    <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text="Clear All"/>
+                </StackPanel>
+            </Button>
+            <Button x:Key="RefreshButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0">
+                <Button.ContentTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="160"/>
+                    </TransitionCollection>
+                </Button.ContentTransitions>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="Refresh"/>
+                    <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text="Refresh"/>
+                </StackPanel>
+            </Button>
+            <Button x:Key="SettingsButton" HorizontalAlignment="Stretch" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0" Height="80">
+                <Button.ContentTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition FromHorizontalOffset="200"/>
+                    </TransitionCollection>
+                </Button.ContentTransitions>
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="Setting"/>
+                    <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text="Settings"/>
+                </StackPanel>
+            </Button>
+        <Button x:Key="MoreButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0" Width="80">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="Clear All" FontSize="24">
+                        <MenuFlyoutItem.Transitions>
+                            <TransitionCollection>
+                                <EntranceThemeTransition FromHorizontalOffset="10"/>
+                            </TransitionCollection>
+                        </MenuFlyoutItem.Transitions>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Refresh" FontSize="24">
+                        <MenuFlyoutItem.Transitions>
+                            <TransitionCollection>
+                                <EntranceThemeTransition FromHorizontalOffset="20"/>
+                            </TransitionCollection>
+                        </MenuFlyoutItem.Transitions>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutSeparator BorderThickness="0" Background="Black">
+                        <MenuFlyoutSeparator.Transitions>
+                            <TransitionCollection>
+                                <EntranceThemeTransition FromHorizontalOffset="30"/>
+                            </TransitionCollection>
+                        </MenuFlyoutSeparator.Transitions>
+                    </MenuFlyoutSeparator>
+                    <MenuFlyoutItem Text="Settings" FontSize="24">
+                        <MenuFlyoutItem.Transitions>
+                            <TransitionCollection>
+                                <EntranceThemeTransition/>
+                            </TransitionCollection>
+                        </MenuFlyoutItem.Transitions>
+                    </MenuFlyoutItem>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+            <Button.ContentTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition FromHorizontalOffset="120"/>
+                </TransitionCollection>
+            </Button.ContentTransitions>
+            <StackPanel Orientation="Horizontal">
+                <SymbolIcon Foreground="{StaticResource StrikeDistanceBackground}" Symbol="More"/>
+                <TextBlock Foreground="{StaticResource StrikeDistanceBackground}" Text=""/>
+            </StackPanel>
+        </Button>
     </Application.Resources>
 </Application>
 
