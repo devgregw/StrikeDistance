@@ -1,44 +1,25 @@
 ﻿using SDEngine.Convertions.Enumerations;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Windows.Devices.Geolocation;
 using Windows.Networking.Connectivity;
+using Windows.UI.Popups;
 using Windows.Web.Http;
 
-namespace SDEngine {
-    /// <summary>
-    /// The core of SDEngine
-    /// </summary>
+namespace SDEngine
+{
     public static class Main {
-        /// <summary>
-        /// Gets the speed of sound in the current temperature
-        /// </summary>
-        /// <param name="Celsius">The current temperature in celsius</param>
-        /// <returns>The speed of sound</returns>
         private static double GetSpeedOfSound(double Celsius) {
             return (331.5 + 0.6 * Celsius);
         }
 
-        /// <summary>
-        /// Gets the distance from you to the lightning strike
-        /// </summary>
-        /// <param name="SpeedOfSound">The speed of sound</param>
-        /// <param name="Time">The time between the flash and boom</param>
-        /// <returns>The distance from you to the lightning strike</returns>
         private static double GetDistance(double SpeedOfSound, double Time) {
             return (SpeedOfSound * Time);
         }
-
-        /// <summary>
-        /// Calculates everything and formats it for the result message
-        /// </summary>
-        /// <param name="Temperature">The current temperature in any unit</param>
-        /// <param name="Time">The time between the flash and boom</param>
-        /// <returns>The formatted result message</returns>
+        
         public static string Calculate(double Temperature, double Time) {
             double temp, res;
             int tempunit, distunit;
@@ -93,38 +74,49 @@ namespace SDEngine {
             res = Math.Round(res, 2);
             return string.Format("This lighting struck approximately {0} {1} away.", res, finaldist);
         }
-
-        /// <summary>
-        /// Checks if the device has an Internet connection
-        /// </summary>
-        /// <returns>True if connected, false if not</returns>
+        
         public static bool CheckConnection() {
             ConnectionProfile connections = NetworkInformation.GetInternetConnectionProfile();
             bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
             return internet;
         }
-
-        /// <summary>
-        /// Gets the current temperature in Celsius from WorldWeatherOnline
-        /// </summary>
-        /// <returns>The temperature in Celsius</returns>
-        public static async Task<double> GetTemperature() {
+        
+        public static async Task<double> GetTemperature(string wukey/*string key*/) {
             if (CheckConnection()) {
                 Geolocator Locator = new Geolocator();
                 Geoposition Position = await Locator.GetGeopositionAsync();
                 Geocoordinate Coordinate = Position.Coordinate;
                 HttpClient Client = new HttpClient();
-                double Temperature;
-                Uri u = new Uri(string.Format("http://api.worldweatheronline.com/free/v1/weather.ashx?q={0},{1}&format=xml&num_of_days=1&date=today&cc=yes&key={2}",
-                                              Coordinate.Point.Position.Latitude,
-                                              Coordinate.Point.Position.Longitude,
-                                              "63c11a7d6961b161060643766ca5df0e8f7fc3fd"),
-                                              UriKind.Absolute);
-                string Raw = await Client.GetStringAsync(u);
-                XElement main = XElement.Parse(Raw), current_condition, temp_c;
-                current_condition = main.Element("current_condition");
-                temp_c = current_condition.Element("temp_C");
+                double Temperature = 0.0;
+                //Uri u = new Uri(string.Format("https://api.worldweatheronline.com/free/v2/weather.ashx?q={0},{1}&format=xml&num_of_days=1&date=today&cc=yes&key={2}",
+                //                              Math.Round(Coordinate.Point.Position.Latitude, 3, MidpointRounding.AwayFromZero),
+                //                              Math.Round(Coordinate.Point.Position.Longitude, 3, MidpointRounding.AwayFromZero),
+                //                              key),
+                //                              UriKind.Absolute);
+                //string Raw = await Client.GetStringAsync(u);
+                //XDocument main = XDocument.Parse(Raw);
+                //Debug.WriteLine(Raw);
+                //XElement root, current_condition, temp_c;
+                //root = main.Element("data");
+                //current_condition = root.Element("current_condition");
+                //temp_c = current_condition.Element("temp_C");
+                //Temperature = Convert.ToDouble(temp_c.Value);
+                XDocument main = XDocument.Parse(
+                    await Client.GetStringAsync(
+                        new Uri(
+                            string.Format(
+                                "http://api.wunderground.com/api/{0}/conditions/q/{1},{2}.xml",
+                                wukey,
+                                Math.Round(Coordinate.Point.Position.Latitude, 3),
+                                Math.Round(Coordinate.Point.Position.Longitude, 3)),
+                                UriKind.Absolute)));
+                await new MessageDialog(string.Format("{0}, {1}", Math.Round(Coordinate.Point.Position.Latitude, 3), Math.Round(Coordinate.Point.Position.Longitude, 3))).ShowAsync();
+                XElement response, observation, temp_c;
+                response = main.Element("response");
+                observation = response.Element("current_observation");
+                temp_c = observation.Element("temp_c");
                 Temperature = Convert.ToDouble(temp_c.Value);
+
                 switch (Memory.Manager.TempUnit) {
                     case 0:
                         Temperature = Convertions.Converter.Convert(TemperatureUnit.Celsius, TemperatureUnit.Fahrenheit, Temperature);
@@ -135,7 +127,7 @@ namespace SDEngine {
                         Temperature = Convertions.Converter.Convert(TemperatureUnit.Celsius, TemperatureUnit.Kelvin, Temperature);
                         break;
                 }
-                return Temperature;
+                return Math.Round(Temperature, 1);
             }
             else {
                 throw new InvalidOperationException("StrikeDistance cannot connect to the weather server.");

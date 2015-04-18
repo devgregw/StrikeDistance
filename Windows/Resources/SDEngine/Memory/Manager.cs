@@ -6,103 +6,76 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SDEngine.Memory {
-    /// <summary>
-    /// The main manager for memory; use this to set values
-    /// </summary>
     public static class Manager {
-        /// <summary>
-        /// The value last used in the time field
-        /// </summary>
         public static double Time {
             get {
-                return UtilityMethods.Get<double>(Keys.Time);
+                return UtilityMethods.Get(Keys.Time, 0.0);
             }
             set {
-                UtilityMethods.Set<double>(Keys.Time, value);
+                UtilityMethods.Set(Keys.Time, value);
             }
         }
 
-        /// <summary>
-        /// The last value used in the temperature field
-        /// </summary>
         public static double Temp {
             get {
-                return UtilityMethods.Get<double>(Keys.Temp);
+                return UtilityMethods.Get(Keys.Temp, 0.0);
             }
             set {
-                UtilityMethods.Set<double>(Keys.Temp, value);
+                UtilityMethods.Set(Keys.Temp, value);
             }
         }
-
-        /// <summary>
-        /// The unit to display temperature measurements as
-        /// </summary>
+        
         public static int TempUnit {
             get {
-                return UtilityMethods.Get<int>(Keys.TempUnit);
+                return UtilityMethods.Get(Keys.TempUnit, 0);
             }
             set {
-                UtilityMethods.Set<int>(Keys.TempUnit, value);
+                UtilityMethods.Set(Keys.TempUnit, value);
             }
         }
-
-        /// <summary>
-        /// The unit to display distance measurements as
-        /// </summary>
+        
         public static int DistUnit {
             get {
-                return UtilityMethods.Get<int>(Keys.DistUnit);
+                return UtilityMethods.Get(Keys.DistUnit, 0);
             }
             set {
-                UtilityMethods.Set<int>(Keys.DistUnit, value);
+                UtilityMethods.Set(Keys.DistUnit, value);
             }
         }
-
-        /// <summary>
-        /// Determines if StrikeDistance will automatically get weather data on startup
-        /// </summary>
+        
         public static bool AutoGet {
             get {
-                return UtilityMethods.Get<bool>(Keys.AutoGet);
+                return UtilityMethods.Get(Keys.AutoGet, true);
             }
             set {
-                UtilityMethods.Set<bool>(Keys.AutoGet, value);
+                UtilityMethods.Set(Keys.AutoGet, value);
             }
         }
-
-        /// <summary>
-        /// Determines if StrikeDistance will convert numbers when units are changed
-        /// </summary>
+        
         public static bool AutoConvert {
             get {
-                return UtilityMethods.Get<bool>(Keys.AutoConvert);
+                return UtilityMethods.Get(Keys.AutoConvert, true);
             }
             set {
-                UtilityMethods.Set<bool>(Keys.AutoConvert, value);
+                UtilityMethods.Set(Keys.AutoConvert, value);
             }
         }
-
-        /// <summary>
-        /// Determines if Verbose Mode will be enabled
-        /// </summary>
+        
         public static bool VerboseMode {
             get {
-                return UtilityMethods.Get<bool>(Keys.VerboseMode);
+                return UtilityMethods.Get(Keys.VerboseMode, false);
             }
             set {
-                UtilityMethods.Set<bool>(Keys.VerboseMode, value);
+                UtilityMethods.Set(Keys.VerboseMode, value);
             }
         }
-
-        /// <summary>
-        /// The data verbose mode will append
-        /// </summary>
+        
         public static List<bool> VerboseModeData {
             get {
-                return UtilityMethods.Get<List<bool>>(Keys.VerboseModeData);
+                return UtilityMethods.Get(Keys.VerboseModeData, new List<bool>() { false, false, false });
             }
             set {
-                UtilityMethods.Set<List<bool>>(Keys.VerboseModeData, value);
+                UtilityMethods.Set(Keys.VerboseModeData, value);
             }
         }
     }

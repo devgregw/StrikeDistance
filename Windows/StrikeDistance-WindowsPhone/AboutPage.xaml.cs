@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
@@ -34,6 +25,31 @@ namespace StrikeDistance_WindowsPhone
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+        }
+
+        private async void web_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
+        {
+            if (args.IsSuccess)
+            {
+                if (args.Uri.AbsoluteUri.Contains("wunderground"))
+                {
+                    raindrop.IsEnabled = true;
+                    await new MessageDialog("The raindrop referal was sent successfully.", "Thanks!").ShowAsync();
+                    web.Navigate(new Uri("http://localhost", UriKind.Absolute));
+                }
+            }
+            else
+            {
+                if (args.Uri.AbsoluteUri.Contains("wunderground"))
+                    await new MessageDialog(string.Format("The referal could not be sent.\n\n{0}\n\nTry again later.", args.WebErrorStatus.ToString()), "Raindrop Referal").ShowAsync();
+                raindrop.IsEnabled = true;
+            }
+        }
+
+        private void raindrop_Click(object sender, RoutedEventArgs e)
+        {
+            web.Navigate(new Uri("http://www.wunderground.com/?apiref=ddc7474baa78cc4d", UriKind.Absolute));
+            raindrop.IsEnabled = false;
         }
     }
 }

@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using SDEngine;
 using Windows.UI.Popups;
-using System.Threading.Tasks;
 using System.Net.Http;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
@@ -27,6 +16,8 @@ namespace StrikeDistance_WindowsPhone
     /// </summary>
     public sealed partial class LoadingPage : Page
     {
+        public const string WUNDERGROUND_API_KEY = "19b9a5738bb4a7f4";
+
         public LoadingPage()
         {
             this.InitializeComponent();
@@ -44,7 +35,7 @@ namespace StrikeDistance_WindowsPhone
             (ApplicationView.GetForCurrentView()).SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
             try
             {
-                Engine.Memory.Temp = await Engine.GetTemperature();
+                SDEngine.Memory.Manager.Temp = await Main.GetTemperature(WUNDERGROUND_API_KEY);
             }
             catch (Exception ex)
             {
@@ -54,6 +45,7 @@ namespace StrikeDistance_WindowsPhone
                     (new MessageDialog(string.Format("StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue, but some features that require Internet access may not work.\n\n{0}\n{1}", ex.GetType().FullName, ex.Message), "Error")).ShowAsync();
                 else
                     (new MessageDialog(string.Format("StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue.\n\n{0}\n{1}", ex.GetType().FullName, ex.Message), "Unexpected Error")).ShowAsync();
+                Frame.Navigate(typeof(CalculatorPage));
             }
             finally
             {

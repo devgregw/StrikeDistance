@@ -7,27 +7,13 @@ using Windows.Foundation.Collections;
 using Windows.Storage;
 
 namespace SDEngine.Memory.Utility {
-    /// <summary>
-    /// Methods to be used to get settings and convert values
-    /// </summary>
     public static class UtilityMethods {
         private static IPropertySet settings = ApplicationData.Current.LocalSettings.Values;
-
-        /// <summary>
-        /// Checks if a key is present in the settings set
-        /// </summary>
-        /// <param name="key">The key to check for</param>
-        /// <returns>True if the key exists, false if not</returns>
+        
         public static bool Contains(string key) {
             return settings.ContainsKey(key);
         }
-
-        /// <summary>
-        /// Converts the string representation of a distance or temperature unit to its integer counterpart
-        /// </summary>
-        /// <param name="scope">The type of unit</param>
-        /// <param name="input">The string representation of the unit</param>
-        /// <returns>The integer representation of the unit</returns>
+        
         public static int? StringToInt(UnitType scope, string input) {
             switch (scope) {
                 case UnitType.Temperature:
@@ -53,13 +39,7 @@ namespace SDEngine.Memory.Utility {
             }
             return null;
         }
-
-        /// <summary>
-        /// Converts the integer value of a unit to its string counterpart
-        /// </summary>
-        /// <param name="scope">The type of unit</param>
-        /// <param name="input">The integer representation of the unit</param>
-        /// <returns>The string representation of the unit</returns>
+        
         public static string IntToString(UnitType scope, int input) {
             switch (scope) {
                 case UnitType.Temperature:
@@ -85,23 +65,19 @@ namespace SDEngine.Memory.Utility {
             }
             return null;
         }
-
-        /// <summary>
-        /// Gets an object from the settings set
-        /// </summary>
-        /// <typeparam name="TValue">The type to cast the retrieved value to</typeparam>
-        /// <param name="key">The key for the object</param>
-        /// <returns>The object requested</returns>
-        public static TValue Get<TValue>(string key) {
-            return (TValue)settings[key];
+        
+        public static TValue Get<TValue>(string key, TValue def) {
+            try
+            {
+                TValue v = (TValue)settings[key];
+                return v;
+            }
+            catch (NullReferenceException)
+            {
+                return def;
+            }
         }
-
-        /// <summary>
-        /// Sets an object in the settings set to the given value
-        /// </summary>
-        /// <typeparam name="TValue">The type the input will be</typeparam>
-        /// <param name="key">The key of the object to replace</param>
-        /// <param name="value">The new object</param>
+        
         public static void Set<TValue>(string key, TValue value) {
             settings[key] = value;
         }

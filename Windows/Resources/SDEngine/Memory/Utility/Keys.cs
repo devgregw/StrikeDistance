@@ -5,9 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SDEngine.Memory.Utility {
-    /// <summary>
-    /// Setting keys to be used when retrieving settings
-    /// </summary>
     public static class Keys {
         public const string Time = "Time"; //Type: double
         public const string Temp = "Temp"; //Type: double

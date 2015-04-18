@@ -12,20 +12,8 @@
         <Grid.Background>
             <ImageBrush Stretch="Uniform" ImageSource="Assets/SplashScreen.png"/>
         </Grid.Background>
-        <ProgressRing Margin="0,0,0,31" VerticalAlignment="Bottom" IsActive="True" Foreground="{StaticResource StrikeDistanceForegroundBrush}" Background="#00000000" Height="70">
-            <ProgressRing.Transitions>
-                <TransitionCollection>
-                    <EntranceThemeTransition FromVerticalOffset="1000" FromHorizontalOffset="0"/>
-                </TransitionCollection>
-            </ProgressRing.Transitions>
-        </ProgressRing>
-        <TextBlock Margin="10,0" TextWrapping="Wrap" Text="Getting weather data..." VerticalAlignment="Bottom" Height="31" Width="380" Foreground="{StaticResource StrikeDistanceForegroundBrush}" FontWeight="Light" FontSize="24" TextAlignment="Center">
-            <TextBlock.Transitions>
-                <TransitionCollection>
-                    <EntranceThemeTransition FromVerticalOffset="1000" FromHorizontalOffset="0"/>
-                </TransitionCollection>
-            </TextBlock.Transitions>
-        </TextBlock>
+        <ProgressRing Margin="0,0,0,31" VerticalAlignment="Bottom" IsActive="True" Foreground="{StaticResource StrikeDistanceForegroundBrush}" Background="#00000000" Height="70"/>
+        <TextBlock Margin="10,0" TextWrapping="Wrap" Text="Getting weather data..." VerticalAlignment="Bottom" Height="31" Width="380" Foreground="{StaticResource StrikeDistanceForegroundBrush}" FontWeight="Light" FontSize="24" TextAlignment="Center"/>
     </Grid>
 </Page>
 

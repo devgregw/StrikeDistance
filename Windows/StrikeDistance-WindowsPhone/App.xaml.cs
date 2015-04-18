@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Phone.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -35,6 +36,15 @@ namespace StrikeDistance_WindowsPhone
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+            HardwareButtons.BackPressed += (s, e) =>
+            {
+                var frame = Window.Current.Content as Frame;
+                if (frame != null && frame.CanGoBack)
+                {
+                    e.Handled = true;
+                    frame.GoBack();
+                }
+            };
         }
 
         /// <summary>
