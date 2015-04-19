@@ -11,7 +11,7 @@ namespace SDEngine.Memory.Utility {
         public const string TempUnit = "TempUnit"; //Type: int
         public const string DistUnit = "DistUnit"; //Type: int
         public const string AutoGet = "AutoGet"; //Type: bool
-        public const string AutoConvert = "AutoConvert"; //Type: bool
+        public const string WarnPolicy = "WarnPolicy"; //Type: bool
         public const string VerboseMode = "VerboseMode"; //Type: bool
         public const string VerboseModeData = "VerboseModeData"; //Type: List<bool>
         public const string ForceUpgrade = "ForcedUpgrade"; //Type: bool

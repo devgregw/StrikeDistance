@@ -38,13 +38,12 @@
   </Capabilities>
   <build:Metadata>
     <build:Item Name="TargetFrameworkMoniker" Value="WindowsPhoneApp,Version=v8.1" />
-    <build:Item Name="VisualStudio" Version="14.0" />
-    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Ultimate 2015 CTP" />
+    <build:Item Name="VisualStudio" Version="12.0" />
+    <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Community 2013" />
     <build:Item Name="OperatingSystem" Version="10.0.10041.0 (fbl_impressive.150313-1821)" />
-    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.22609.0" />
+    <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="12.0.31101.0" />
     <build:Item Name="ProjectGUID" Value="{5D714886-054A-4C3E-A82A-A747D1C0DB73}" />
-    <build:Item Name="ilc.exe" Version="1.0.22514.06 built by: PROJECTNREL" />
-    <build:Item Name="Microsoft.Windows.UI.Xaml.81.Build.Tasks.dll" Version="14.0.22609.0" />
+    <build:Item Name="Microsoft.Windows.UI.Xaml.Build.Tasks.dll" Version="12.0.30501.0" />
     <build:Item Name="MakePri.exe" Version="6.3.9600.17298 (winblue.141024-1500)" />
   </build:Metadata>
 </Package>

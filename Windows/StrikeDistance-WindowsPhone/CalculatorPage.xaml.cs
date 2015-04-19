@@ -1,5 +1,6 @@
 ﻿using SDEngine;
 using System;
+using System.Net.Http;
 using Windows.ApplicationModel.Email;
 using Windows.ApplicationModel.Store;
 using Windows.UI;
@@ -153,36 +154,9 @@ namespace StrikeDistance_WindowsPhone
 
         private async void LocationButton_Click(object sender, RoutedEventArgs e)
         {
-            //(new MessageDialog("This feature is currently not supported.\n\nSee the about page for more information.", "Not Supported")).ShowAsync();
-            TempBox.IsTabStop = false;
-            TempBox.IsEnabled = false;
-            if (/*Engine.HasUpgradeBack*/true == /*Engine.UpgradeMode.Debug*/true)
-            {
-                var msg = new ContentDialog()
-                {
-                    PrimaryButtonText = "buy now",
-                    SecondaryButtonText = "later",
-                    Content = new TextBlock()
-                    {
-                        Text = "Buy the upgrade pack today to unlock this feature!\n\nIt also removes ads, and unlocks decimal points and verbose mode!\n",
-                        TextWrapping = TextWrapping.WrapWholeWords
-                    }
-                };
-                msg.PrimaryButtonClick += async (s, arg) =>
-                    {
-                        //TODO: add purchase logic
-                    };
-                msg.Opened += (s, arg) => { statusBar.ForegroundColor = Color.FromArgb(255, 255, 255, 255); };
-                msg.Closing += (s, arg) =>
-                    {
-                        statusBar.ForegroundColor = (App.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
-                        TempBox.IsTabStop = true;
-                        TempBox.IsEnabled = true;
-                    };
-                await msg.ShowAsync();
-            }
-            else
-            {
+            try {
+                TempBox.IsTabStop = false;
+                TempBox.IsEnabled = false;
                 GettingLocation = true;
                 await statusBar.ProgressIndicator.ShowAsync();
                 TempBox.Text = "";
@@ -199,6 +173,29 @@ namespace StrikeDistance_WindowsPhone
                     ButtonBar.Visibility = Visibility.Visible;
                 InvertButton.IsEnabled = true;
                 GettingLocation = false;
+            }
+            catch (Exception ex) {
+                if (ex.GetType() == typeof(InvalidOperationException))
+                    new MessageDialog(
+                        string.Format(
+                            "StrikeDistance could not connect to the weather server.\n\nStrikeDistance can and will continue, but some features that require Internet access may not work.\n\n{0}\n{1}",
+                            ex.GetType().FullName,
+                            ex.Message),
+                        "Error").ShowAsync();
+                else if (ex.GetType() == typeof(HttpRequestException))
+                    new MessageDialog(
+                        string.Format(
+                            "StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue, but some features that require Internet access may not work.\n\n{0}\n{1}",
+                            ex.GetType().FullName,
+                            ex.Message),
+                        "Error").ShowAsync();
+                else
+                    new MessageDialog(
+                        string.Format(
+                            "StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue.\n\n{0}\n{1}",
+                            ex.GetType().FullName,
+                            ex.Message),
+                        "Unexpected Error").ShowAsync();
             }
         }
 

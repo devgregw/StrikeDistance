@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Roots xmlns="clr-namespace:Microsoft.Xaml.Tools.XamlCompiler.RootLog;assembly=Microsoft.Windows.UI.Xaml.81.Build.Tasks">
+<Roots >
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
       <RootProperty Name="Resources" />
@@ -153,6 +153,27 @@
       <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="StrikeDistance_WindowsPhone.LoadingPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
+      <RootProperty Name="Content" />
+      <RootProperty Name="IsChecked" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="Checked" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Margin" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
+      <RootProperty Name="Content" />
+      <RootProperty Name="Tag" />
+    </RootType>
     <RootType FullName="StrikeDistance_WindowsPhone.SettingsPage" />
   </Roots.RootTypes>
 </Roots>

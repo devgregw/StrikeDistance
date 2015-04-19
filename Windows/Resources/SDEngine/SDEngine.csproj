@@ -39,6 +39,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>SDEngineKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
   <ItemGroup>
     <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
     <TargetPlatform Include="Windows, Version=8.1" />

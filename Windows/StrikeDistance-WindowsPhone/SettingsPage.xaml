@@ -7,8 +7,41 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
     <Grid>
-
+        <Grid VerticalAlignment="Top" Background="{StaticResource StrikeDistanceThemeBrush}" Height="46" Margin="0,-27,0,0">
+            <TextBlock TextWrapping="Wrap" FontWeight="Black" FontSize="18" Text="SETTINGS" Foreground="{StaticResource StrikeDistanceForegroundBrush}" Margin="0,0,276,0" VerticalAlignment="Bottom"/>
+        </Grid>
+        <ScrollViewer Margin="0,19,0,0">
+            <StackPanel x:Name="ContentPanel">
+                <TextBlock Text="Units" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="32" FontWeight="Light" Margin="5,0"/>
+                <ComboBox x:Name="tempUnit" Header="Temperature Unit" Margin="5,0">
+                    <ComboBoxItem Content="Fahrenheit" Tag="0"/>
+                    <ComboBoxItem Content="Celsius" Tag="1"/>
+                    <ComboBoxItem Content="Kelvin" Tag="2"/>
+                </ComboBox>
+                <ComboBox x:Name="distUnit" Header="Distance Unit" Margin="5,0">
+                    <ComboBoxItem Content="Feet and Miles" Tag="0"/>
+                    <ComboBoxItem Content="Meters and Kilometers" Tag="1"/>
+                </ComboBox>
+                <TextBlock Text="Automatic Functions" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="32" FontWeight="Light" Margin="5,0"/>
+                <CheckBox x:Name="autoGet" Content="Get weather data on startup" IsChecked="True" HorizontalAlignment="Stretch" BorderBrush="{StaticResource StrikeDistanceThemeBrush}" Margin="5,0"/>
+                <TextBlock Text="To conserve StrikeDistance's per day and per hour limit, StrikeDistance will only get weather data on startup if at least 10 minutes has passed since the last retrieval and you may only use the location button on the main page every 5 minutes.  StrikeDistance reserves the right to change this policy without notice." TextWrapping="Wrap" FontSize="16" Margin="5,0"/>
+                <CheckBox x:Name="warnPolicy" IsChecked="True" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}" Margin="5,0" HorizontalAlignment="Stretch">
+                    <CheckBox.Content>
+                        <TextBlock Text="Warn we when weather data will not be retrieved due to the limit policy" TextWrapping="Wrap"/>
+                    </CheckBox.Content>
+                </CheckBox>
+                <TextBlock Text="Verbose Mode" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="32" FontWeight="Light" Margin="5,0"/>
+                <ToggleSwitch x:Name="verboseMode" Foreground="White" Margin="5,0"/>
+                <CheckBox x:Name="unitDetails" Content="Unit details" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}" Margin="5,0" HorizontalAlignment="Stretch" Checked="unitDetails_Checked"/>
+                <CheckBox x:Name="convMath" Content="Convertion math" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}" Margin="5,0" HorizontalAlignment="Stretch" Checked="convMath_Checked"/>
+                <CheckBox x:Name="calcMath" Content="Calculation math" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}" Margin="5,0" HorizontalAlignment="Stretch" Checked="calcMath_Checked"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

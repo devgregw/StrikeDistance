@@ -81,26 +81,13 @@ namespace SDEngine
             return internet;
         }
         
-        public static async Task<double> GetTemperature(string wukey/*string key*/) {
+        public static async Task<double> GetTemperature(string wukey) {
             if (CheckConnection()) {
                 Geolocator Locator = new Geolocator();
                 Geoposition Position = await Locator.GetGeopositionAsync();
                 Geocoordinate Coordinate = Position.Coordinate;
                 HttpClient Client = new HttpClient();
                 double Temperature = 0.0;
-                //Uri u = new Uri(string.Format("https://api.worldweatheronline.com/free/v2/weather.ashx?q={0},{1}&format=xml&num_of_days=1&date=today&cc=yes&key={2}",
-                //                              Math.Round(Coordinate.Point.Position.Latitude, 3, MidpointRounding.AwayFromZero),
-                //                              Math.Round(Coordinate.Point.Position.Longitude, 3, MidpointRounding.AwayFromZero),
-                //                              key),
-                //                              UriKind.Absolute);
-                //string Raw = await Client.GetStringAsync(u);
-                //XDocument main = XDocument.Parse(Raw);
-                //Debug.WriteLine(Raw);
-                //XElement root, current_condition, temp_c;
-                //root = main.Element("data");
-                //current_condition = root.Element("current_condition");
-                //temp_c = current_condition.Element("temp_C");
-                //Temperature = Convert.ToDouble(temp_c.Value);
                 XDocument main = XDocument.Parse(
                     await Client.GetStringAsync(
                         new Uri(
@@ -110,13 +97,20 @@ namespace SDEngine
                                 Math.Round(Coordinate.Point.Position.Latitude, 3),
                                 Math.Round(Coordinate.Point.Position.Longitude, 3)),
                                 UriKind.Absolute)));
-                await new MessageDialog(string.Format("{0}, {1}", Math.Round(Coordinate.Point.Position.Latitude, 3), Math.Round(Coordinate.Point.Position.Longitude, 3))).ShowAsync();
+                await new MessageDialog(
+                    string.Format(
+                        "{0}, {1}",
+                        Math.Round(
+                            Coordinate.Point.Position.Latitude,
+                            3),
+                        Math.Round(
+                            Coordinate.Point.Position.Longitude,
+                            3))).ShowAsync();
                 XElement response, observation, temp_c;
                 response = main.Element("response");
                 observation = response.Element("current_observation");
                 temp_c = observation.Element("temp_c");
                 Temperature = Convert.ToDouble(temp_c.Value);
-
                 switch (Memory.Manager.TempUnit) {
                     case 0:
                         Temperature = Convertions.Converter.Convert(TemperatureUnit.Celsius, TemperatureUnit.Fahrenheit, Temperature);
@@ -127,7 +121,7 @@ namespace SDEngine
                         Temperature = Convertions.Converter.Convert(TemperatureUnit.Celsius, TemperatureUnit.Kelvin, Temperature);
                         break;
                 }
-                return Math.Round(Temperature, 1);
+                return Math.Round(Temperature, 2);
             }
             else {
                 throw new InvalidOperationException("StrikeDistance cannot connect to the weather server.");

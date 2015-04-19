@@ -30,7 +30,7 @@
         <ScrollViewer Background="Black" Margin="0,99,0,0">
             <StackPanel Margin="0,0,0,0">
                 <WebView x:ConnectionId='1' x:Name="web" Width="0" Height="0" Source="http://localhost" DefaultBackgroundColor="{ThemeResource PhonePageBackgroundColor}"                                              />
-                <TextBlock Text="Thesis" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>
+                <TextBlock Text="Description" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>
                 <TextBlock Foreground="White" Text="StrikeDistance is a simple calculator app that determines the distance between you and a lightning strike.  All it needs to know is the temperature and the time between the flash and boom.  StrikeDistance uses two algebraic formulas to get the distance.  Plus, the included unit converters allow you to see that information in miles, or give the temperature in Fahrenheit.  You can choose each unit, so you don't have to use either the English system or the Metric system.  Additionally, the stopwatch helps you accurately count the time, and then, automatically inserts it into the appropriate field when done." TextWrapping="Wrap" FontSize="18.667"/>
                 <TextBlock Text="Quick Links" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>
                 <HyperlinkButton Content="Project page" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://greg.whatleycomputerservices.com/StrikeDistance" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>

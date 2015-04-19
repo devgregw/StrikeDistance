@@ -52,12 +52,12 @@ namespace SDEngine.Memory {
             }
         }
         
-        public static bool AutoConvert {
+        public static bool WarnPolicy {
             get {
-                return UtilityMethods.Get(Keys.AutoConvert, true);
+                return UtilityMethods.Get(Keys.WarnPolicy, true);
             }
             set {
-                UtilityMethods.Set(Keys.AutoConvert, value);
+                UtilityMethods.Set(Keys.WarnPolicy, value);
             }
         }
         

@@ -32,7 +32,7 @@ namespace StrikeDistance_WindowsPhone
         {
             var sb = StatusBar.GetForCurrentView();
             sb.ForegroundColor = (App.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
-            (ApplicationView.GetForCurrentView()).SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
+            ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
             try
             {
                 SDEngine.Memory.Manager.Temp = await Main.GetTemperature(WUNDERGROUND_API_KEY);
@@ -40,24 +40,30 @@ namespace StrikeDistance_WindowsPhone
             catch (Exception ex)
             {
                 if (ex.GetType() == typeof(InvalidOperationException))
-                    (new MessageDialog(string.Format("StrikeDistance could not connect to the weather server.\n\nStrikeDistance can and will continue, but some features that require Internet access may not work.\n\n{0}\n{1}", ex.GetType().FullName, ex.Message), "Error")).ShowAsync();
+                    new MessageDialog(
+                        string.Format(
+                            "StrikeDistance could not connect to the weather server.\n\nStrikeDistance can and will continue, but some features that require Internet access may not work.\n\n{0}\n{1}",
+                            ex.GetType().FullName,
+                            ex.Message),
+                        "Error").ShowAsync();
                 else if (ex.GetType() == typeof(HttpRequestException))
-                    (new MessageDialog(string.Format("StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue, but some features that require Internet access may not work.\n\n{0}\n{1}", ex.GetType().FullName, ex.Message), "Error")).ShowAsync();
+                    new MessageDialog(
+                        string.Format(
+                            "StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue, but some features that require Internet access may not work.\n\n{0}\n{1}",
+                            ex.GetType().FullName,
+                            ex.Message),
+                        "Error").ShowAsync();
                 else
-                    (new MessageDialog(string.Format("StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue.\n\n{0}\n{1}", ex.GetType().FullName, ex.Message), "Unexpected Error")).ShowAsync();
-                Frame.Navigate(typeof(CalculatorPage));
+                    new MessageDialog(
+                        string.Format(
+                            "StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue.\n\n{0}\n{1}",
+                            ex.GetType().FullName,
+                            ex.Message),
+                        "Unexpected Error").ShowAsync();
             }
             finally
             {
-                try
-                {
-                    if (!Frame.Navigate(typeof(CalculatorPage)))
-                        throw new Exception("Failed to create initial page");
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                Frame.Navigate(typeof(CalculatorPage));
             }
         }
     }
