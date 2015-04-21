@@ -1,4 +1,5 @@
 ﻿using SDEngine.Convertions.Enumerations;
+using SDEngine.Memory;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,6 +12,18 @@ using Windows.Web.Http;
 
 namespace SDEngine
 {
+    internal enum endDistConvertion {
+        None,
+        MeterstoKilometers,
+        MeterstoMiles,
+        MeterstoMilestoFeet
+    }
+
+    internal enum endTempConvertion {
+        None,
+        KelvintoCelsius,
+        FahrenheittoCelsius
+    }
     public static class Main {
         private static double GetSpeedOfSound(double Celsius) {
             return (331.5 + 0.6 * Celsius);
@@ -19,25 +32,31 @@ namespace SDEngine
         private static double GetDistance(double SpeedOfSound, double Time) {
             return (SpeedOfSound * Time);
         }
-        
+
         public static string Calculate(double Temperature, double Time) {
+            endDistConvertion c = endDistConvertion.None;
+            endTempConvertion t = endTempConvertion.None;
             double temp, res;
             int tempunit, distunit;
             string finaldist = "";
-            tempunit = Memory.Manager.TempUnit;
-            distunit = Memory.Manager.DistUnit;
+            tempunit = Manager.TempUnit;
+            distunit = Manager.DistUnit;
             switch (tempunit) {
                 case 0:
                     temp = Convertions.Converter.Convert(TemperatureUnit.Fahrenheit, TemperatureUnit.Celsius, Temperature);
+                    t = endTempConvertion.FahrenheittoCelsius;
                     break;
                 case 2:
                     temp = Convertions.Converter.Convert(TemperatureUnit.Kelvin, TemperatureUnit.Celsius, Temperature);
+                    t = endTempConvertion.KelvintoCelsius;
                     break;
                 default:
                     temp = Temperature;
+                    t = endTempConvertion.None;
                     break;
             }
             res = GetDistance(GetSpeedOfSound(temp), Time);
+            double originaDist = res;
             switch (distunit) {
                 case 0:
                     res = (double)Convertions.Converter.Convert(DistanceUnit.Meters, DistanceUnit.Miles, res);
@@ -47,12 +66,14 @@ namespace SDEngine
                             finaldist = "foot";
                         else
                             finaldist = "feet";
+                        c = endDistConvertion.MeterstoMilestoFeet;
                     }
                     else {
                         if (res == 1)
                             finaldist = "mile";
                         else
                             finaldist = "miles";
+                        c = endDistConvertion.MeterstoMiles;
                     }
                     break;
                 case 1:
@@ -62,17 +83,88 @@ namespace SDEngine
                             finaldist = "kilometer";
                         else
                             finaldist = "kilometers";
+                        c = endDistConvertion.MeterstoKilometers;
                     }
                     else {
                         if (res == 1)
                             finaldist = "meter";
                         else
                             finaldist = "meters";
+                        c = endDistConvertion.None;
                     }
                     break;
             }
             res = Math.Round(res, 2);
-            return string.Format("This lighting struck approximately {0} {1} away.", res, finaldist);
+            string mainMsg, unitMsg, convMsg, calcMsg, tempConvEqu = "", distConvEqu = "", finalMsg;
+            mainMsg = string.Format("The lightning struck approximately {0} {1} away.", res, finaldist);
+            unitMsg = string.Format(
+                "\n\nTemperature unit: {0}\nDistance unit: {1}",
+                (Manager.TempUnit == 0) ?
+                    "Fahrenheit" :
+                    (Manager.TempUnit == 1) ?
+                        "Celsius" :
+                        "Kelvin",
+                (Manager.DistUnit == 0) ?
+                    "Feet and Miles" :
+                    "Meters and Kilometers");
+            switch (t) {
+                case endTempConvertion.FahrenheittoCelsius:
+                    tempConvEqu = string.Format(
+                        "Convert Fahrenheit to Celsius: ({0} - 32) * 5 / 9 = {1}",
+                        Temperature,
+                        temp);
+                    break;
+                case endTempConvertion.KelvintoCelsius:
+                    tempConvEqu = string.Format(
+                        "Convert Kelvin to Celsius: {0} - 273.15 = {1}",
+                        Temperature,
+                        temp);
+                    break;
+                case endTempConvertion.None:
+                    tempConvEqu = "Temperature already in Celsius; no math done";
+                    break;
+            }
+            switch (c) {
+                case endDistConvertion.MeterstoKilometers:
+                    distConvEqu = string.Format(
+                        "Convert Meters to Kilometers: {0} / 1000 = {1}",
+                        originaDist,
+                        res);
+                    break;
+                case endDistConvertion.MeterstoMiles:
+                    distConvEqu = string.Format(
+                        "Convert Meters to Miles: {0} / 0.00062137 = {1}",
+                        originaDist,
+                        res);
+                    break;
+                case endDistConvertion.MeterstoMilestoFeet:
+                    distConvEqu = string.Format(
+                        "Convert Meters to Miles then Feet: {0} / 0.00062137 = {1} / 5280 = {2}",
+                        originaDist,
+                        originaDist / 0.00062137,
+                        res);
+                    break;
+                case endDistConvertion.None:
+                    distConvEqu = "Distance set to meters and kilometers; no math done";
+                    break;
+            }
+            convMsg = string.Format(
+                "\n\n{0}\n{1}",
+                tempConvEqu,
+                distConvEqu);
+            calcMsg = string.Format(
+                "\n\nSpeed of sound = 331.5 + 0.6 * {0}: {1}\nTime = {2}\nDistance = Speed of sound * time\n{1} * {2} = {3}\nDistance = {3}",
+                temp,
+                GetSpeedOfSound(temp),
+                Time,
+                GetDistance(GetSpeedOfSound(temp), Time));
+            finalMsg = mainMsg;
+            if (Manager.VerboseMode) {
+                finalMsg += (Manager.VerboseModeData.ToArray()[0]) ? unitMsg : "";
+                finalMsg += (Manager.VerboseModeData.ToArray()[1]) ? convMsg : "";
+                finalMsg += (Manager.VerboseModeData.ToArray()[2]) ? calcMsg : "";
+            }
+            return finalMsg;
         }
         
         public static bool CheckConnection() {
@@ -97,15 +189,6 @@ namespace SDEngine
                                 Math.Round(Coordinate.Point.Position.Latitude, 3),
                                 Math.Round(Coordinate.Point.Position.Longitude, 3)),
                                 UriKind.Absolute)));
-                await new MessageDialog(
-                    string.Format(
-                        "{0}, {1}",
-                        Math.Round(
-                            Coordinate.Point.Position.Latitude,
-                            3),
-                        Math.Round(
-                            Coordinate.Point.Position.Longitude,
-                            3))).ShowAsync();
                 XElement response, observation, temp_c;
                 response = main.Element("response");
                 observation = response.Element("current_observation");

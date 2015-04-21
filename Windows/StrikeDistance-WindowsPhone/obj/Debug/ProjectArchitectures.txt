@@ -1,1 +1,1 @@
-C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\StrikeDistance-WindowsPhone.csproj;neutral
+C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\StrikeDistance-WindowsPhone.csproj;neutral

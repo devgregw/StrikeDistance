@@ -51,7 +51,6 @@ C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windo
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\SDEngine.pri.xml
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\ProjectArchitectures.txt
-C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\StrikeDistance-WindowsPhone.csprojResolveAssemblyReference.cache
 C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\StrikeDistance-WindowsPhone.exe
 C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\StrikeDistance-WindowsPhone.pdb
 C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\App.xbf
@@ -104,3 +103,4 @@ C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows
 C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\SDEngine.pri.xml
 C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\ProjectArchitectures.txt
+C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\StrikeDistance-WindowsPhone.csprojResolveAssemblyReference.cache

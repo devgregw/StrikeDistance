@@ -1,6 +1,5 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
-    <LocalAssembly PathName="c:\users\devgr\github repositories\strikedistance\windows\strikedistance-windowsphone\obj\debug\intermediatexaml\strikedistance-windowsphone.exe" HashGuid="89258ae7-9a50-50c3-140f-1003f0674f95" />
-    <ReferenceAssembly PathName="c:\users\gregory\github repositories\strikedistance\windows\resources\sdengine\bin\release\sdengine.dll" HashGuid="441b773b-6bb0-deac-440a-55ae98f6de12" />
+    <ReferenceAssembly PathName="c:\users\devgr\github repositories\strikedistance\windows\resources\sdengine\bin\release\sdengine.dll" HashGuid="a4a92518-4a6d-fb25-17ac-19b8f21434f9" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

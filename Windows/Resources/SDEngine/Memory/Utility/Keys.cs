@@ -13,7 +13,9 @@ namespace SDEngine.Memory.Utility {
         public const string AutoGet = "AutoGet"; //Type: bool
         public const string WarnPolicy = "WarnPolicy"; //Type: bool
         public const string VerboseMode = "VerboseMode"; //Type: bool
-        public const string VerboseModeData = "VerboseModeData"; //Type: List<bool>
+        public const string vbUnit = "VerboseModeUnitDetails"; //Type: bool
+        public const string vbConv = "VerboseModeConvertionMath"; //Type: bool
+        public const string vbCalc = "VerboseModeCalculationMath"; //Type: bool
         public const string ForceUpgrade = "ForcedUpgrade"; //Type: bool
     }
 }

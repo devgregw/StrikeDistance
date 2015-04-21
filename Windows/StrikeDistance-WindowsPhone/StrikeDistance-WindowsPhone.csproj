@@ -131,6 +131,9 @@
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\Logo.scale-140.png" />
     <Content Include="Assets\Logo.scale-240.png" />
+    <Content Include="Assets\SmallLogo-dark.scale-100.png" />
+    <Content Include="Assets\SmallLogo-dark.scale-140.png" />
+    <Content Include="Assets\SmallLogo-dark.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-100.png" />
     <Content Include="Assets\SmallLogo.scale-140.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />

@@ -72,10 +72,16 @@ namespace SDEngine.Memory {
         
         public static List<bool> VerboseModeData {
             get {
-                return UtilityMethods.Get(Keys.VerboseModeData, new List<bool>() { false, false, false });
+                var list = new List<bool>();
+                list.Add(UtilityMethods.Get(Keys.vbUnit, false));
+                list.Add(UtilityMethods.Get(Keys.vbConv, false));
+                list.Add(UtilityMethods.Get(Keys.vbCalc, false));
+                return list;
             }
             set {
-                UtilityMethods.Set(Keys.VerboseModeData, value);
+                UtilityMethods.Set(Keys.vbUnit, value.ElementAt(0));
+                UtilityMethods.Set(Keys.vbConv, value.ElementAt(1));
+                UtilityMethods.Set(Keys.vbCalc, value.ElementAt(2));
             }
         }
     }

@@ -47,18 +47,27 @@ namespace StrikeDistance_WindowsPhone
             convMath.Unchecked -= convMath_Unchecked;
             calcMath.Checked -= calcMath_Checked;
             calcMath.Unchecked -= calcMath_Unchecked;
-            {
-                tempUnit.SelectedIndex = Manager.TempUnit;
-                distUnit.SelectedIndex = Manager.DistUnit;
-                autoGet.IsChecked = Manager.AutoGet;
-                warnPolicy.IsChecked = Manager.WarnPolicy;
-                verboseMode.IsOn = Manager.VerboseMode;
-                unitDetails.IsChecked = Manager.VerboseModeData.ElementAt(0);
-                convMath.IsChecked = Manager.VerboseModeData.ElementAt(1);
-                calcMath.IsChecked = Manager.VerboseModeData.ElementAt(2);
-                tempUnit.SelectionChanged -= tempUnit_SelectionChanged;
-                distUnit.SelectionChanged -= distUnit_SelectionChanged;
+            var data = Manager.VerboseModeData;
+            tempUnit.SelectedIndex = Manager.TempUnit;
+            distUnit.SelectedIndex = Manager.DistUnit;
+            autoGet.IsChecked = Manager.AutoGet;
+            warnPolicy.IsChecked = Manager.WarnPolicy;
+            verboseMode.IsOn = Manager.VerboseMode;
+            if (verboseMode.IsOn) {
+                unitDetails.IsEnabled = true;
+                convMath.IsEnabled = true;
+                calcMath.IsEnabled = true;
             }
+            else {
+                unitDetails.IsEnabled = false;
+                convMath.IsEnabled = false;
+                calcMath.IsEnabled = false;
+            }
+            unitDetails.IsChecked = data.ElementAt(0);
+            convMath.IsChecked = data.ElementAt(1);
+            calcMath.IsChecked = data.ElementAt(2);
+            tempUnit.SelectionChanged -= tempUnit_SelectionChanged;
+            distUnit.SelectionChanged -= distUnit_SelectionChanged;
             autoGet.Checked += autoGet_Checked;
             autoGet.Unchecked += autoGet_Unchecked;
             warnPolicy.Checked += warnPolicy_Checked;
@@ -98,6 +107,16 @@ namespace StrikeDistance_WindowsPhone
 
         private void verboseMode_Toggled(object sender, RoutedEventArgs e) {
             Manager.VerboseMode = verboseMode.IsOn;
+            if (verboseMode.IsOn) {
+                unitDetails.IsEnabled = true;
+                convMath.IsEnabled = true;
+                calcMath.IsEnabled = true;
+            }
+            else {
+                unitDetails.IsEnabled = false;
+                convMath.IsEnabled = false;
+                calcMath.IsEnabled = false;
+            }
         }
 
         private void unitDetails_Unchecked(object sender, RoutedEventArgs e) {
@@ -122,7 +141,7 @@ namespace StrikeDistance_WindowsPhone
             bool unit = unitDetails.IsChecked.Value, calc = calcMath.IsChecked.Value;
             Manager.VerboseModeData = new List<bool>() {
                 unit,
-                false,
+                true,
                 calc
             };
         }
