@@ -6,6 +6,7 @@ using Windows.UI.Xaml.Navigation;
 using SDEngine;
 using Windows.UI.Popups;
 using System.Net.Http;
+using SDEngine.Memory;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -20,7 +21,7 @@ namespace StrikeDistance_WindowsPhone
 
         public LoadingPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         /// <summary>
@@ -31,11 +32,11 @@ namespace StrikeDistance_WindowsPhone
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var sb = StatusBar.GetForCurrentView();
-            sb.ForegroundColor = (App.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
+            sb.ForegroundColor = (Windows.UI.Xaml.Application.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
             ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
             try
             {
-                SDEngine.Memory.Manager.Temp = await Main.GetTemperature(WUNDERGROUND_API_KEY);
+                Manager.csource = (await Main.GetWeatherInformation(WUNDERGROUND_API_KEY)).xmlSource;
             }
             catch (Exception ex)
             {

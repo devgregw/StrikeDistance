@@ -1,17 +1,12 @@
 ﻿using SDEngine.Convertions.Enumerations;
 using SDEngine.Memory;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 using Windows.Devices.Geolocation;
 using Windows.Networking.Connectivity;
-using Windows.UI.Popups;
 using Windows.Web.Http;
 
-namespace SDEngine
-{
+namespace SDEngine {
     internal enum endDistConvertion {
         None,
         MeterstoKilometers,
@@ -173,14 +168,13 @@ namespace SDEngine
             return internet;
         }
         
-        public static async Task<double> GetTemperature(string wukey) {
+        public static async Task<WeatherInformation> GetWeatherInformation(string wukey) {
             if (CheckConnection()) {
                 Geolocator Locator = new Geolocator();
                 Geoposition Position = await Locator.GetGeopositionAsync();
                 Geocoordinate Coordinate = Position.Coordinate;
                 HttpClient Client = new HttpClient();
-                double Temperature = 0.0;
-                XDocument main = XDocument.Parse(
+                return new WeatherInformation(
                     await Client.GetStringAsync(
                         new Uri(
                             string.Format(
@@ -189,22 +183,6 @@ namespace SDEngine
                                 Math.Round(Coordinate.Point.Position.Latitude, 3),
                                 Math.Round(Coordinate.Point.Position.Longitude, 3)),
                                 UriKind.Absolute)));
-                XElement response, observation, temp_c;
-                response = main.Element("response");
-                observation = response.Element("current_observation");
-                temp_c = observation.Element("temp_c");
-                Temperature = Convert.ToDouble(temp_c.Value);
-                switch (Memory.Manager.TempUnit) {
-                    case 0:
-                        Temperature = Convertions.Converter.Convert(TemperatureUnit.Celsius, TemperatureUnit.Fahrenheit, Temperature);
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        Temperature = Convertions.Converter.Convert(TemperatureUnit.Celsius, TemperatureUnit.Kelvin, Temperature);
-                        break;
-                }
-                return Math.Round(Temperature, 2);
             }
             else {
                 throw new InvalidOperationException("StrikeDistance cannot connect to the weather server.");

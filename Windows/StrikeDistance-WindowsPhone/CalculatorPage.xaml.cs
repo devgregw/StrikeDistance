@@ -3,7 +3,6 @@ using System;
 using System.Net.Http;
 using Windows.ApplicationModel.Email;
 using Windows.ApplicationModel.Store;
-using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
@@ -14,13 +13,13 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
-namespace StrikeDistance_WindowsPhone
-{
+namespace StrikeDistance_WindowsPhone {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class CalculatorPage : Page
     {
+        WeatherInformation info;
         public const string WUNDERGROUND_API_KEY = "19b9a5738bb4a7f4";
         bool GettingLocation, UsingStopwatch, EditingField;
         StatusBar statusBar = StatusBar.GetForCurrentView();
@@ -29,13 +28,17 @@ namespace StrikeDistance_WindowsPhone
 
         public CalculatorPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             Stopwatch.Tick += (s, e) =>
             {
                 End = DateTime.Now;
                 TimeBox.Text = Math.Round(End.Subtract(Start).TotalSeconds, 2).ToString();
             };
-            this.NavigationCacheMode = NavigationCacheMode.Required;
+            NavigationCacheMode = NavigationCacheMode.Required;
+        }
+
+        private void UpdateWeather() {
+
         }
 
         /// <summary>
@@ -45,28 +48,19 @@ namespace StrikeDistance_WindowsPhone
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs args)
         {
-            (ApplicationView.GetForCurrentView()).SetDesiredBoundsMode(ApplicationViewBoundsMode.UseVisible);
-            //if (args.NavigationMode == NavigationMode.New)
-            //    Frame.BackStack.RemoveAt(Frame.BackStack.Count - 1);
-            //switch (Engine.HasUpgradePack)
-            //{
-            //    case Engine.UpgradeMode.Debug: AdDisplay.IsEnabled = true; AdDisplay.IsTest = true; AdDisplay.Visibility = Windows.UI.Xaml.Visibility.Visible; break;
-            //    case Engine.UpgradeMode.HasPack: AdDisplay.IsEnabled = false; AdDisplay.IsTest = false; AdDisplay.Visibility = Windows.UI.Xaml.Visibility.Collapsed; break;
-            //    case Engine.UpgradeMode.NoPack: AdDisplay.IsEnabled = true; AdDisplay.IsTest = false; AdDisplay.Visibility = Windows.UI.Xaml.Visibility.Visible; break;
-            //}
+            ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseVisible);
             statusBar.BackgroundOpacity = 1.0;
-            statusBar.BackgroundColor = (App.Current.Resources["StrikeDistanceThemeBrush"] as SolidColorBrush).Color;
-            statusBar.ForegroundColor = (App.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
+            statusBar.BackgroundColor = (Application.Current.Resources["StrikeDistanceThemeBrush"] as SolidColorBrush).Color;
+            statusBar.ForegroundColor = (Application.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
             TempBox.Text = SDEngine.Memory.Manager.Temp.ToString();
             TimeBox.Text = SDEngine.Memory.Manager.Time.ToString();
-            TempUnitButton.Content = SDEngine.Memory.Utility.UtilityMethods.IntToString(SDEngine.Memory.Utility.UnitType.Temperature, SDEngine.Memory.Manager.TempUnit);
-            DistUnitButton.Content = SDEngine.Memory.Utility.UtilityMethods.IntToString(SDEngine.Memory.Utility.UnitType.Distance, SDEngine.Memory.Manager.DistUnit);
+            UpdateWeather();
             #region Events
             #region TempBox
             TempBox.GotFocus += (s, e) =>
             {
                 EditingField = true;
-                ButtonBar.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                ButtonBar.Visibility = Visibility.Collapsed;
                 TempBox.SelectAll();
             };
             TempBox.LostFocus += (s, e) =>
@@ -74,7 +68,7 @@ namespace StrikeDistance_WindowsPhone
                 if (!string.IsNullOrEmpty(TempBox.Text))
                     TempBox.Text = SDEngine.Memory.Manager.Temp.ToString();
                 if (UsingStopwatch == false && GettingLocation == false)
-                    ButtonBar.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                    ButtonBar.Visibility = Visibility.Visible;
                 EditingField = false;
             };
             TempBox.TextChanged += (s, e) =>
@@ -91,7 +85,7 @@ namespace StrikeDistance_WindowsPhone
             TimeBox.GotFocus += (s, e) =>
             {
                 EditingField = true;
-                ButtonBar.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                ButtonBar.Visibility = Visibility.Collapsed;
                 TimeBox.SelectAll();
             };
             TimeBox.LostFocus += (s, e) =>
@@ -99,7 +93,7 @@ namespace StrikeDistance_WindowsPhone
                 if (!string.IsNullOrEmpty(TimeBox.Text))
                     TimeBox.Text = SDEngine.Memory.Manager.Time.ToString();
                 if (UsingStopwatch == false && GettingLocation == false)
-                    ButtonBar.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                    ButtonBar.Visibility = Visibility.Visible;
                 EditingField = false;
             };
             TimeBox.TextChanged += (s, e) =>
@@ -111,38 +105,6 @@ namespace StrikeDistance_WindowsPhone
                 }
                 catch (Exception) { }
             };
-            #endregion
-            #region MenuFlyouts
-            MenuFlyout TempMenu = Flyout.GetAttachedFlyout(TempUnitButton) as MenuFlyout;
-            TempMenu.Opened += (s, e) =>
-            {
-                TempMenu.Items[SDEngine.Memory.Manager.TempUnit].Foreground = App.Current.Resources["PhoneAccentBrush"] as Brush;
-            };
-            foreach (MenuFlyoutItem i in TempMenu.Items)
-            {
-                i.Click += (s, e) =>
-                {
-                    SDEngine.Memory.Manager.TempUnit = (int)SDEngine.Memory.Utility.UtilityMethods.StringToInt(SDEngine.Memory.Utility.UnitType.Temperature, i.Text);
-                    TempUnitButton.Content = i.Text;
-                    foreach (MenuFlyoutItem i2 in TempMenu.Items)
-                    { i2.Foreground = App.Current.Resources["PhoneBackgroundBrush"] as Brush; }
-                };
-            }
-            MenuFlyout DistMenu = Flyout.GetAttachedFlyout(DistUnitButton) as MenuFlyout;
-            DistMenu.Opened += (s, e) =>
-            {
-                DistMenu.Items[SDEngine.Memory.Manager.DistUnit].Foreground = App.Current.Resources["PhoneAccentBrush"] as Brush;
-            };
-            foreach (MenuFlyoutItem i in DistMenu.Items)
-            {
-                i.Click += (s, e) =>
-                {
-                    SDEngine.Memory.Manager.DistUnit = (int)SDEngine.Memory.Utility.UtilityMethods.StringToInt(SDEngine.Memory.Utility.UnitType.Distance, i.Text);
-                    DistUnitButton.Content = i.Text;
-                    foreach (MenuFlyoutItem i2 in DistMenu.Items)
-                    { i2.Foreground = App.Current.Resources["PhoneBackgroundBrush"] as Brush; }
-                };
-            }
             #endregion
             #endregion
         }
@@ -164,7 +126,8 @@ namespace StrikeDistance_WindowsPhone
                 InvertButton.IsEnabled = false;
                 LocationButton.IsEnabled = false;
                 statusBar.ProgressIndicator.Text = "Getting weather data...";
-                TempBox.Text = Convert.ToString(await Main.GetTemperature(WUNDERGROUND_API_KEY));
+                info = await Main.GetWeatherInformation(WUNDERGROUND_API_KEY);
+                UpdateWeather();
                 await statusBar.ProgressIndicator.HideAsync();
                 LocationButton.IsEnabled = true;
                 TempBox.IsTabStop = true;
@@ -209,7 +172,7 @@ namespace StrikeDistance_WindowsPhone
             UsingStopwatch = true;
             TimeBox.IsEnabled = false;
             StopwatchClearButton.IsEnabled = false;
-            ButtonBar.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            ButtonBar.Visibility = Visibility.Collapsed;
             Stopwatch.Start();
             Start = DateTime.Now;
             End = DateTime.Now;
@@ -223,31 +186,23 @@ namespace StrikeDistance_WindowsPhone
             TimeBox.IsEnabled = true;
             StopwatchClearButton.IsEnabled = true;
             if (GettingLocation == false && EditingField == false)
-                ButtonBar.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                ButtonBar.Visibility = Visibility.Visible;
             UsingStopwatch = false;
         }
 
         private async void CalculateButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog Result = new MessageDialog(Main.Calculate(Convert.ToDouble(TempBox.Text),
-                                                     Convert.ToDouble(TimeBox.Text)), "Result");
-            await Result.ShowAsync();
+            await new MessageDialog(
+                Main.Calculate(
+                    Convert.ToDouble(TempBox.Text),
+                    Convert.ToDouble(TimeBox.Text)),
+                    "Result").ShowAsync();
         }
 
         private void ClearAllButton_Click(object sender, RoutedEventArgs e)
         {
             TempBox.Text = "0";
             TimeBox.Text = "0";
-        }
-
-        private void TempUnitButton_Click(object sender, RoutedEventArgs args)
-        {
-            Flyout.ShowAttachedFlyout(TempUnitButton);
-        }
-
-        private void DistUnitButton_Click(object sender, RoutedEventArgs e)
-        {
-            Flyout.ShowAttachedFlyout(DistUnitButton);
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
@@ -276,9 +231,9 @@ namespace StrikeDistance_WindowsPhone
             var m = new EmailMessage()
             {
                 Subject = "Bug Report (StrikeDistance)",
-                Body = "Please describe the bug, what you were doing when it occured, and any extra details you may have:\n\nWhich device do you have?:\n\nWhat version of Windows Phone are you using?:\n\nThank you for helping make StrikeDistance better!"
+                Body = string.Format("Please describe the bug, what you were doing when it occurred, and any extra details you may have:  \n\nWhat device do you have?:  \n\nWhat version of Windows Phone are you using (most likely 8.1)?:  \n\nThis information will be used to improve StrikeDistance.  Thank you for helping make StrikeDistance better!")
             };
-            m.To.Add(new EmailRecipient("techperson32@live.com"));
+            m.To.Add(new EmailRecipient("devgregw@outlook.com"));
             await EmailManager.ShowComposeNewEmailAsync(m);
         }
     }

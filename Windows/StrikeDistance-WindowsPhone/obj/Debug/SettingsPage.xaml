@@ -20,13 +20,21 @@
             <StackPanel x:Name="ContentPanel">
                 <TextBlock Text="Units" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="32" FontWeight="Light" Margin="5,0"/>
                 <ComboBox x:Name="tempUnit" Header="Temperature Unit" Margin="5,0" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}">
-                    <ComboBoxItem Content="Fahrenheit" Tag="0"/>
-                    <ComboBoxItem Content="Celsius" Tag="1"/>
-                    <ComboBoxItem Content="Kelvin" Tag="2"/>
+                    <ComboBoxItem Content="Fahrenheit (F)" Tag="0"/>
+                    <ComboBoxItem Content="Celsius (C)" Tag="1"/>
+                    <ComboBoxItem Content="Kelvin (K)" Tag="2"/>
                 </ComboBox>
                 <ComboBox x:Name="distUnit" Header="Distance Unit" Margin="5,0" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}">
-                    <ComboBoxItem Content="Feet and Miles" Tag="0"/>
+                    <ComboBoxItem Content="Feet and Miles (ft and mi)" Tag="0"/>
                     <ComboBoxItem Content="Meters and Kilometers" Tag="1"/>
+                </ComboBox>
+                <ComboBox x:Name="speedUnit" Header="Speed Unit" Margin="5,0" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}">
+                    <ComboBoxItem Content="Miles per Hour (MPH)" Tag="0"/>
+                    <ComboBoxItem Content="Kilometers per Hour (KPH)" Tag="1"/>
+                </ComboBox>
+                <ComboBox x:Name="pressureUnit" Header="Pressure Unit" Margin="5,0" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}">
+                    <ComboBoxItem Content="Inches (in)" Tag="0"/>
+                    <ComboBoxItem Content="Millibar (mb)" Tag="1"/>
                 </ComboBox>
                 <TextBlock Text="Automatic Functions" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="32" FontWeight="Light" Margin="5,0"/>
                 <CheckBox x:Name="autoGet" Content="Get weather data on startup" IsChecked="True" HorizontalAlignment="Stretch" BorderBrush="{StaticResource StrikeDistanceThemeBrush}" Margin="5,0"/>

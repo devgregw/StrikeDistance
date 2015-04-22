@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 
@@ -34,6 +30,28 @@ namespace SDEngine.Memory.Utility {
                             return 1;
                     }
                     break;
+                case UnitType.Speed:
+                    switch (input.ToLower()) {
+                        case "miles per hour":
+                            return 0;
+                        case "kilometers per hour":
+                            return 1;
+                        case "mph":
+                            return 0;
+                        case "kph":
+                            return 1;
+                    }
+                    break;
+                case UnitType.Pressure:
+                    switch (input.ToLower()) {
+                        case "inches":
+                            return 0;
+                        case "millibars":
+                            return 1;
+                        case "mb":
+                            return 1;
+                    }
+                    break;
                 default:
                     return null;
             }
@@ -58,6 +76,22 @@ namespace SDEngine.Memory.Utility {
                             return "Feet/Miles";
                         case 1:
                             return "Meters/Kilometers";
+                    }
+                    break;
+                case UnitType.Speed:
+                    switch (input) {
+                        case 0:
+                            return "Miles per Hour";
+                        case 1:
+                            return "Kilometers per Hour";
+                    }
+                    break;
+                case UnitType.Pressure:
+                    switch (input) {
+                        case 0:
+                            return "Inches";
+                        case 1:
+                            return "Millibars";
                     }
                     break;
                 default:

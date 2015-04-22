@@ -15,7 +15,7 @@ namespace StrikeDistance_WindowsPhone
     {
         public AboutPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         /// <summary>

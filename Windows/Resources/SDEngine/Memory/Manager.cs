@@ -1,9 +1,6 @@
 ﻿using SDEngine.Memory.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SDEngine.Memory {
     public static class Manager {
@@ -40,6 +37,24 @@ namespace SDEngine.Memory {
             }
             set {
                 UtilityMethods.Set(Keys.DistUnit, value);
+            }
+        }
+
+        public static int SpeedUnit {
+            get {
+                return UtilityMethods.Get(Keys.SpeedUnit, 0);
+            }
+            set {
+                UtilityMethods.Set(Keys.SpeedUnit, value);
+            }
+        }
+
+        public static int PressureUnit {
+            get {
+                return UtilityMethods.Get(Keys.PressureUnit, 0);
+            }
+            set {
+                UtilityMethods.Set(Keys.PressureUnit, value);
             }
         }
         
@@ -82,6 +97,15 @@ namespace SDEngine.Memory {
                 UtilityMethods.Set(Keys.vbUnit, value.ElementAt(0));
                 UtilityMethods.Set(Keys.vbConv, value.ElementAt(1));
                 UtilityMethods.Set(Keys.vbCalc, value.ElementAt(2));
+            }
+        }
+
+        public static string csource {
+            get {
+                return UtilityMethods.Get<string>(Keys.CurrentWeatherInformationSource, null);
+            }
+            set {
+                UtilityMethods.Set<string>(Keys.CurrentWeatherInformationSource, value);
             }
         }
     }

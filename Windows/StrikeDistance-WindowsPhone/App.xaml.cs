@@ -22,8 +22,8 @@ namespace StrikeDistance_WindowsPhone
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += this.OnSuspending;
+            InitializeComponent();
+            Suspending += OnSuspending;
             HardwareButtons.BackPressed += (s, e) =>
             {
                 var frame = Window.Current.Content as Frame;
@@ -46,7 +46,7 @@ namespace StrikeDistance_WindowsPhone
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = false;
+                DebugSettings.EnableFrameRateCounter = false;
             }
 #endif
             Frame rootFrame = Window.Current.Content as Frame;
@@ -64,14 +64,14 @@ namespace StrikeDistance_WindowsPhone
             {
                 if (rootFrame.ContentTransitions != null)
                 {
-                    this.transitions = new TransitionCollection();
+                    transitions = new TransitionCollection();
                     foreach (var c in rootFrame.ContentTransitions)
                     {
-                        this.transitions.Add(c);
+                        transitions.Add(c);
                     }
                 }
                 rootFrame.ContentTransitions = null;
-                rootFrame.Navigated += this.RootFrame_FirstNavigated;
+                rootFrame.Navigated += RootFrame_FirstNavigated;
                 if (!rootFrame.Navigate(typeof(LoadingPage), e.Arguments))
                 {
                     throw new Exception("Failed to create initial page");
@@ -88,7 +88,7 @@ namespace StrikeDistance_WindowsPhone
         private void RootFrame_FirstNavigated(object sender, NavigationEventArgs e)
         {
             var rootFrame = sender as Frame;
-            rootFrame.Navigated -= this.RootFrame_FirstNavigated;
+            rootFrame.Navigated -= RootFrame_FirstNavigated;
         }
 
         /// <summary>
