@@ -38,6 +38,11 @@ namespace StrikeDistance_WindowsPhone
             {
                 Manager.csource = (await Main.GetWeatherInformation(WUNDERGROUND_API_KEY)).xmlSource;
             }
+            catch (TooSoonException) {
+                new MessageDialog(
+                    "StrikeDistance could not connect to the weather server.\n\nStrikeDistance can and will continue, but some features that require Internet access may not work.\nStrikeDistance will use the most recent data instead.",
+                    "Error").ShowAsync();
+            }
             catch (Exception ex)
             {
                 if (ex.GetType() == typeof(InvalidOperationException))

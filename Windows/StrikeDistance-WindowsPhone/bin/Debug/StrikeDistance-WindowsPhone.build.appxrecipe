@@ -106,6 +106,9 @@
       <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\wulogo.png">
+      <PackagePath>Assets\wulogo.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>

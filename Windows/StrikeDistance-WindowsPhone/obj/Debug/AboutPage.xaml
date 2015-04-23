@@ -51,6 +51,7 @@
                     <TextBlock Foreground="White" Text="Weather data by" FontSize="18.667"/>
                     <TextBlock Text=" Weather Underground" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="18.667"/>
                 </StackPanel>
+                <Image Source="Assets/wulogo.png" Stretch="None" HorizontalAlignment="Left"/>
                 <HyperlinkButton Content="Website" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://www.wunderground.com/?apiref=ddc7474baa78cc4d" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 <HyperlinkButton Content="Terms of service" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://www.wunderground.com/members/tos.asp" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
             </StackPanel>

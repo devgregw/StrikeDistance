@@ -1,4 +1,5 @@
 ﻿using SDEngine;
+using SDEngine.Memory;
 using System;
 using System.Net.Http;
 using Windows.ApplicationModel.Email;
@@ -38,7 +39,8 @@ namespace StrikeDistance_WindowsPhone {
         }
 
         private void UpdateWeather() {
-
+            info.Update();
+            TempBox.Text = info.Temperature.ToString();
         }
 
         /// <summary>
@@ -52,9 +54,13 @@ namespace StrikeDistance_WindowsPhone {
             statusBar.BackgroundOpacity = 1.0;
             statusBar.BackgroundColor = (Application.Current.Resources["StrikeDistanceThemeBrush"] as SolidColorBrush).Color;
             statusBar.ForegroundColor = (Application.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
-            TempBox.Text = SDEngine.Memory.Manager.Temp.ToString();
-            TimeBox.Text = SDEngine.Memory.Manager.Time.ToString();
-            UpdateWeather();
+            TimeBox.Text = Manager.Time.ToString();
+            if ((bool)args.Parameter == true) {
+                info = new WeatherInformation(Manager.csource);
+                UpdateWeather();
+            }
+            else
+                TempBox.Text = Manager.Temp.ToString();
             #region Events
             #region TempBox
             TempBox.GotFocus += (s, e) =>
@@ -66,7 +72,7 @@ namespace StrikeDistance_WindowsPhone {
             TempBox.LostFocus += (s, e) =>
             {
                 if (!string.IsNullOrEmpty(TempBox.Text))
-                    TempBox.Text = SDEngine.Memory.Manager.Temp.ToString();
+                    TempBox.Text = Manager.Temp.ToString();
                 if (UsingStopwatch == false && GettingLocation == false)
                     ButtonBar.Visibility = Visibility.Visible;
                 EditingField = false;
@@ -76,7 +82,7 @@ namespace StrikeDistance_WindowsPhone {
                 try
                 {
                     if (!string.IsNullOrEmpty(TempBox.Text))
-                        SDEngine.Memory.Manager.Temp = Math.Round(Convert.ToDouble(TempBox.Text), 2);
+                        Manager.Temp = Math.Round(Convert.ToDouble(TempBox.Text), 2);
                 }
                 catch (Exception) { }
             };
@@ -91,7 +97,7 @@ namespace StrikeDistance_WindowsPhone {
             TimeBox.LostFocus += (s, e) =>
             {
                 if (!string.IsNullOrEmpty(TimeBox.Text))
-                    TimeBox.Text = SDEngine.Memory.Manager.Time.ToString();
+                    TimeBox.Text = Manager.Time.ToString();
                 if (UsingStopwatch == false && GettingLocation == false)
                     ButtonBar.Visibility = Visibility.Visible;
                 EditingField = false;
@@ -101,7 +107,7 @@ namespace StrikeDistance_WindowsPhone {
                 try
                 {
                     if (!string.IsNullOrEmpty(TimeBox.Text))
-                        SDEngine.Memory.Manager.Time = Math.Round(Convert.ToDouble(TimeBox.Text), 2);
+                        Manager.Time = Math.Round(Convert.ToDouble(TimeBox.Text), 2);
                 }
                 catch (Exception) { }
             };

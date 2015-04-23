@@ -1,4 +1,5 @@
 ﻿using SDEngine.Convertions.Enumerations;
+using SDEngine.Exceptions;
 using SDEngine.Memory;
 using System;
 using System.Threading.Tasks;
@@ -168,24 +169,44 @@ namespace SDEngine {
             return internet;
         }
         
+        internal static bool CheckTime(int Minutes) {
+            return DateTime.Now.Subtract(
+                Memory.Utility.UtilityMethods.Get(
+                    "retrievalTime",
+                    DateTime.MinValue)).Minutes >= Minutes;
+        }
+
+        internal static void SetTime(DateTime t) {
+            Memory.Utility.UtilityMethods.Set("retrievalTime", t);
+        }
+
         public static async Task<WeatherInformation> GetWeatherInformation(string wukey) {
-            if (CheckConnection()) {
-                Geolocator Locator = new Geolocator();
-                Geoposition Position = await Locator.GetGeopositionAsync();
-                Geocoordinate Coordinate = Position.Coordinate;
-                HttpClient Client = new HttpClient();
-                return new WeatherInformation(
-                    await Client.GetStringAsync(
-                        new Uri(
-                            string.Format(
-                                "http://api.wunderground.com/api/{0}/conditions/q/{1},{2}.xml",
-                                wukey,
-                                Math.Round(Coordinate.Point.Position.Latitude, 3),
-                                Math.Round(Coordinate.Point.Position.Longitude, 3)),
-                                UriKind.Absolute)));
+            if (CheckTime(10)) {
+                if (CheckConnection()) {
+                    Geolocator Locator = new Geolocator();
+                    Geoposition Position = await Locator.GetGeopositionAsync();
+                    Geocoordinate Coordinate = Position.Coordinate;
+                    HttpClient Client = new HttpClient();
+                    return new WeatherInformation(
+                        await Client.GetStringAsync(
+                            new Uri(
+                                string.Format(
+                                    "http://api.wunderground.com/api/{0}/conditions/q/{1},{2}.xml",
+                                    wukey,
+                                    Math.Round(Coordinate.Point.Position.Latitude, 3),
+                                    Math.Round(Coordinate.Point.Position.Longitude, 3)),
+                                    UriKind.Absolute)));
+                }
+                else {
+                    throw new NoConnectionException();
+                }
             }
             else {
-                throw new InvalidOperationException("StrikeDistance cannot connect to the weather server.");
+                throw new TooSoonException(
+                    10,
+                    Memory.Utility.UtilityMethods.Get(
+                        "retrievalTime",
+                        DateTime.MinValue));
             }
         }
     }
