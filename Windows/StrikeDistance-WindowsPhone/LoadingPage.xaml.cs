@@ -6,12 +6,11 @@ using Windows.UI.Xaml.Navigation;
 using SDEngine;
 using Windows.UI.Popups;
 using System.Net.Http;
-using SDEngine.Memory;
+using SDEngine.Exceptions;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
-namespace StrikeDistance_WindowsPhone
-{
+namespace StrikeDistance_WindowsPhone {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -36,12 +35,20 @@ namespace StrikeDistance_WindowsPhone
             ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
             try
             {
-                Manager.csource = (await Main.GetWeatherInformation(WUNDERGROUND_API_KEY)).xmlSource;
+                await Main.GetWeatherInformation(WUNDERGROUND_API_KEY);
+                Frame.Navigate(typeof(CalculatorPage));
             }
-            catch (TooSoonException) {
+            catch (NoConnectionException) {
                 new MessageDialog(
                     "StrikeDistance could not connect to the weather server.\n\nStrikeDistance can and will continue, but some features that require Internet access may not work.\nStrikeDistance will use the most recent data instead.",
                     "Error").ShowAsync();
+                Frame.Navigate(typeof(CalculatorPage));
+            }
+            catch (TooSoonException ex) {
+                new MessageDialog(
+                    string.Format("Because of the Weather Retrieval Frequency policy (read about it in Settings), StrikeDistance will not retrieve updated weather information at this time.\nWeather data was already retrieved {0} minutes ago, and the policy states weather data can be retrieved every 10 minutes.\nTry again in {1} minutes.\n\nStrikeDistance will use the most recent data instead for now.", ex.CurrentTime.Subtract(ex.PreviousTime).Minutes, 10 - ex.CurrentTime.Subtract(ex.PreviousTime).Minutes),
+                    "Weather Retrieval Frequency Policy").ShowAsync();
+                Frame.Navigate(typeof(CalculatorPage));
             }
             catch (Exception ex)
             {
@@ -66,9 +73,6 @@ namespace StrikeDistance_WindowsPhone
                             ex.GetType().FullName,
                             ex.Message),
                         "Unexpected Error").ShowAsync();
-            }
-            finally
-            {
                 Frame.Navigate(typeof(CalculatorPage));
             }
         }

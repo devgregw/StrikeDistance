@@ -100,19 +100,15 @@ namespace SDEngine.Memory.Utility {
             return null;
         }
         
-        public static TValue Get<TValue>(string key, TValue def) {
-            try
-            {
-                TValue v = (TValue)settings[key];
-                return v;
-            }
-            catch (NullReferenceException)
-            {
+        public static dynamic Get(string key, dynamic def) {
+            dynamic v = settings[key];
+            if (v == null)
                 return def;
-            }
+            else
+                return v;
         }
         
-        public static void Set<TValue>(string key, TValue value) {
+        public static void Set(string key, dynamic value) {
             settings[key] = value;
         }
     }

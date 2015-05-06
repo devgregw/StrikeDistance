@@ -2,6 +2,7 @@
 using SDEngine.Exceptions;
 using SDEngine.Memory;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using Windows.Networking.Connectivity;
@@ -149,7 +150,7 @@ namespace SDEngine {
                 tempConvEqu,
                 distConvEqu);
             calcMsg = string.Format(
-                "\n\nSpeed of sound = 331.5 + 0.6 * {0}: {1}\nTime = {2}\nDistance = Speed of sound * time\n{1} * {2} = {3}\nDistance = {3}",
+                "\n\nSpeed of sound = 331.5 + 0.6 * {0} = {1}\nTime = {2}\nDistance = Speed of sound * time\n{1} * {2} = {3}\nDistance = {3}",
                 temp,
                 GetSpeedOfSound(temp),
                 Time,
@@ -171,22 +172,24 @@ namespace SDEngine {
         
         internal static bool CheckTime(int Minutes) {
             return DateTime.Now.Subtract(
-                Memory.Utility.UtilityMethods.Get(
+                DateTime.ParseExact(Memory.Utility.UtilityMethods.Get(
                     "retrievalTime",
-                    DateTime.MinValue)).Minutes >= Minutes;
+                    DateTime.MinValue.ToString("MM-dd-yyyy")), "MM-dd-yyyy", null)).Minutes >= Minutes;
         }
 
         internal static void SetTime(DateTime t) {
-            Memory.Utility.UtilityMethods.Set("retrievalTime", t);
+            Memory.Utility.UtilityMethods.Set("retrievalTime", t.ToString("MM-dd-yyyy"));
         }
 
         public static async Task<WeatherInformation> GetWeatherInformation(string wukey) {
-            if (CheckTime(10)) {
+            if (CheckTime(10) || Debugger.IsAttached || Manager.csource == null) {
                 if (CheckConnection()) {
                     Geolocator Locator = new Geolocator();
                     Geoposition Position = await Locator.GetGeopositionAsync();
                     Geocoordinate Coordinate = Position.Coordinate;
                     HttpClient Client = new HttpClient();
+                    if (!Debugger.IsAttached)
+                        SetTime(DateTime.Now);
                     return new WeatherInformation(
                         await Client.GetStringAsync(
                             new Uri(
@@ -204,9 +207,9 @@ namespace SDEngine {
             else {
                 throw new TooSoonException(
                     10,
-                    Memory.Utility.UtilityMethods.Get(
+                    DateTime.ParseExact(Memory.Utility.UtilityMethods.Get(
                         "retrievalTime",
-                        DateTime.MinValue));
+                        DateTime.MinValue.ToString("MM-dd-yyyy")), "MM-dd-yyyy", null));
             }
         }
     }

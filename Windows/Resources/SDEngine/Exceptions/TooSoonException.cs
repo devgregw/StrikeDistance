@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SDEngine.Exceptions {
-    class TooSoonException : Exception {
+    public class TooSoonException : Exception {
         public int RequestedDifference {
             get; internal set;
         }
@@ -18,7 +18,7 @@ namespace SDEngine.Exceptions {
             get; internal set;
         }
 
-        public TooSoonException(int reqTime, DateTime prevTime) : base() {
+        internal TooSoonException(int reqTime, DateTime prevTime) : base("Operation requested within the disabled period") {
             RequestedDifference = reqTime;
             CurrentTime = DateTime.Now;
             PreviousTime = prevTime;

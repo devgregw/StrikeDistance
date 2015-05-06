@@ -2,17 +2,12 @@
 using SDEngine.Convertions.Enumerations;
 using SDEngine.Memory;
 using System;
+using System.Diagnostics;
 using System.Xml.Linq;
 
 namespace SDEngine {
     public class WeatherInformation {
         private XDocument sourceDocument;
-
-        public string xmlSource {
-            get {
-                return sourceDocument.CreateReader().ReadContentAsString();
-            }
-        }
 
         public double Latitude {
             get; internal set;
@@ -167,6 +162,7 @@ namespace SDEngine {
                         "elevation").Value),
                 2);
             ConditionString = observation.Element("weather").Value;
+            Debug.WriteLine("Temperature");
             Temperature = (Manager.TempUnit == 0) ?
                 Math.Round(
                     double.Parse(
@@ -187,6 +183,7 @@ namespace SDEngine {
                                 observation.Element(
                                     "temp_c").Value)),
                         2);
+            Debug.WriteLine("FeelsLike");
             FeelsLike = (Manager.TempUnit == 0) ?
                 Math.Round(
                     double.Parse(
@@ -209,6 +206,7 @@ namespace SDEngine {
                         2);
             Humidity = observation.Element("relative_humidity").Value;
             WindDirection = observation.Element("wind_dir").Value;
+            Debug.WriteLine("WindSpeed");
             WindSpeed = (Manager.SpeedUnit == 0) ?
                 Math.Round(
                     double.Parse(
@@ -220,6 +218,7 @@ namespace SDEngine {
                         observation.Element(
                             "wind_kph").Value),
                     2);
+            Debug.WriteLine("WindGustSpeed");
             WindGustSpeed = (Manager.SpeedUnit == 0) ?
                 Math.Round(
                     double.Parse(
@@ -231,6 +230,7 @@ namespace SDEngine {
                         observation.Element(
                             "wind_gust_kph").Value),
                     2);
+            Debug.WriteLine("Pressure");
             Pressure = (Manager.PressureUnit == 0) ?
                 Math.Round(
                     double.Parse(
@@ -245,6 +245,7 @@ namespace SDEngine {
             ForecastUrl = new Uri(observation.Element("forecast_url").Value, UriKind.Absolute);
             HistoryUrl = new Uri(observation.Element("history_url").Value, UriKind.Absolute);
             Manager.Temp = Temperature;
+            Manager.csource = xml;
         }
     }
 }

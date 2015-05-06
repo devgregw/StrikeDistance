@@ -155,8 +155,7 @@
     <None Include="StrikeDistance-WindowsPhoneKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="SDEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b893a809decc0823, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="SDEngine">
       <HintPath>..\Resources\SDEngine\bin\Release\SDEngine.dll</HintPath>
     </Reference>
   </ItemGroup>

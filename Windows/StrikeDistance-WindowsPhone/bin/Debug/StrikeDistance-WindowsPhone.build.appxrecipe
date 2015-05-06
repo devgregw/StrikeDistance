@@ -1,133 +1,133 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>WIN-MJAEHQGR4O4</Machine>
-    <WindowsUser>devgr</WindowsUser>
+    <Machine>WIN-BQIT3H3DDJU</Machine>
+    <WindowsUser>Gregory</WindowsUser>
     <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>9a4853bd-ebbe-4645-a2b8-2dda5c4931b4</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\StrikeDistance-WindowsPhone.exe">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\StrikeDistance-WindowsPhone.exe">
       <PackagePath>StrikeDistance-WindowsPhone.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\bin\Release\SDEngine.dll">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\bin\Release\SDEngine.dll">
       <PackagePath>SDEngine.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\iTunesArtwork%402x.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\iTunesArtwork%402x.png">
       <PackagePath>Assets\iTunesArtwork%402x.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Logo.scale-140.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Logo.scale-140.png">
       <PackagePath>Assets\Logo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Logo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Logo.scale-240.png">
       <PackagePath>Assets\Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo-dark.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo-dark.scale-100.png">
       <PackagePath>Assets\SmallLogo-dark.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo-dark.scale-140.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo-dark.scale-140.png">
       <PackagePath>Assets\SmallLogo-dark.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo-dark.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo-dark.scale-240.png">
       <PackagePath>Assets\SmallLogo-dark.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo.scale-140.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo.scale-140.png">
       <PackagePath>Assets\SmallLogo.scale-140.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SmallLogo.scale-240.png">
       <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SplashScreen.scale-140.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SplashScreen.scale-140.png">
       <PackagePath>Assets\SplashScreen.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SplashScreen.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\SplashScreen.scale-240.png">
       <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Square71x71Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Square71x71Logo.scale-100.png">
       <PackagePath>Assets\Square71x71Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Square71x71Logo.scale-140.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Square71x71Logo.scale-140.png">
       <PackagePath>Assets\Square71x71Logo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Square71x71Logo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\Square71x71Logo.scale-240.png">
       <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\StoreLogo.scale-140.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\StoreLogo.scale-140.png">
       <PackagePath>Assets\StoreLogo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\StoreLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\StoreLogo.scale-240.png">
       <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\WideLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\WideLogo.scale-100.png">
       <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\WideLogo.scale-140.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\WideLogo.scale-140.png">
       <PackagePath>Assets\WideLogo.scale-140.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\WideLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\WideLogo.scale-240.png">
       <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\wulogo.png">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\wulogo.png">
       <PackagePath>Assets\wulogo.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\App.xbf">
-      <PackagePath>App.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\AboutPage.xbf">
-      <PackagePath>AboutPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\CalculatorPage.xbf">
-      <PackagePath>CalculatorPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\LoadingPage.xbf">
-      <PackagePath>LoadingPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\SettingsPage.xbf">
-      <PackagePath>SettingsPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\StrikeDistance-WindowsPhone.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\StrikeDistance-WindowsPhone.xr.xml">
       <PackagePath>StrikeDistance-WindowsPhone.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\AboutPage.xbf">
+      <PackagePath>AboutPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\CalculatorPage.xbf">
+      <PackagePath>CalculatorPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\LoadingPage.xbf">
+      <PackagePath>LoadingPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\SettingsPage.xbf">
+      <PackagePath>SettingsPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

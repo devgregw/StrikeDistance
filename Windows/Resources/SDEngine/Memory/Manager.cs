@@ -102,10 +102,10 @@ namespace SDEngine.Memory {
 
         public static string csource {
             get {
-                return UtilityMethods.Get<string>(Keys.CurrentWeatherInformationSource, null);
+                return UtilityMethods.Get(Keys.CurrentWeatherInformationSource, null);
             }
             set {
-                UtilityMethods.Set<string>(Keys.CurrentWeatherInformationSource, value);
+                UtilityMethods.Set(Keys.CurrentWeatherInformationSource, value);
             }
         }
     }

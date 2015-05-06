@@ -4,6 +4,7 @@ using System;
 using System.Net.Http;
 using Windows.ApplicationModel.Email;
 using Windows.ApplicationModel.Store;
+using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
@@ -39,8 +40,36 @@ namespace StrikeDistance_WindowsPhone {
         }
 
         private void UpdateWeather() {
+            if (string.IsNullOrEmpty(Manager.csource)) {
+                TempBox.Text = Manager.Temp.ToString();
+                wLat.Text = "Unavailable";
+                wLon.Text = "Unavailable";
+                wEle.Text = "Unavailable";
+                wCnd.Text = "Unavailable";
+                wTmp.Text = "Unavailable";
+                wFlk.Text = "Unavailable";
+                wHmd.Text = "Unavailable";
+                wWdr.Text = "Unavailable";
+                wWsp.Text = "Unavailable";
+                wWgs.Text = "Unavailable";
+                wPsr.Text = "Unavailable";
+                return;
+            }
+            else if (info == null)
+                info = new WeatherInformation(Manager.csource);
             info.Update();
             TempBox.Text = info.Temperature.ToString();
+            wLat.Text = info.Latitude + "°";
+            wLon.Text = info.Longitude + "°";
+            wEle.Text = info.Elevation.ToString();
+            wCnd.Text = info.ConditionString;
+            wTmp.Text = info.Temperature + ((Manager.TempUnit == 0) ? " °F" : (Manager.TempUnit == 1) ? " °C" : "K");
+            wFlk.Text = info.FeelsLike + ((Manager.TempUnit == 0) ? " °F" : (Manager.TempUnit == 1) ? " °C" : "K");
+            wHmd.Text = info.Humidity;
+            wWdr.Text = info.WindDirection;
+            wWsp.Text = info.WindSpeed + ((Manager.SpeedUnit == 0) ? " MPH" : "KPH");
+            wWgs.Text = info.WindGustSpeed + ((Manager.SpeedUnit == 0) ? " MPH" : "KPH");
+            wPsr.Text = info.Pressure + ((Manager.PressureUnit == 0) ? " in" : " mb");
         }
 
         /// <summary>
@@ -55,12 +84,7 @@ namespace StrikeDistance_WindowsPhone {
             statusBar.BackgroundColor = (Application.Current.Resources["StrikeDistanceThemeBrush"] as SolidColorBrush).Color;
             statusBar.ForegroundColor = (Application.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
             TimeBox.Text = Manager.Time.ToString();
-            if ((bool)args.Parameter == true) {
-                info = new WeatherInformation(Manager.csource);
-                UpdateWeather();
-            }
-            else
-                TempBox.Text = Manager.Temp.ToString();
+            UpdateWeather();
             #region Events
             #region TempBox
             TempBox.GotFocus += (s, e) =>
@@ -224,12 +248,12 @@ namespace StrikeDistance_WindowsPhone {
 
         private async void AppsButton_Click(object sender, RoutedEventArgs e)
         {
-            await Windows.System.Launcher.LaunchUriAsync(new Uri("zune:search?publisher=Greg Whatley"));
+            await Launcher.LaunchUriAsync(new Uri("zune:search?publisher=Greg Whatley"));
         }
 
         private async void RateButton_Click(object sender, RoutedEventArgs e)
         {
-            await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + CurrentApp.AppId));
+            await Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + CurrentApp.AppId));
         }
 
         private async void ReportButton_Click(object sender, RoutedEventArgs e)
