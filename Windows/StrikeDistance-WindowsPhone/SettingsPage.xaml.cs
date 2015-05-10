@@ -30,8 +30,6 @@ namespace StrikeDistance_WindowsPhone {
             pressureUnit.SelectionChanged -= pressureUnit_SelectionChanged;
             autoGet.Checked -= autoGet_Checked;
             autoGet.Unchecked -= autoGet_Unchecked;
-            warnPolicy.Checked -= warnPolicy_Checked;
-            warnPolicy.Unchecked -= warnPolicy_Unchecked;
             verboseMode.Toggled -= verboseMode_Toggled;
             unitDetails.Checked -= unitDetails_Checked;
             unitDetails.Unchecked -= unitDetails_Unchecked;
@@ -45,7 +43,6 @@ namespace StrikeDistance_WindowsPhone {
             speedUnit.SelectedIndex = Manager.SpeedUnit;
             pressureUnit.SelectedIndex = Manager.PressureUnit;
             autoGet.IsChecked = Manager.AutoGet;
-            warnPolicy.IsChecked = Manager.WarnPolicy;
             verboseMode.IsOn = Manager.VerboseMode;
             if (verboseMode.IsOn) {
                 unitDetails.IsEnabled = true;
@@ -66,8 +63,6 @@ namespace StrikeDistance_WindowsPhone {
             pressureUnit.SelectionChanged += pressureUnit_SelectionChanged;
             autoGet.Checked += autoGet_Checked;
             autoGet.Unchecked += autoGet_Unchecked;
-            warnPolicy.Checked += warnPolicy_Checked;
-            warnPolicy.Unchecked += warnPolicy_Unchecked;
             verboseMode.Toggled += verboseMode_Toggled;
             unitDetails.Checked += unitDetails_Checked;
             unitDetails.Unchecked += unitDetails_Unchecked;
@@ -78,19 +73,19 @@ namespace StrikeDistance_WindowsPhone {
         }
 
         private void tempUnit_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            Manager.TempUnit = (int)((ComboBoxItem)tempUnit.SelectedItem).Tag;
+            Manager.TempUnit = tempUnit.SelectedIndex;
         }
 
         private void distUnit_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            Manager.DistUnit = (int)((ComboBoxItem)distUnit.SelectedItem).Tag;
+            Manager.DistUnit = distUnit.SelectedIndex;
         }
 
         private void speedUnit_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            Manager.SpeedUnit = (int)((ComboBoxItem)speedUnit.SelectedItem).Tag;
+            Manager.SpeedUnit = speedUnit.SelectedIndex;
         }
 
         private void pressureUnit_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            Manager.PressureUnit = (int)((ComboBoxItem)pressureUnit.SelectedItem).Tag;
+            Manager.PressureUnit = pressureUnit.SelectedIndex;
         }
 
         private void autoGet_Checked(object sender, RoutedEventArgs e) {
@@ -99,14 +94,6 @@ namespace StrikeDistance_WindowsPhone {
 
         private void autoGet_Unchecked(object sender, RoutedEventArgs e) {
             Manager.AutoGet = false;
-        }
-
-        private void warnPolicy_Unchecked(object sender, RoutedEventArgs e) {
-            Manager.WarnPolicy = false;
-        }
-
-        private void warnPolicy_Checked(object sender, RoutedEventArgs e) {
-            Manager.WarnPolicy = true;
         }
 
         private void verboseMode_Toggled(object sender, RoutedEventArgs e) {

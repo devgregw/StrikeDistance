@@ -7,9 +7,12 @@ using SDEngine;
 using Windows.UI.Popups;
 using System.Net.Http;
 using SDEngine.Exceptions;
+using System.Threading.Tasks;
+using SDEngine.Memory;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
+
+#pragma warning disable CS4014
 namespace StrikeDistance_WindowsPhone {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -33,47 +36,67 @@ namespace StrikeDistance_WindowsPhone {
             var sb = StatusBar.GetForCurrentView();
             sb.ForegroundColor = (Windows.UI.Xaml.Application.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
             ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
-            try
-            {
-                await Main.GetWeatherInformation(WUNDERGROUND_API_KEY);
-                Frame.Navigate(typeof(CalculatorPage));
+            int lc = SDEngine.Memory.Utility.UtilityMethods.Get("LaunchCount", 0);
+            SDEngine.Memory.Utility.UtilityMethods.Set("LaunchCount", lc + 1);
+            var con = lc == 5 || lc == 10;
+            try {
+                await Main.GetWeatherInformation(WUNDERGROUND_API_KEY, Manager.TempUnit, Manager.SpeedUnit, Manager.PressureUnit);
+                Frame.Navigate(typeof(CalculatorPage), con);
             }
             catch (NoConnectionException) {
-                new MessageDialog(
-                    "StrikeDistance could not connect to the weather server.\n\nStrikeDistance can and will continue, but some features that require Internet access may not work.\nStrikeDistance will use the most recent data instead.",
-                    "Error").ShowAsync();
-                Frame.Navigate(typeof(CalculatorPage));
-            }
-            catch (TooSoonException ex) {
-                new MessageDialog(
-                    string.Format("Because of the Weather Retrieval Frequency policy (read about it in Settings), StrikeDistance will not retrieve updated weather information at this time.\nWeather data was already retrieved {0} minutes ago, and the policy states weather data can be retrieved every 10 minutes.\nTry again in {1} minutes.\n\nStrikeDistance will use the most recent data instead for now.", ex.CurrentTime.Subtract(ex.PreviousTime).Minutes, 10 - ex.CurrentTime.Subtract(ex.PreviousTime).Minutes),
-                    "Weather Retrieval Frequency Policy").ShowAsync();
-                Frame.Navigate(typeof(CalculatorPage));
-            }
-            catch (Exception ex)
-            {
-                if (ex.GetType() == typeof(InvalidOperationException))
+                var t = new Task(() => {
                     new MessageDialog(
-                        string.Format(
-                            "StrikeDistance could not connect to the weather server.\n\nStrikeDistance can and will continue, but some features that require Internet access may not work.\n\n{0}\n{1}",
-                            ex.GetType().FullName,
-                            ex.Message),
+                        "StrikeDistance could not connect to the weather server.\n\nStrikeDistance can and will continue, but some features that require Internet access may not work.\nStrikeDistance will use the most recent data instead.",
                         "Error").ShowAsync();
-                else if (ex.GetType() == typeof(HttpRequestException))
-                    new MessageDialog(
-                        string.Format(
-                            "StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue, but some features that require Internet access may not work.\n\n{0}\n{1}",
-                            ex.GetType().FullName,
-                            ex.Message),
-                        "Error").ShowAsync();
-                else
-                    new MessageDialog(
-                        string.Format(
-                            "StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue.\n\n{0}\n{1}",
-                            ex.GetType().FullName,
-                            ex.Message),
-                        "Unexpected Error").ShowAsync();
-                Frame.Navigate(typeof(CalculatorPage));
+                });
+                t.ContinueWith((continuewith) => {
+                    Frame.Navigate(typeof(CalculatorPage), con);
+                });
+                t.Start();
+            }
+            catch (Exception ex) {
+                if (ex.GetType() == typeof(InvalidOperationException)) {
+                    var t = new Task(() => {
+                        new MessageDialog(
+                            string.Format(
+                                "StrikeDistance could not connect to the weather server.\n\nStrikeDistance can and will continue, but some features that require Internet access may not work.\n\n{0}\n{1}",
+                                ex.GetType().FullName,
+                                ex.Message),
+                            "Error").ShowAsync();
+                    });
+                    t.ContinueWith((continuewith) => {
+                        Frame.Navigate(typeof(CalculatorPage), con);
+                    });
+                    t.Start();
+                }
+                else if (ex.GetType() == typeof(HttpRequestException)) {
+                    var t = new Task(() => {
+                        new MessageDialog(
+                            string.Format(
+                                "StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue, but some features that require Internet access may not work.\n\n{0}\n{1}",
+                                ex.GetType().FullName,
+                                ex.Message),
+                            "Error").ShowAsync();
+                    });
+                    t.ContinueWith((continuewith) => {
+                        Frame.Navigate(typeof(CalculatorPage), con);
+                    });
+                    t.Start();
+                }
+                else {
+                    var t = new Task(() => {
+                        new MessageDialog(
+                            string.Format(
+                                "StrikeDistance encountered an error.\n\nStrikeDistance may be able to continue.\n\n{0}\n{1}",
+                                ex.GetType().FullName,
+                                ex.Message),
+                            "Unexpected Error").ShowAsync();
+                    });
+                    t.ContinueWith((continuewith) => {
+                        Frame.Navigate(typeof(CalculatorPage), con);
+                    });
+                    t.Start();
+                }
             }
         }
     }

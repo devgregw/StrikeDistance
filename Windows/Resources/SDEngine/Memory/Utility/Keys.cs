@@ -7,7 +7,6 @@
         public const string SpeedUnit = "SpeedUnit"; //Type: int
         public const string PressureUnit = "PressureUnit"; //Type: int
         public const string AutoGet = "AutoGet"; //Type: bool
-        public const string WarnPolicy = "WarnPolicy"; //Type: bool
         public const string VerboseMode = "VerboseMode"; //Type: bool
         public const string vbUnit = "VerboseModeUnitDetails"; //Type: bool
         public const string vbConv = "VerboseModeConvertionMath"; //Type: bool

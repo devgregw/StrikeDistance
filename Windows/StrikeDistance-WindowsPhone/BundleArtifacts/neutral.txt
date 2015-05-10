@@ -1,0 +1,4 @@
+MainPackage=C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Release\StrikeDistance-WindowsPhone_2.0.0.0_AnyCPU.appx
+SymbolPackage=C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\AppPackages\StrikeDistance-WindowsPhone_2.0.0.0_Test\StrikeDistance-WindowsPhone_2.0.0.0_AnyCPU.appxsym
+ResourcePack=C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Release\StrikeDistance-WindowsPhone_2.0.0.0_scale-100.appx
+ResourcePack=C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Release\StrikeDistance-WindowsPhone_2.0.0.0_scale-140.appx

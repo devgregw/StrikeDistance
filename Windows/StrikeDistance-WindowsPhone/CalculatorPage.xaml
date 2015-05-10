@@ -7,11 +7,8 @@
     mc:Ignorable="d">
     <Page.BottomAppBar>
         <CommandBar x:Name="ButtonBar" Background="{StaticResource StrikeDistanceThemeBrush}" Foreground="{StaticResource StrikeDistanceForegroundBrush}" BorderBrush="White">
-            <CommandBar.ContentTransitions>
-                <TransitionCollection/>
-            </CommandBar.ContentTransitions>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="ReportButton" Label="report a bug" Click="ReportButton_Click"/>
+                <AppBarButton x:Name="ReportButton" Label="send feedback" Click="ReportButton_Click"/>
                 <AppBarButton x:Name="SettingsButton" Label="settings" Click="SettingsButton_Click"/>
                 <AppBarButton x:Name="AboutButton" Label="about" Click="AboutButton_Click"/>
                 <AppBarButton x:Name="AppsButton" Label="more apps" Click="AppsButton_Click"/>
@@ -48,6 +45,7 @@
         <TextBlock Margin="0,208,0,0" TextWrapping="Wrap" Text="WEATHER OVERVIEW" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="{ThemeResource PhoneForegroundBrush}"/>
         <ScrollViewer Margin="10,232,10,0">
             <StackPanel>
+                <ProgressBar x:Name="weatherbar" IsIndeterminate="True" Margin="0" Foreground="{StaticResource StrikeDistanceThemeBrush}" Height="5" Visibility="Collapsed" Background="{StaticResource StrikeDistanceThemeBrush}"/>
                 <Grid>
                     <TextBlock Text="Latitude" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wLat" Text="latitude" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>

@@ -31,3 +31,4 @@ C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj
 C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\qualifiers.txt.intermediate
 C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\MultipleQualifiersPerDimensionFound.txt
 C:\Users\devgr\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\SDEngine.csprojResolveAssemblyReference.cache
+C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\obj\Release\SDEngine.csprojResolveAssemblyReference.cache

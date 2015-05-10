@@ -22,6 +22,9 @@
     <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\Resources\SDEngine\bin\Release\SDEngine.dll">
       <PackagePath>SDEngine.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\cc.png">
+      <PackagePath>Assets\cc.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\iTunesArtwork%402x.png">
       <PackagePath>Assets\iTunesArtwork%402x.png</PackagePath>
     </AppxPackagedFile>
@@ -106,8 +109,11 @@
       <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\wulogo.png">
-      <PackagePath>Assets\wulogo.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\Assets\wundergroundLogo_4c_rev.jpg">
+      <PackagePath>Assets\wundergroundLogo_4c_rev.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\StoreManifest.xml">
+      <PackagePath>StoreManifest.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\StrikeDistance-WindowsPhone.xr.xml">
       <PackagePath>StrikeDistance-WindowsPhone.xr.xml</PackagePath>

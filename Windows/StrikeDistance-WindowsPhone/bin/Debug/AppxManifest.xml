@@ -7,10 +7,10 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="9a4853bd-ebbe-4645-a2b8-2dda5c4931b4" Publisher="CN=Gregory" Version="1.0.0.0" ProcessorArchitecture="neutral" />
+  <Identity Name="9a4853bd-ebbe-4645-a2b8-2dda5c4931b4" Publisher="CN=Gregory" Version="2.0.0.0" ProcessorArchitecture="neutral" />
   <mp:PhoneIdentity PhoneProductId="9a4853bd-ebbe-4645-a2b8-2dda5c4931b4" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>StrikeDistance-WindowsPhone</DisplayName>
+    <DisplayName>StrikeDistance</DisplayName>
     <PublisherDisplayName>Greg Whatley</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>

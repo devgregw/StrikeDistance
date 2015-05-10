@@ -18,36 +18,32 @@
         </Grid>
         <ScrollViewer Margin="0,19,0,0">
             <StackPanel x:Name="ContentPanel">
-                <TextBlock Text="Units" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="32" FontWeight="Light" Margin="5,0"/>
+                <TextBlock Text="Units" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="32" FontWeight="Light" Margin="5,5,5,0"/>
                 <ComboBox x:Name="tempUnit" Header="Temperature Unit" Margin="5,0" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}">
-                    <ComboBoxItem Content="Fahrenheit (F)" Tag="0"/>
-                    <ComboBoxItem Content="Celsius (C)" Tag="1"/>
-                    <ComboBoxItem Content="Kelvin (K)" Tag="2"/>
+                    <ComboBoxItem Content="Fahrenheit (F)"/>
+                    <ComboBoxItem Content="Celsius (C)"/>
+                    <ComboBoxItem Content="Kelvin (K)"/>
                 </ComboBox>
                 <ComboBox x:Name="distUnit" Header="Distance Unit" Margin="5,0" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}">
-                    <ComboBoxItem Content="Feet and Miles (ft and mi)" Tag="0"/>
-                    <ComboBoxItem Content="Meters and Kilometers" Tag="1"/>
-                </ComboBox>
+                    <ComboBoxItem Content="Feet and Miles (ft and mi)"/>
+                    <ComboBoxItem Content="Meters and Kilometers (m and km)"/>
+                </ComboBox> 
                 <ComboBox x:Name="speedUnit" Header="Speed Unit" Margin="5,0" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}">
-                    <ComboBoxItem Content="Miles per Hour (MPH)" Tag="0"/>
-                    <ComboBoxItem Content="Kilometers per Hour (KPH)" Tag="1"/>
+                    <ComboBoxItem Content="Miles per Hour (MPH)"/>
+                    <ComboBoxItem Content="Kilometers per Hour (KPH)"/>
                 </ComboBox>
                 <ComboBox x:Name="pressureUnit" Header="Pressure Unit" Margin="5,0" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}">
-                    <ComboBoxItem Content="Inches (in)" Tag="0"/>
-                    <ComboBoxItem Content="Millibar (mb)" Tag="1"/>
+                    <ComboBoxItem Content="Inches (in)"/>
+                    <ComboBoxItem Content="Millibar (mb)"/>
                 </ComboBox>
+                <Grid Height="4" Margin="15" Background="#FF1F1F1F"/>
                 <TextBlock Text="Automatic Functions" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="32" FontWeight="Light" Margin="5,0"/>
                 <CheckBox x:Name="autoGet" Content="Get weather data on startup" IsChecked="True" HorizontalAlignment="Stretch" BorderBrush="{StaticResource StrikeDistanceThemeBrush}" Margin="5,0"/>
-                <TextBlock Text="To conserve StrikeDistance's per day and per hour limit, StrikeDistance will only get weather data on startup if at least 10 minutes has passed since the last retrieval and you may only use the location button on the main page every 5 minutes.  StrikeDistance reserves the right to change this policy without notice." TextWrapping="Wrap" FontSize="16" Margin="5,0"/>
-                <CheckBox x:Name="warnPolicy" IsChecked="True" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}" Margin="5,0" HorizontalAlignment="Stretch">
-                    <CheckBox.Content>
-                        <TextBlock Text="Warn we when weather data will not be retrieved due to the limit policy" TextWrapping="Wrap"/>
-                    </CheckBox.Content>
-                </CheckBox>
+                <Grid Height="4" Margin="15" Background="#FF1F1F1F"/>
                 <TextBlock Text="Verbose Mode" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="32" FontWeight="Light" Margin="5,0"/>
                 <ToggleSwitch x:Name="verboseMode" Foreground="White" Margin="5,0"/>
                 <CheckBox x:ConnectionId='1' x:Name="unitDetails" Content="Unit details" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}" Margin="5,0" HorizontalAlignment="Stretch"                              />
-                <CheckBox x:ConnectionId='2' x:Name="convMath" Content="Convertion math" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}" Margin="5,0" HorizontalAlignment="Stretch"                           />
+                <CheckBox x:ConnectionId='2' x:Name="convMath" Content="Conversion math" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}" Margin="5,0" HorizontalAlignment="Stretch"                           />
                 <CheckBox x:ConnectionId='3' x:Name="calcMath" Content="Calculation math" BorderBrush="{ThemeResource StrikeDistanceThemeBrush}" Margin="5,0" HorizontalAlignment="Stretch"                           />
             </StackPanel>
         </ScrollViewer>

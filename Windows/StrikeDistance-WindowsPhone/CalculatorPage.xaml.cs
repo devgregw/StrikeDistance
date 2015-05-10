@@ -2,6 +2,7 @@
 using SDEngine.Memory;
 using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Email;
 using Windows.ApplicationModel.Store;
 using Windows.System;
@@ -13,8 +14,9 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
+
+#pragma warning disable CS4014
 namespace StrikeDistance_WindowsPhone {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -39,6 +41,19 @@ namespace StrikeDistance_WindowsPhone {
             NavigationCacheMode = NavigationCacheMode.Required;
         }
 
+        private async Task Rate() {
+            await Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + CurrentApp.AppId));
+        }
+
+        private async Task SendFeedback() {
+            var m = new EmailMessage() {
+                Subject = "Feedback Submission (StrikeDistance)",
+                Body = ""
+            };
+            m.To.Add(new EmailRecipient("devgregw@outlook.com"));
+            await EmailManager.ShowComposeNewEmailAsync(m);
+        }
+
         private void UpdateWeather() {
             if (string.IsNullOrEmpty(Manager.csource)) {
                 TempBox.Text = Manager.Temp.ToString();
@@ -53,23 +68,29 @@ namespace StrikeDistance_WindowsPhone {
                 wWsp.Text = "Unavailable";
                 wWgs.Text = "Unavailable";
                 wPsr.Text = "Unavailable";
+                wViewOnWU.IsEnabled = false;
+                wViewHistoric.IsEnabled = false;
                 return;
             }
             else if (info == null)
-                info = new WeatherInformation(Manager.csource);
-            info.Update();
+                info = new WeatherInformation(Manager.csource, Manager.TempUnit, Manager.SpeedUnit, Manager.PressureUnit);
+            info.Update(Manager.TempUnit, Manager.SpeedUnit, Manager.PressureUnit);
+            wViewOnWU.IsEnabled = true;
+            wViewHistoric.IsEnabled = true;
             TempBox.Text = info.Temperature.ToString();
             wLat.Text = info.Latitude + "°";
             wLon.Text = info.Longitude + "°";
             wEle.Text = info.Elevation.ToString();
             wCnd.Text = info.ConditionString;
-            wTmp.Text = info.Temperature + ((Manager.TempUnit == 0) ? " °F" : (Manager.TempUnit == 1) ? " °C" : "K");
-            wFlk.Text = info.FeelsLike + ((Manager.TempUnit == 0) ? " °F" : (Manager.TempUnit == 1) ? " °C" : "K");
+            wTmp.Text = info.Temperature + ((Manager.TempUnit == 0) ? " °F" : (Manager.TempUnit == 1) ? " °C" : " K");
+            wFlk.Text = info.FeelsLike + ((Manager.TempUnit == 0) ? " °F" : (Manager.TempUnit == 1) ? " °C" : " K");
             wHmd.Text = info.Humidity;
             wWdr.Text = info.WindDirection;
-            wWsp.Text = info.WindSpeed + ((Manager.SpeedUnit == 0) ? " MPH" : "KPH");
-            wWgs.Text = info.WindGustSpeed + ((Manager.SpeedUnit == 0) ? " MPH" : "KPH");
+            wWsp.Text = info.WindSpeed + ((Manager.SpeedUnit == 0) ? " MPH" : " KPH");
+            wWgs.Text = info.WindGustSpeed + ((Manager.SpeedUnit == 0) ? " MPH" : " KPH");
             wPsr.Text = info.Pressure + ((Manager.PressureUnit == 0) ? " in" : " mb");
+            wViewOnWU.NavigateUri = info.ForecastUrl;
+            wViewHistoric.NavigateUri = info.HistoryUrl;
         }
 
         /// <summary>
@@ -77,7 +98,7 @@ namespace StrikeDistance_WindowsPhone {
         /// </summary>
         /// <param name="e">Event data that describes how this page was reached.
         /// This parameter is typically used to configure the page.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs args)
+        protected override async void OnNavigatedTo(NavigationEventArgs args)
         {
             ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseVisible);
             statusBar.BackgroundOpacity = 1.0;
@@ -85,6 +106,50 @@ namespace StrikeDistance_WindowsPhone {
             statusBar.ForegroundColor = (Application.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
             TimeBox.Text = Manager.Time.ToString();
             UpdateWeather();
+            if (args.Parameter != null && args.NavigationMode == NavigationMode.New) {
+                if ((bool)args.Parameter == true) {
+                    var dlg = new ContentDialog() {
+                        Title = "Help Improve StrikeDistance",
+                        Content = new TextBlock() {
+                            Text = "You've used StrikeDistance for awhile now, and I'd like to ask if you could rate my app and/or send feedback to me.  Reviews and feedback will help StrikeDistance improve.",
+                            TextWrapping = TextWrapping.WrapWholeWords
+                        },
+                        PrimaryButtonText = "Sure!",
+                        SecondaryButtonText = "No thanks"
+                    };
+                    dlg.PrimaryButtonClick += async (s, e) => {
+                        await Rate();
+                        var dlg2 = new ContentDialog() {
+                            Title = "Help Improve StrikeDistance",
+                            Content = new TextBlock() {
+                                Text = "Would you like to send feedback too?  This is done via email.",
+                                TextWrapping = TextWrapping.WrapWholeWords
+                            },
+                            PrimaryButtonText = "Okay",
+                            SecondaryButtonText = "No thanks"
+                        };
+                        dlg2.PrimaryButtonClick += async (s2, e2) => {
+                            await SendFeedback();
+                        };
+                        await dlg2.ShowAsync();
+                    };
+                    dlg.SecondaryButtonClick += (s, e) => {
+                        var dlg2 = new ContentDialog() {
+                            Title = "Help Improve StrikeDistance",
+                            Content = new TextBlock() {
+                                Text = "Would you like to send feedback instead?  This is done via email.",
+                                TextWrapping = TextWrapping.WrapWholeWords
+                            },
+                            PrimaryButtonText = "Okay",
+                            SecondaryButtonText = "No thanks"
+                        };
+                        dlg2.PrimaryButtonClick += async (s2, e2) => {
+                            await SendFeedback();
+                        };
+                    };
+                    await dlg.ShowAsync();
+                }
+            }
             #region Events
             #region TempBox
             TempBox.GotFocus += (s, e) =>
@@ -156,7 +221,11 @@ namespace StrikeDistance_WindowsPhone {
                 InvertButton.IsEnabled = false;
                 LocationButton.IsEnabled = false;
                 statusBar.ProgressIndicator.Text = "Getting weather data...";
-                info = await Main.GetWeatherInformation(WUNDERGROUND_API_KEY);
+                weatherbar.Visibility = Visibility.Visible;
+                wViewOnWU.IsEnabled = false;
+                wViewHistoric.IsEnabled = false;
+                info = await Main.GetWeatherInformation(WUNDERGROUND_API_KEY, Manager.TempUnit, Manager.SpeedUnit, Manager.PressureUnit);
+                weatherbar.Visibility = Visibility.Collapsed;
                 UpdateWeather();
                 await statusBar.ProgressIndicator.HideAsync();
                 LocationButton.IsEnabled = true;
@@ -253,18 +322,12 @@ namespace StrikeDistance_WindowsPhone {
 
         private async void RateButton_Click(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("ms-windows-store:reviewapp?appid=" + CurrentApp.AppId));
+            await Rate();
         }
 
         private async void ReportButton_Click(object sender, RoutedEventArgs e)
         {
-            var m = new EmailMessage()
-            {
-                Subject = "Bug Report (StrikeDistance)",
-                Body = string.Format("Please describe the bug, what you were doing when it occurred, and any extra details you may have:  \n\nWhat device do you have?:  \n\nWhat version of Windows Phone are you using (most likely 8.1)?:  \n\nThis information will be used to improve StrikeDistance.  Thank you for helping make StrikeDistance better!")
-            };
-            m.To.Add(new EmailRecipient("devgregw@outlook.com"));
-            await EmailManager.ShowComposeNewEmailAsync(m);
+            await SendFeedback();
         }
     }
 }

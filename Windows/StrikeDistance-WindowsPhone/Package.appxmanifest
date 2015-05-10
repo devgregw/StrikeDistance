@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="9a4853bd-ebbe-4645-a2b8-2dda5c4931b4" Publisher="CN=Gregory" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="9a4853bd-ebbe-4645-a2b8-2dda5c4931b4" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="8830TechPerson32.StrikeDistance" Publisher="CN=4282E973-60A6-4648-8237-09672F1DDD11" Version="2.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="28f403fb-28e0-42e0-86d5-8d01f0989172" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>StrikeDistance-WindowsPhone</DisplayName>
+    <DisplayName>StrikeDistance</DisplayName>
     <PublisherDisplayName>Greg Whatley</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>

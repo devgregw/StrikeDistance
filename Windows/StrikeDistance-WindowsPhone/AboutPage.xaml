@@ -16,7 +16,10 @@
         <Grid VerticalAlignment="Top" Background="{StaticResource StrikeDistanceThemeBrush}" Height="46" Margin="0,-27,0,0">
             <TextBlock TextWrapping="Wrap" FontWeight="Black" FontSize="18" Text="ABOUT" Foreground="{StaticResource StrikeDistanceForegroundBrush}" Margin="0,0,276,0" VerticalAlignment="Bottom"/>
         </Grid>
-        <StackPanel Orientation="Horizontal" Margin="0,19,0,0" VerticalAlignment="Top" Background="{ThemeResource PhoneChromeBrush}">
+        <StackPanel Orientation="Horizontal" Margin="0,19,0,0" VerticalAlignment="Top">
+            <StackPanel.Background>
+                <SolidColorBrush Color="#FF1F1F1F"/>
+            </StackPanel.Background>
             <Image Source="Assets/iTunesArtwork@2x.png" HorizontalAlignment="Left" Width="80"/>
             <StackPanel HorizontalAlignment="Right" Width="309" Margin="5,0,0,0">
                 <TextBlock Text="StrikeDistance" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>
@@ -28,20 +31,24 @@
             </StackPanel>
         </StackPanel>
         <ScrollViewer Background="Black" Margin="0,99,0,0">
-            <StackPanel Margin="0,0,0,0">
+            <StackPanel Margin="5,0">
                 <WebView x:Name="web" Width="0" Height="0" Source="http://localhost" DefaultBackgroundColor="{ThemeResource PhonePageBackgroundColor}" NavigationCompleted="web_NavigationCompleted"/>
-                <TextBlock Text="Description" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>
-                <TextBlock Foreground="White" Text="StrikeDistance is a simple calculator app that determines the distance between you and a lightning strike.  All it needs to know is the temperature and the time between the flash and boom.  StrikeDistance uses two algebraic formulas to get the distance.  Plus, the included unit converters allow you to see that information in miles, or give the temperature in Fahrenheit.  You can choose each unit, so you don't have to use either the English system or the Metric system.  Additionally, the stopwatch helps you accurately count the time, and then, automatically inserts it into the appropriate field when done." TextWrapping="Wrap" FontSize="18.667"/>
+                <TextBlock Text="Description" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}" Margin="0,5,0,0"/>
+                <TextBlock Foreground="White" Text="StrikeDistance is a calculator that determines the distance between you and a lightning strike.  Using scientific and algebraic formulas, StrikeDistance accurately yet quickly figures out the result.  Also, StrikeDistance doesn't lock you in by using only the Metric or Imperial Systems; instead, it provides the ability to mix and match supported temperature, distance, speed, and pressure units to create an experience that is easy to understand.  However, what if you want to get as many details as possible (for you meteorologists)?  Well, flip on 'Verbose Mode' to see data from chosen units and conversion and calculation math.  Best of all, with StrikeDistance 2.0, you can now use your geolocation to get precise weather data to see at a glimpse (provided by Weather Underground).  With all of this, StrikeDistance creates a unique and fun way to see how far away that burst of light struck." TextWrapping="Wrap" FontSize="18.667"/>
+                <Grid Height="4" Margin="15" Background="#FF1F1F1F"/>
                 <TextBlock Text="Quick Links" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>
                 <HyperlinkButton Content="Project page" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://greg.whatleycomputerservices.com/StrikeDistance" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 <HyperlinkButton Content="Source code" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://github.com/devgregw/StrikeDistance" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 <HyperlinkButton x:Name="raindrop" Content="Help send a raindrop" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" Click="raindrop_Click" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 <TextBlock Foreground="White" Text="If StrikeDistance goes over Weather Underground's set usage limit, raindrops will cover it for me.  Weather Underground gives me one raindrop every week, but for every 2,500 clicks, they will give me one more.  Remember, if StrikeDistance exceeds their limit and I'm out of raindrops, StrikeDistance may fail to function.  StrikeDistance currently has a 500 call per day and a 10 call per minute limit." TextWrapping="Wrap" FontSize="18.667"/>
+                <Grid Height="4" Margin="15" Background="#FF1F1F1F"/>
                 <TextBlock Text="License" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>
                 <TextBlock Foreground="White" Text="StrikeDistance by Greg Whatley is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License" FontSize="18.667" TextWrapping="Wrap"/>
-                <TextBlock Text="Creative Commons BY-NC-ND 4.0" FontSize="16" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>
+                <Image Source="Assets/cc.png" HorizontalAlignment="Left" Stretch="None"/>
+                <TextBlock Text="Creative Commons BY-NC-ND 4.0" FontSize="16" Foreground="{ThemeResource PhoneLowBrush}"/>
                 <HyperlinkButton Content="Read the license" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://creativecommons.org/licenses/by-nc-nd/4.0/" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
-                <TextBlock Text="Acknowledgements" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>
+                <Grid Height="4" Margin="15" Background="#FF1F1F1F"/>
+                <TextBlock Text="Acknowledgments" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Foreground="White" Text="Designed and coded by" FontSize="18.667"/>
                     <TextBlock Text=" Greg Whatley" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="18.667"/>
@@ -51,9 +58,9 @@
                     <TextBlock Foreground="White" Text="Weather data by" FontSize="18.667"/>
                     <TextBlock Text=" Weather Underground" Foreground="{ThemeResource StrikeDistanceThemeBrush}" FontSize="18.667"/>
                 </StackPanel>
-                <Image Source="Assets/wulogo.png" Stretch="None" HorizontalAlignment="Left"/>
+                <Image Source="Assets/wundergroundLogo_4c_rev.jpg" HorizontalAlignment="Left" Stretch="None"/>
                 <HyperlinkButton Content="Website" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://www.wunderground.com/?apiref=ddc7474baa78cc4d" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
-                <HyperlinkButton Content="Terms of service" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://www.wunderground.com/members/tos.asp" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
+                <HyperlinkButton Content="Terms of service" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://www.wunderground.com/members/tos.asp" Foreground="{StaticResource StrikeDistanceThemeBrush}" Margin="0,0,0,15"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

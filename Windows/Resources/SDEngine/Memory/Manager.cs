@@ -67,15 +67,6 @@ namespace SDEngine.Memory {
             }
         }
         
-        public static bool WarnPolicy {
-            get {
-                return UtilityMethods.Get(Keys.WarnPolicy, true);
-            }
-            set {
-                UtilityMethods.Set(Keys.WarnPolicy, value);
-            }
-        }
-        
         public static bool VerboseMode {
             get {
                 return UtilityMethods.Get(Keys.VerboseMode, false);

@@ -12,7 +12,6 @@ C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windo
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\SDEngine.dll
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\SDEngine.pdb
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\bin\Debug\SDEngine.pri
-C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\StrikeDistance-WindowsPhone.csprojResolveAssemblyReference.cache
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\App.g.i.cs
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\App.g.cs
 C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\AboutPage.g.i.cs

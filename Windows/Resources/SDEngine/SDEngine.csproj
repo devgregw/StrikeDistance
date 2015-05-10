@@ -51,7 +51,6 @@
     <Compile Include="Convertions\Enumerations\DistanceUnit.cs" />
     <Compile Include="Convertions\Enumerations\TemperatureUnit.cs" />
     <Compile Include="Exceptions\NoConnectionException.cs" />
-    <Compile Include="Exceptions\TooSoonException.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Memory\Manager.cs" />
     <Compile Include="Memory\Utility\Keys.cs" />

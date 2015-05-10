@@ -61,17 +61,17 @@ namespace SDEngine {
             get; internal set;
         }
 
-        public void Update() {
+        public void Update(int tempUnit, int speedUnit, int psrUnit) {
             XElement root = sourceDocument.Element("response"),
                      observation = root.Element("current_observation"),
                      location = observation.Element("display_location");
-            Temperature = (Manager.TempUnit == 0) ?
+            Temperature = (tempUnit == 0) ?
                 Math.Round(
                     double.Parse(
                         observation.Element(
                             "temp_f").Value),
                     2) :
-                (Manager.TempUnit == 1) ?
+                (tempUnit == 1) ?
                     Math.Round(
                         double.Parse(
                             observation.Element(
@@ -85,13 +85,13 @@ namespace SDEngine {
                                 observation.Element(
                                     "temp_c").Value)),
                         2);
-            FeelsLike = (Manager.TempUnit == 0) ?
+            FeelsLike = (tempUnit == 0) ?
                 Math.Round(
                     double.Parse(
                         observation.Element(
                             "feelslike_f").Value),
                     2) :
-                (Manager.TempUnit == 1) ?
+                (tempUnit == 1) ?
                     Math.Round(
                         double.Parse(
                             observation.Element(
@@ -105,7 +105,7 @@ namespace SDEngine {
                                 observation.Element(
                                     "feelslike_c").Value)),
                         2);
-            WindSpeed = (Manager.SpeedUnit == 0) ?
+            WindSpeed = (speedUnit == 0) ?
                 Math.Round(
                     double.Parse(
                         observation.Element(
@@ -116,7 +116,7 @@ namespace SDEngine {
                         observation.Element(
                             "wind_kph").Value),
                     2);
-            WindGustSpeed = (Manager.SpeedUnit == 0) ?
+            WindGustSpeed = (speedUnit == 0) ?
                 Math.Round(
                     double.Parse(
                         observation.Element(
@@ -127,7 +127,7 @@ namespace SDEngine {
                         observation.Element(
                             "wind_gust_kph").Value),
                     2);
-            Pressure = (Manager.PressureUnit == 0) ?
+            Pressure = (psrUnit == 0) ?
                 Math.Round(
                     double.Parse(
                         observation.Element(
@@ -141,7 +141,7 @@ namespace SDEngine {
             Manager.Temp = Temperature;
         }
 
-        public WeatherInformation(string xml) {
+        public WeatherInformation(string xml, int tempUnit, int speedUnit, int psrUnit) {
             sourceDocument = XDocument.Parse(xml);
             XElement root = sourceDocument.Element("response"),
                      observation = root.Element("current_observation"),
@@ -163,13 +163,13 @@ namespace SDEngine {
                 2);
             ConditionString = observation.Element("weather").Value;
             Debug.WriteLine("Temperature");
-            Temperature = (Manager.TempUnit == 0) ?
+            Temperature = (tempUnit == 0) ?
                 Math.Round(
                     double.Parse(
                         observation.Element(
                             "temp_f").Value),
                     2) :
-                (Manager.TempUnit == 1) ?
+                (tempUnit == 1) ?
                     Math.Round(
                         double.Parse(
                             observation.Element(
@@ -184,13 +184,13 @@ namespace SDEngine {
                                     "temp_c").Value)),
                         2);
             Debug.WriteLine("FeelsLike");
-            FeelsLike = (Manager.TempUnit == 0) ?
+            FeelsLike = (tempUnit == 0) ?
                 Math.Round(
                     double.Parse(
                         observation.Element(
                             "feelslike_f").Value),
                     2) :
-                (Manager.TempUnit == 1) ?
+                (tempUnit == 1) ?
                     Math.Round(
                         double.Parse(
                             observation.Element(
@@ -207,7 +207,7 @@ namespace SDEngine {
             Humidity = observation.Element("relative_humidity").Value;
             WindDirection = observation.Element("wind_dir").Value;
             Debug.WriteLine("WindSpeed");
-            WindSpeed = (Manager.SpeedUnit == 0) ?
+            WindSpeed = (speedUnit == 0) ?
                 Math.Round(
                     double.Parse(
                         observation.Element(
@@ -219,7 +219,7 @@ namespace SDEngine {
                             "wind_kph").Value),
                     2);
             Debug.WriteLine("WindGustSpeed");
-            WindGustSpeed = (Manager.SpeedUnit == 0) ?
+            WindGustSpeed = (speedUnit == 0) ?
                 Math.Round(
                     double.Parse(
                         observation.Element(
@@ -231,7 +231,7 @@ namespace SDEngine {
                             "wind_gust_kph").Value),
                     2);
             Debug.WriteLine("Pressure");
-            Pressure = (Manager.PressureUnit == 0) ?
+            Pressure = (psrUnit == 0) ?
                 Math.Round(
                     double.Parse(
                         observation.Element(

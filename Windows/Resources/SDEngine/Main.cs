@@ -169,48 +169,26 @@ namespace SDEngine {
             bool internet = connections != null && connections.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
             return internet;
         }
-        
-        internal static bool CheckTime(int Minutes) {
-            return DateTime.Now.Subtract(
-                DateTime.ParseExact(Memory.Utility.UtilityMethods.Get(
-                    "retrievalTime",
-                    DateTime.MinValue.ToString("MM-dd-yyyy")), "MM-dd-yyyy", null)).Minutes >= Minutes;
-        }
 
-        internal static void SetTime(DateTime t) {
-            Memory.Utility.UtilityMethods.Set("retrievalTime", t.ToString("MM-dd-yyyy"));
-        }
-
-        public static async Task<WeatherInformation> GetWeatherInformation(string wukey) {
-            if (CheckTime(10) || Debugger.IsAttached || Manager.csource == null) {
-                if (CheckConnection()) {
-                    Geolocator Locator = new Geolocator();
-                    Geoposition Position = await Locator.GetGeopositionAsync();
-                    Geocoordinate Coordinate = Position.Coordinate;
-                    HttpClient Client = new HttpClient();
-                    if (!Debugger.IsAttached)
-                        SetTime(DateTime.Now);
-                    return new WeatherInformation(
-                        await Client.GetStringAsync(
-                            new Uri(
-                                string.Format(
-                                    "http://api.wunderground.com/api/{0}/conditions/q/{1},{2}.xml",
-                                    wukey,
-                                    Math.Round(Coordinate.Point.Position.Latitude, 3),
-                                    Math.Round(Coordinate.Point.Position.Longitude, 3)),
-                                    UriKind.Absolute)));
+        public static async Task<WeatherInformation> GetWeatherInformation(string wukey, int tempUnit, int speedUnit, int psrUnit) {
+            if (CheckConnection()) {
+                Geolocator Locator = new Geolocator();
+                Geoposition Position = await Locator.GetGeopositionAsync();
+                Geocoordinate Coordinate = Position.Coordinate;
+                HttpClient Client = new HttpClient();
+                return new WeatherInformation(
+                    await Client.GetStringAsync(
+                        new Uri(
+                            string.Format(
+                                "http://api.wunderground.com/api/{0}/conditions/q/{1},{2}.xml",
+                                wukey,
+                                Math.Round(Coordinate.Point.Position.Latitude, 3),
+                                Math.Round(Coordinate.Point.Position.Longitude, 3)),
+                                UriKind.Absolute)), tempUnit, speedUnit, psrUnit);
                 }
                 else {
                     throw new NoConnectionException();
                 }
             }
-            else {
-                throw new TooSoonException(
-                    10,
-                    DateTime.ParseExact(Memory.Utility.UtilityMethods.Get(
-                        "retrievalTime",
-                        DateTime.MinValue.ToString("MM-dd-yyyy")), "MM-dd-yyyy", null));
-            }
         }
     }
-}

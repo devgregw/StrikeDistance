@@ -1,3 +1,4 @@
+Assets\cc.png
 Assets\iTunesArtwork@2x.png
 Assets\Logo.scale-100.png
 Assets\Logo.scale-140.png
@@ -20,10 +21,11 @@ Assets\StoreLogo.scale-240.png
 Assets\WideLogo.scale-100.png
 Assets\WideLogo.scale-140.png
 Assets\WideLogo.scale-240.png
-Assets\wulogo.png
+Assets\wundergroundLogo_4c_rev.jpg
 AboutPage.xbf
 App.xbf
 CalculatorPage.xbf
 LoadingPage.xbf
 SettingsPage.xbf
 StrikeDistance-WindowsPhone.xr.xml
+StoreManifest.xml

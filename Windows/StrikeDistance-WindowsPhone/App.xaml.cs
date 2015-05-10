@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SDEngine.Memory;
+using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Phone.UI.Input;
@@ -72,9 +73,17 @@ namespace StrikeDistance_WindowsPhone
                 }
                 rootFrame.ContentTransitions = null;
                 rootFrame.Navigated += RootFrame_FirstNavigated;
-                if (!rootFrame.Navigate(typeof(LoadingPage), e.Arguments))
-                {
-                    throw new Exception("Failed to create initial page");
+                if (!Manager.AutoGet) {
+                    int lc = SDEngine.Memory.Utility.UtilityMethods.Get("LaunchCount", 0);
+                    SDEngine.Memory.Utility.UtilityMethods.Set("LaunchCount", lc + 1);
+                    if (!rootFrame.Navigate(typeof(CalculatorPage), (lc == 5 || lc == 10))) {
+                        throw new Exception("Failed to create initial page");
+                    }
+                }
+                else {
+                    if (!rootFrame.Navigate(typeof(LoadingPage), e.Arguments)) {
+                        throw new Exception("Failed to create initial page");
+                    }
                 }
             }
             Window.Current.Activate();
