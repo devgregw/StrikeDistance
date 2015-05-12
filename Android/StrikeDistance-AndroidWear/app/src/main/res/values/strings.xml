@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">StrikeDistance</string>
+    <string name="header1">Outside Temperature</string>
+    <string name="action1_1">Use my location</string>
+    <string name="header2">Time Between Flash and Boom</string>
+    <string name="calculateButton">Calculate</string>
+</resources>

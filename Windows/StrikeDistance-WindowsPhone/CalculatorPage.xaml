@@ -28,7 +28,7 @@
             <SolidColorBrush Color="Black"/>
         </Grid.Background>
         <Grid VerticalAlignment="Top" Background="{StaticResource StrikeDistanceThemeBrush}" Height="46" Margin="0,-27,0,0">
-            <TextBlock TextWrapping="Wrap" FontWeight="Black" FontSize="18" Text="CALCULATOR" Foreground="{StaticResource StrikeDistanceForegroundBrush}" Margin="0,0,276,0" VerticalAlignment="Bottom"/>
+            <TextBlock TextWrapping="Wrap" FontWeight="Black" FontSize="18" Text="CALCULATOR" Foreground="{StaticResource StrikeDistanceForegroundBrush}" VerticalAlignment="Bottom"/>
         </Grid>
         <TextBlock Margin="0,27,0,0" TextWrapping="Wrap" Text="OUTSIDE TEMPERATURE" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="{ThemeResource PhoneForegroundBrush}"/>
         <TextBox x:Name="TempBox" Margin="10,56,153,0" TextWrapping="Wrap" VerticalAlignment="Top" InputScope="Number" IsTextPredictionEnabled="False" PlaceholderText="please wait" Text="0" TabIndex="1" TabNavigation="Once" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}" Background="{ThemeResource TextBoxBackgroundThemeBrush}" BorderBrush="{ThemeResource TextBoxBorderThemeBrush}"/>

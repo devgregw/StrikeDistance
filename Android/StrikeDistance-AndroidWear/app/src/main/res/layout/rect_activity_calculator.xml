@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical"
+    tools:context=".CalculatorActivity" tools:deviceIds="wear_square"
+    android:background="@color/backgroundColor">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/header1"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="true"
+        android:text="0.0"
+        android:longClickable="true"
+        android:lines="1"
+        android:enabled="true"
+        android:editable="true"
+        android:backgroundTint="@color/themeColor" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/header2"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:singleLine="false"
+        android:password="false"
+        android:phoneNumber="false"
+        android:gravity="center"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_gravity="center_horizontal"
+        android:text="0.0"
+        android:backgroundTint="@color/themeColor" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calculateButton"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/themeColor"
+        android:textColor="@color/backgroundColor"
+        android:clickable="true" />
+
+</LinearLayout>
