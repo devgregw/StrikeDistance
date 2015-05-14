@@ -6,5 +6,13 @@
     <string name="resultMessageFormat" formatted="false">The lightning struck approximately %s %s away.</string>
     <string name="action_calculate">Calculate</string>
     <string name="action_clear">Clear</string>
+    <string name="header1">Outside Temperature</string>
+    <string name="action1_2">+/-</string>
+    <string name="action1_1">Use my location</string>
+    <string name="header2">Time Between Flash and Boom</string>
+    <string name="action2_2">Reset</string>
+    <string name="action2_1">Stopwatch</string>
+    <string name="action_feedback">Send feedback</string>
+    <string name="header3">Weather Overview</string>
 
 </resources>
