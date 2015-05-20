@@ -14,5 +14,19 @@
     <string name="action2_1">Stopwatch</string>
     <string name="action_feedback">Send feedback</string>
     <string name="header3">Weather Overview</string>
-
+    <string name="emptyField">0.0</string>
+	<string name="latitude">Latitude</string>
+	<string name="longitude">Longitude</string>
+	<string name="elevation">Elevation</string>
+	<string name="conditions">Conditions</string>
+	<string name="temperature">Temperature</string>
+	<string name="feelslike">Feels like</string>
+	<string name="humidity">Humidity</string>
+	<string name="winddirection">Wind direction</string>
+	<string name="windspeed">Wind speed</string>
+	<string name="windgustspeed">Wind gust speed</string>
+	<string name="pressure">Pressure</string>
+	<string name="viewOnWU">View on Wunderground</string>
+	<string name="viewHistorical">View historical weather</string>
+	<string name="resultMessagePositiveButton">Close</string>
 </resources>

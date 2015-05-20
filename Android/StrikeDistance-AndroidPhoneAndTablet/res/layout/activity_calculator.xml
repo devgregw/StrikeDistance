@@ -13,8 +13,8 @@
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:text="@string/header1"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -25,15 +25,16 @@
         android:id="@+id/temperatureBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/textView1"
         android:layout_toLeftOf="@+id/action1_1"
+        android:layout_toSTartOf="@+id/action1_1"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:text="0.0"
-        android:textColor="@color/white" >
+        android:text="@string/emptyField"
+        android:textColor="@color/white"
+        tools:ignore="LabelFor" >
 
-        <requestFocus />
     </EditText>
 
     <Button
@@ -42,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/temperatureBox"
-        android:layout_alignRight="@+id/textView1"
+        android:layout_alignEnd="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:text="@string/action1_2"
         android:textColor="@color/white" />
@@ -54,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/temperatureBox"
         android:layout_alignTop="@+id/temperatureBox"
-        android:layout_toLeftOf="@+id/action1_2"
+        android:layout_toStartOf="@+id/action1_2"
         android:text="@string/action1_1"
         android:textColor="@color/white" />
 
@@ -62,7 +63,7 @@
         android:id="@+id/TextView01"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/temperatureBox"
+        android:layout_alignStart="@+id/temperatureBox"
         android:layout_below="@+id/temperatureBox"
         android:gravity="center"
         android:text="@string/header2"
@@ -70,47 +71,36 @@
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/Button01"
+        android:id="@+id/action2_2"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/EditText01"
-        android:layout_alignRight="@+id/TextView01"
+        android:layout_alignEnd="@+id/TextView01"
         android:layout_alignTop="@+id/EditText01"
         android:text="@string/action2_2"
         android:textColor="@color/white" />
-
-    <ToggleButton
-        android:id="@+id/toggleButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/Button01"
-        android:layout_alignTop="@+id/EditText01"
-        android:layout_toLeftOf="@+id/Button01"
-        android:text="@string/action2_1"
-        android:textColor="@color/white"
-        android:textOff="@string/action2_1"
-        android:textOn="@string/action2_1" />
 
     <EditText
         android:id="@+id/EditText01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView01"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/TextView01"
-        android:layout_toLeftOf="@+id/toggleButton1"
+        android:layout_toStartOf="@+id/toggleButton1"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:text="0.0"
-        android:textColor="@color/white" />
+        android:text="@string/emptyField"
+        android:textColor="@color/white"
+        tools:ignore="labelFor" />
 
     <TextView
         android:id="@+id/TextView02"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/EditText01"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/Button01"
+        android:layout_alignStart="@+id/EditText01"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/EditText01"
         android:gravity="center"
         android:text="@string/header3"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -120,35 +110,265 @@
         android:id="@+id/scrollView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView02"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/TextView02" >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="64dp" >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/item1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:text="Medium Text"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:text="@string/latitude"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/latitiude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:text="Medium Text"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:text="@string/latitude"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
+
+            <TextView
+                android:id="@+id/item2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item1"
+                android:text="@string/longitude"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
+            
+            <TextView
+                android:id="@+id/item3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item2"
+                android:text="@string/elevation"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
+            
+            <TextView
+                android:id="@+id/item4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item3"
+                android:text="@string/conditions"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
+            
+            <TextView
+                android:id="@+id/item5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item4"
+                android:text="@string/temperature"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/item4"
+                android:text="@string/temperature"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
+
+            <TextView
+                android:id="@+id/conditions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/item3"
+                android:text="@string/conditions"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
+
+            <TextView
+                android:id="@+id/elevation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/item2"
+                android:text="@string/elevation"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
+
+            <TextView
+                android:id="@+id/longitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/latitiude"
+                android:text="@string/longitude"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
+            
+            <TextView
+                android:id="@+id/item6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item5"
+                android:text="@string/feelslike"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/feelslike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/temperature"
+                android:text="@string/feelslike"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
+            
+            <TextView
+                android:id="@+id/item7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item6"
+                android:text="@string/humidity"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/feelslike"
+                android:text="@string/humidity"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
+            
+            <TextView
+                android:id="@+id/item8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item7"
+                android:text="@string/winddirection"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
+            
+            <TextView
+                android:id="@+id/item9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item8"
+                android:text="@string/windspeed"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/windspeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/winddirection"
+                android:text="@string/windspeed"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
+            
+            <TextView
+                android:id="@+id/item10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item9"
+                android:text="@string/windgustspeed"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/windgustspeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/windspeed"
+                android:text="@string/windgustspeed"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
+            
+            <TextView
+                android:id="@+id/item11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/item10"
+                android:text="@string/pressure"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/windgustspeed"
+                android:text="@string/pressure"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
+            
+            <Button
+                android:id="@+id/viewOnWU"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item11"
+                android:text="@string/viewOnWU"
+                android:textColor="@color/white" />
+            
+            <Button
+                android:id="@+id/viewHistorical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewOnWU"
+                android:text="@string/viewHistorical"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/winddirection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/humidity"
+                android:text="@string/winddirection"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/StrikeDistanceTheme" />
 
         </RelativeLayout>
 
     </ScrollView>
+
+    <ToggleButton
+        android:id="@+id/toggleButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/action2_2"
+        android:layout_alignTop="@+id/action2_2"
+        android:layout_toStartOf="@+id/action2_2"
+        android:text="@string/action2_1"
+        android:textColor="@color/white"
+        android:textOff="@string/action2_1"
+        android:textOn="@string/action2_1" />
     
 </RelativeLayout>
