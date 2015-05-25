@@ -1,6 +1,7 @@
 ﻿using SDEngine;
 using SDEngine.Memory;
 using System;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Email;
@@ -109,7 +110,7 @@ namespace StrikeDistance_WindowsPhone {
             if (args.Parameter != null && args.NavigationMode == NavigationMode.New) {
                 if ((bool)args.Parameter == true) {
                     var dlg = new ContentDialog() {
-                        Title = "Help Improve StrikeDistance",
+                        Title = "Help improve StrikeDistance?",
                         Content = new TextBlock() {
                             Text = "You've used StrikeDistance for awhile now, and I'd like to ask if you could rate my app and/or send feedback to me.  Reviews and feedback will help StrikeDistance improve.",
                             TextWrapping = TextWrapping.WrapWholeWords
@@ -120,7 +121,7 @@ namespace StrikeDistance_WindowsPhone {
                     dlg.PrimaryButtonClick += async (s, e) => {
                         await Rate();
                         var dlg2 = new ContentDialog() {
-                            Title = "Help Improve StrikeDistance",
+                            Title = "One more thing...",
                             Content = new TextBlock() {
                                 Text = "Would you like to send feedback too?  This is done via email.",
                                 TextWrapping = TextWrapping.WrapWholeWords
@@ -135,7 +136,7 @@ namespace StrikeDistance_WindowsPhone {
                     };
                     dlg.SecondaryButtonClick += (s, e) => {
                         var dlg2 = new ContentDialog() {
-                            Title = "Help Improve StrikeDistance",
+                            Title = "What about this?",
                             Content = new TextBlock() {
                                 Text = "Would you like to send feedback instead?  This is done via email.",
                                 TextWrapping = TextWrapping.WrapWholeWords

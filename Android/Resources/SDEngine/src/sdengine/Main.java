@@ -145,28 +145,28 @@ public class Main {
 		}
 		result = Converter.round(result);
 		String mainMsg, unitMsg, convMsg, calcMsg, tempConvEqu = "", distConvEqu = "", finalMsg;
-		mainMsg = String.format("The lightning struck approximately %d %s away.", result, finalDist);
+		mainMsg = String.format("The lightning struck approximately %s %s away.", String.valueOf(result), finalDist);
 		unitMsg = String.format("\n\nTemperature unit: %s\nDistance unit: %s", (tempUnit == 0) ? "Fahrenheit" : (tempUnit == 1) ? "Celsius" : "Kelvin", (distUnit == 0) ? "Feet and Miles" : "Meters and Kilometers");
 		switch (t) {
 		case FahrenheittoCelsius:
-			tempConvEqu = String.format("Convert Fahrenheit to Celsius: (%d - 32) * 5 / 9 = %d", temp, newTemp);
+			tempConvEqu = String.format("Convert Fahrenheit to Celsius: (%s - 32) * 5 / 9 = %s", String.valueOf(temp), String.valueOf(newTemp));
 		case KelvintoCelsius:
-			tempConvEqu = String.format("Convert Kelvin to Celsius: %d - 273.15 = %d", temp, newTemp);
+			tempConvEqu = String.format("Convert Kelvin to Celsius: %s - 273.15 = %s", String.valueOf(temp), String.valueOf(newTemp));
 		case None:
 			tempConvEqu = "Temperature already on Celsius; no math done";
 		}
 		switch (c) {
 		case MeterstoKilometers:
-			distConvEqu = String.format("Convert Meters to Kilometers: %d / 1000 = %d", originalDist, result);
+			distConvEqu = String.format("Convert Meters to Kilometers: %s / 1000 = %s", String.valueOf(originalDist), String.valueOf(result));
 		case MeterstoMiles:
-			distConvEqu = String.format("Convert Meters to Miles: %d / 0.00062137 = %d", originalDist, result);
+			distConvEqu = String.format("Convert Meters to Miles: %s / 0.00062137 = %s", String.valueOf(originalDist), String.valueOf(result));
 		case MeterstoMilestoFeet:
-			distConvEqu = String.format("Convert Meters to Miles then Feet: %d / 0.00062137 = %d / 5280 = %d", originalDist, originalDist / 0.00062137, result);
+			distConvEqu = String.format("Convert Meters to Miles then Feet: %s / 0.00062137 = %s / 5280 = %s", String.valueOf(originalDist), String.valueOf(originalDist / 0.00062137), String.valueOf(result));
 		case None:
 			distConvEqu = "Distance set to Meters and Kilometers; no math done";
 		}
 		convMsg = String.format("\n\n%s\n%s", tempConvEqu, distConvEqu);
-		calcMsg = String.format("\n\nSpeed of sound: 331.5 + 0.6 * %d = %d\nTime: %d\nDistance: Speed of sound * time\n%d * %d = %d\nDistance = %d", newTemp, getSpeedOfSound(newTemp), time, getSpeedOfSound(newTemp), time, getDistance(getSpeedOfSound(newTemp), time), getDistance(getSpeedOfSound(newTemp), time));
+		calcMsg = String.format("\n\nSpeed of sound: 331.5 + 0.6 * %s = %s\nTime: %s\nDistance: Speed of sound * time\n%s * %s = %s\nDistance = %s", String.valueOf(newTemp), String.valueOf(getSpeedOfSound(newTemp)), String.valueOf(time), String.valueOf(getSpeedOfSound(newTemp)), String.valueOf(time), String.valueOf(getDistance(getSpeedOfSound(newTemp), time)), String.valueOf(getDistance(getSpeedOfSound(newTemp),time)));
 		finalMsg = mainMsg;
 		if (verboseMode) {
 			finalMsg += (verboseModeData[0]) ? unitMsg : "";

@@ -111,6 +111,9 @@
     <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\Assets\Wide.scale-80.png">
       <PackagePath>Assets\Wide.scale-80.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\StrikeDistance-Windows.xr.xml">
+      <PackagePath>StrikeDistance-Windows.xr.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
@@ -125,9 +128,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\SettingsPage.xbf">
       <PackagePath>SettingsPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\StrikeDistance-Windows.xr.xml">
-      <PackagePath>StrikeDistance-Windows.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>

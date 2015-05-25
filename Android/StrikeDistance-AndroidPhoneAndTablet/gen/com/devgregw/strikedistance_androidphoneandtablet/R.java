@@ -8,12 +8,26 @@
 package com.devgregw.strikedistance_androidphoneandtablet;
 
 public final class R {
+    public static final class array {
+        public static final int distUnitsEntries=0x7f070002;
+        public static final int distUnitsValues=0x7f070003;
+        public static final int pref_example_list_titles=0x7f070008;
+        public static final int pref_example_list_values=0x7f070009;
+        public static final int pref_sync_frequency_titles=0x7f07000a;
+        public static final int pref_sync_frequency_values=0x7f07000b;
+        public static final int psrUnitsEntries=0x7f070006;
+        public static final int psrUnitsValues=0x7f070007;
+        public static final int speedUnitsEntries=0x7f070004;
+        public static final int speedUnitsValues=0x7f070005;
+        public static final int tempUnitsEntries=0x7f070000;
+        public static final int tempUnitsValues=0x7f070001;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int StrikeDistanceBackground=0x7f040001;
-        public static final int StrikeDistanceTheme=0x7f040000;
-        public static final int white=0x7f040002;
+        public static final int StrikeDistanceBackground=0x7f080001;
+        public static final int StrikeDistanceTheme=0x7f080000;
+        public static final int white=0x7f080002;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -23,8 +37,8 @@ public final class R {
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f090000;
+        public static final int activity_vertical_margin=0x7f090001;
     }
     public static final class drawable {
         public static final int ic_action_calculate=0x7f020000;
@@ -34,43 +48,163 @@ public final class R {
         public static final int ic_overflow_new=0x7f020004;
     }
     public static final class id {
-        public static final int Button01=0x7f090005;
-        public static final int EditText01=0x7f090006;
-        public static final int TextView01=0x7f090004;
-        public static final int action1_1=0x7f090002;
-        public static final int action1_2=0x7f090003;
-        public static final int action_calculate=0x7f090009;
-        public static final int action_clear=0x7f09000a;
-        public static final int action_feedback=0x7f09000b;
-        public static final int action_settings=0x7f090008;
-        public static final int temperatureBox=0x7f090001;
-        public static final int textView1=0x7f090000;
-        public static final int toggleButton1=0x7f090007;
+        public static final int EditText01=0x7f0b0006;
+        public static final int TextView01=0x7f0b0004;
+        public static final int TextView02=0x7f0b0008;
+        public static final int action1_1=0x7f0b0002;
+        public static final int action1_2=0x7f0b0003;
+        public static final int action2_2=0x7f0b0005;
+        public static final int action_calculate=0x7f0b0023;
+        public static final int action_clear=0x7f0b0024;
+        public static final int action_feedback=0x7f0b0025;
+        public static final int action_settings=0x7f0b0022;
+        public static final int conditions=0x7f0b0011;
+        public static final int elevation=0x7f0b0012;
+        public static final int feelslike=0x7f0b0015;
+        public static final int humidity=0x7f0b0017;
+        public static final int item1=0x7f0b000a;
+        public static final int item10=0x7f0b001c;
+        public static final int item11=0x7f0b001e;
+        public static final int item2=0x7f0b000c;
+        public static final int item3=0x7f0b000d;
+        public static final int item4=0x7f0b000e;
+        public static final int item5=0x7f0b000f;
+        public static final int item6=0x7f0b0014;
+        public static final int item7=0x7f0b0016;
+        public static final int item8=0x7f0b0018;
+        public static final int item9=0x7f0b0019;
+        public static final int latitiude=0x7f0b000b;
+        public static final int longitude=0x7f0b0013;
+        public static final int pressure=0x7f0b001f;
+        public static final int scrollView1=0x7f0b0009;
+        public static final int temperature=0x7f0b0010;
+        public static final int temperatureBox=0x7f0b0001;
+        public static final int textView1=0x7f0b0000;
+        public static final int toggleButton1=0x7f0b0007;
+        public static final int viewHistorical=0x7f0b0021;
+        public static final int viewOnWU=0x7f0b0020;
+        public static final int winddirection=0x7f0b001b;
+        public static final int windgustspeed=0x7f0b001d;
+        public static final int windspeed=0x7f0b001a;
     }
     public static final class layout {
         public static final int activity_calculator=0x7f030000;
     }
     public static final class menu {
-        public static final int calculator=0x7f080000;
+        public static final int calculator=0x7f0a0000;
+        public static final int settings=0x7f0a0001;
     }
     public static final class string {
-        public static final int action1_1=0x7f060007;
-        public static final int action1_2=0x7f060006;
-        public static final int action2_1=0x7f06000a;
-        public static final int action2_2=0x7f060009;
-        public static final int action_calculate=0x7f060003;
-        public static final int action_clear=0x7f060004;
-        public static final int action_feedback=0x7f06000b;
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
-        public static final int header1=0x7f060005;
-        public static final int header2=0x7f060008;
-        public static final int resultMessageFormat=0x7f060002;
+        public static final int action1_1=0x7f050007;
+        public static final int action1_2=0x7f050006;
+        public static final int action2_1=0x7f05000a;
+        public static final int action2_2=0x7f050009;
+        public static final int action_calculate=0x7f050003;
+        public static final int action_clear=0x7f050004;
+        public static final int action_feedback=0x7f05000b;
+        public static final int action_settings=0x7f050001;
+        public static final int app_name=0x7f050000;
+        public static final int autoGet_key=0x7f05002f;
+        public static final int autoGet_title=0x7f050030;
+        public static final int conditions=0x7f050011;
+        public static final int dist_0=0x7f050020;
+        public static final int dist_1=0x7f050021;
+        public static final int dist_key=0x7f05002a;
+        public static final int dist_title=0x7f050027;
+        public static final int elevation=0x7f050010;
+        public static final int emptyField=0x7f05000d;
+        public static final int feelslike=0x7f050013;
+        public static final int header1=0x7f050005;
+        public static final int header2=0x7f050008;
+        public static final int header3=0x7f05000c;
+        public static final int humidity=0x7f050014;
+        public static final int latitude=0x7f05000e;
+        public static final int longitude=0x7f05000f;
+        public static final int pref_1=0x7f05001c;
+        public static final int pref_2=0x7f05002e;
+        public static final int pref_3=0x7f050031;
+        public static final int pref_default_display_name=0x7f050044;
+        public static final int pref_description_social_recommendations=0x7f050042;
+        /**  Example settings for Data & Sync 
+         */
+        public static final int pref_header_data_sync=0x7f050046;
+        /**  Strings related to Settings 
+ Example General settings 
+         */
+        public static final int pref_header_general=0x7f050040;
+        /**  Example settings for Notifications 
+         */
+        public static final int pref_header_notifications=0x7f050049;
+        public static final int pref_ringtone_silent=0x7f05004c;
+        public static final int pref_title_add_friends_to_messages=0x7f050045;
+        public static final int pref_title_display_name=0x7f050043;
+        public static final int pref_title_new_message_notifications=0x7f05004a;
+        public static final int pref_title_ringtone=0x7f05004b;
+        public static final int pref_title_social_recommendations=0x7f050041;
+        public static final int pref_title_sync_frequency=0x7f050047;
+        public static final int pref_title_system_sync_settings=0x7f050048;
+        public static final int pref_title_vibrate=0x7f05004d;
+        public static final int pressure=0x7f050018;
+        public static final int psr_0=0x7f050024;
+        public static final int psr_1=0x7f050025;
+        public static final int psr_key=0x7f05002d;
+        public static final int psr_title=0x7f050029;
+        public static final int resultMessageFormat=0x7f050002;
+        public static final int resultMessagePositiveButton=0x7f05001b;
+        public static final int speed_0=0x7f050022;
+        public static final int speed_1=0x7f050023;
+        public static final int speed_key=0x7f05002c;
+        public static final int speed_title=0x7f050028;
+        public static final int temp_0=0x7f05001d;
+        public static final int temp_1=0x7f05001e;
+        public static final int temp_2=0x7f05001f;
+        public static final int temp_key=0x7f05002b;
+        public static final int temp_title=0x7f050026;
+        public static final int temperature=0x7f050012;
+        public static final int title_activity_settings=0x7f05003e;
+        public static final int unavailable=0x7f05003f;
+        public static final int vbCalcMath=0x7f050038;
+        public static final int vbCalcMath_key=0x7f05003b;
+        public static final int vbConvMath=0x7f050037;
+        public static final int vbConvMath_key=0x7f05003a;
+        public static final int vbData_key=0x7f05003d;
+        public static final int vbData_title=0x7f05003c;
+        public static final int vbMain_key=0x7f050032;
+        public static final int vbMain_off=0x7f050035;
+        public static final int vbMain_on=0x7f050034;
+        public static final int vbMain_title=0x7f050033;
+        public static final int vbUnitDetails=0x7f050036;
+        public static final int vbUnitDetails_key=0x7f050039;
+        public static final int viewHistorical=0x7f05001a;
+        public static final int viewOnWU=0x7f050019;
+        public static final int winddirection=0x7f050015;
+        public static final int windgustspeed=0x7f050017;
+        public static final int windspeed=0x7f050016;
     }
     public static final class style {
-        public static final int ActionBarStyle=0x7f070002;
-        public static final int ActionBarTitleStyle=0x7f070003;
+        public static final int ActionBarStyle=0x7f060002;
+        public static final int ActionBarTitleStyle=0x7f060003;
         /** 
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+ API 11 theme customizations can go here. 
+
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    
+ API 14 theme customizations can go here. 
+
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
@@ -86,10 +220,19 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f060000;
         /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
          */
-        public static final int AppTheme=0x7f070001;
-        public static final int buttonsty=0x7f070004;
+        public static final int AppTheme=0x7f060001;
+        public static final int buttonsty=0x7f060004;
+    }
+    public static final class xml {
+        public static final int pref_data_sync=0x7f040000;
+        public static final int pref_general=0x7f040001;
+        public static final int pref_headers=0x7f040002;
+        public static final int pref_notification=0x7f040003;
+        public static final int preferences=0x7f040004;
     }
 }

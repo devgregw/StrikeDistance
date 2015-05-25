@@ -52,6 +52,7 @@ public class WeatherInformation {
 			temperature = (tempUnit == 0) ? Converter.round(obs.getDouble("temp_f")) : (tempUnit == 1) ? Converter.round(obs.getDouble("temp_c")) : Converter.round(Converter.convert(TemperatureUnit.Celsius, TemperatureUnit.Kelvin, obs.getDouble("temp_c")));
 			feelsLike = (tempUnit == 0) ? Converter.round(obs.getDouble("feelslike_f")) : (tempUnit == 1) ? Converter.round(obs.getDouble("feelslike_c")) : Converter.round(Converter.convert(TemperatureUnit.Celsius, TemperatureUnit.Kelvin, obs.getDouble("feelslike_c")));
 			humidity = obs.getString("relative_humidity");
+			windDirection = obs.getString("wind_dir");
 			windSpeed = (speedUnit == 0) ? Converter.round(obs.getDouble("wind_mph")) : Converter.round(obs.getDouble("wind_kph"));
 			windGustSpeed = (speedUnit == 0) ? Converter.round(obs.getDouble("wind_gust_mph")) : Converter.round(obs.getDouble("wind_gust_kph"));
 			pressure = (psrUnit == 0) ? obs.getString("pressure_in") : obs.getString("pressure_mb");

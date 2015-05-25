@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tempUnitsEntries">
+        <item >@string/temp_0</item>
+        <item >@string/temp_1</item>
+        <item >@string/temp_2</item>
+    </string-array>
+    <string-array name="tempUnitsValues">
+        <item >0</item>
+        <item >1</item>
+        <item >2</item>
+    </string-array>
+    <string-array name="distUnitsEntries">
+        <item >@string/dist_0</item>
+        <item >@string/dist_1</item>
+    </string-array>
+    <string-array name="distUnitsValues">
+        <item >0</item>
+        <item >1</item>
+    </string-array>
+    <string-array name="speedUnitsEntries">
+        <item >@string/speed_0</item>
+        <item >@string/speed_1</item>
+    </string-array>
+    <string-array name="speedUnitsValues">
+        <item >0</item>
+        <item >1</item>
+    </string-array>
+    <string-array name="psrUnitsEntries">
+        <item >@string/psr_0</item>
+        <item >@string/psr_1</item>
+    </string-array>
+    <string-array name="psrUnitsValues">
+        <item >0</item>
+        <item >1</item>
+    </string-array>
+    
+</resources>

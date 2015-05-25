@@ -189,9 +189,7 @@ namespace StrikeDistance_Windows
         }
 
         private void MoreButton_Click(object sender, RoutedEventArgs e) {
-            var i = BarPanel.Children.IndexOf(mb);
-            FrameworkElement element = (FrameworkElement)BarPanel.Children.ElementAt(i);
-            FlyoutBase.ShowAttachedFlyout(element);
+            FlyoutBase.ShowAttachedFlyout(MoreButton);
         }
 
         private void CalculateButton_Click(object sender, RoutedEventArgs e) {

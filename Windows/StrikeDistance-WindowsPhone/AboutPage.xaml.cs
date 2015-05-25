@@ -34,15 +34,17 @@ namespace StrikeDistance_WindowsPhone
                 if (args.Uri.AbsoluteUri.Contains("wunderground"))
                 {
                     raindrop.IsEnabled = true;
-                    await new MessageDialog("The raindrop referal was sent successfully.", "Thanks!").ShowAsync();
+                    progressBar.Visibility = Visibility.Collapsed;
+                    await new MessageDialog("The raindrop referral was sent successfully.", "Thanks!").ShowAsync();
                     web.Navigate(new Uri("http://localhost", UriKind.Absolute));
                 }
             }
             else
             {
                 if (args.Uri.AbsoluteUri.Contains("wunderground"))
-                    await new MessageDialog(string.Format("The referal could not be sent.\n\n{0}\n\nTry again later.", args.WebErrorStatus.ToString()), "Raindrop Referal").ShowAsync();
+                    await new MessageDialog(string.Format("The referral could not be sent.\n\n{0}\n\nTry again later.", args.WebErrorStatus.ToString()), "Raindrop Referal").ShowAsync();
                 raindrop.IsEnabled = true;
+                progressBar.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -50,6 +52,7 @@ namespace StrikeDistance_WindowsPhone
         {
             web.Navigate(new Uri("http://www.wunderground.com/?apiref=ddc7474baa78cc4d", UriKind.Absolute));
             raindrop.IsEnabled = false;
+            progressBar.Visibility = Visibility.Visible;
         }
     }
 }

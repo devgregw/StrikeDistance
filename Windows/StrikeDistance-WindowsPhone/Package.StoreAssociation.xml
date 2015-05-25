@@ -195,9 +195,17 @@
     <MainPackageIdentityName>8830TechPerson32.DigitalClassmate</MainPackageIdentityName>
     <MainPackageIdentityName>8830TechPerson32.DigitalClassmateBeta</MainPackageIdentityName>
     <MainPackageIdentityName>8830TechPerson32.ImageSource</MainPackageIdentityName>
+    <MainPackageIdentityName>8830TechPerson32.MobiPage</MainPackageIdentityName>
+    <MainPackageIdentityName>8830TechPerson32.PageMe</MainPackageIdentityName>
     <MainPackageIdentityName>8830TechPerson32.QuickConvert</MainPackageIdentityName>
     <MainPackageIdentityName>8830TechPerson32.Shortify</MainPackageIdentityName>
     <MainPackageIdentityName>8830TechPerson32.Watchr</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=c6b5ea85-0c13-4774-9be1-cc1020e4bb8b" />
+  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=c6b5ea85-0c13-4774-9be1-cc1020e4bb8b">
+    <PackageInfo>
+      <OsMinVersion>6.3.0.0</OsMinVersion>
+      <PackageArchitecture>neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>2.0.0.0</PackageMaxArchitectureVersion>
+    </PackageInfo>
+  </PackageInfoList>
 </StoreAssociation>

@@ -27,8 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView1"
-        android:layout_toLeftOf="@+id/action1_1"
-        android:layout_toSTartOf="@+id/action1_1"
+        android:layout_toStartOf="@+id/action1_1"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="@string/emptyField"
@@ -92,7 +91,7 @@
         android:inputType="numberDecimal"
         android:text="@string/emptyField"
         android:textColor="@color/white"
-        tools:ignore="labelFor" />
+        tools:ignore="LabelFor" />
 
     <TextView
         android:id="@+id/TextView02"

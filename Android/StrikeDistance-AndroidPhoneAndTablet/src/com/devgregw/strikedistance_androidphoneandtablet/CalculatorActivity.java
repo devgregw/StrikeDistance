@@ -5,7 +5,6 @@ import java.util.concurrent.TimeoutException;
 
 import sdengine.*;
 import sdengine.exceptions.NoConnectionException;
-import android.R;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class CalculatorActivity extends Activity {
 
@@ -68,21 +68,6 @@ public class CalculatorActivity extends Activity {
 		final LocationManager man = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 		LocationListener listener = new StrikeDistanceLocationListener();
 		man.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1, 0, listener);
-		((Button)findViewById(R.id.action_calculate)).setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				AlertDialog.Builder b = new AlertDialog.Builder(getApplicationContext(), AlertDialog.THEME_DEVICE_DEFAULT_DARK);
-				b.setPositiveButton("Close", new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-				});
-				b.setMessage(Main.calculate(Double.parseDouble(((EditText)findViewById(R.id.temperatureBox)).getText().toString()), Double.parseDouble((((EditText)findViewById(R.id.EditText01)).getText().toString()))), 0, 0, false, null);
-			}
-		});
 		((Button)findViewById(R.id.action1_1)).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -97,7 +82,69 @@ public class CalculatorActivity extends Activity {
 						}
 					}
 					w = Main.getWeatherInformation(getApplicationContext(), latitude, longitude, "6d5bf5f013871a92", 0, 0, 0);
-					field.setText(String.valueOf(w.temperature));
+					if (w.temperature != null) {
+						field.setText(String.valueOf(w.temperature));
+						((TextView)findViewById(R.id.latitiude)).setText(String.valueOf(latitude));
+						((TextView)findViewById(R.id.longitude)).setText(String.valueOf(longitude));
+						((TextView)findViewById(R.id.elevation)).setText(String.valueOf(w.elevation));
+						((TextView)findViewById(R.id.conditions)).setText(w.condtionString);
+						((TextView)findViewById(R.id.temperature)).setText(String.valueOf(w.temperature));
+						((TextView)findViewById(R.id.feelslike)).setText(String.valueOf(w.feelsLike));
+						((TextView)findViewById(R.id.humidity)).setText(w.humidity);
+						((TextView)findViewById(R.id.winddirection)).setText(w.windDirection);
+						((TextView)findViewById(R.id.windspeed)).setText(String.valueOf(w.windSpeed));
+						((TextView)findViewById(R.id.windgustspeed)).setText(String.valueOf(w.windGustSpeed));
+						((TextView)findViewById(R.id.pressure)).setText(w.pressure);
+						((Button)findViewById(R.id.viewOnWU)).setEnabled(true);
+						((Button)findViewById(R.id.viewHistorical)).setEnabled(true);
+						((Button)findViewById(R.id.viewOnWU)).setOnClickListener(new View.OnClickListener() {
+							
+							@Override
+							public void onClick(View v) {
+								Intent i = new Intent();
+								i.setAction(Intent.ACTION_VIEW);
+								i.setData(w.forecastUri);
+								startActivity(i);
+							}
+						});
+						((Button)findViewById(R.id.viewHistorical)).setOnClickListener(new View.OnClickListener() {
+							
+							@Override
+							public void onClick(View v) {
+								Intent i = new Intent();
+								i.setAction(Intent.ACTION_VIEW);
+								i.setData(w.historicUri);
+								startActivity(i);
+							}
+						});
+					}
+					else {
+						String u = getString(R.string.unavailable);
+						((TextView)findViewById(R.id.latitiude)).setText(u);
+						((TextView)findViewById(R.id.longitude)).setText(u);
+						((TextView)findViewById(R.id.elevation)).setText(u);
+						((TextView)findViewById(R.id.conditions)).setText(u);
+						((TextView)findViewById(R.id.temperature)).setText(u);
+						((TextView)findViewById(R.id.feelslike)).setText(u);
+						((TextView)findViewById(R.id.humidity)).setText(u);
+						((TextView)findViewById(R.id.winddirection)).setText(u);
+						((TextView)findViewById(R.id.windspeed)).setText(u);
+						((TextView)findViewById(R.id.windgustspeed)).setText(u);
+						((TextView)findViewById(R.id.pressure)).setText(u);
+						((Button)findViewById(R.id.viewOnWU)).setEnabled(false);
+						((Button)findViewById(R.id.viewHistorical)).setEnabled(false);
+						AlertDialog.Builder b = new AlertDialog.Builder(CalculatorActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+						b.setTitle("An error occured!");
+						b.setMessage("Something happened and StrikeDistance was unable to get weather information.");
+						b.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								dialog.dismiss();
+							}
+						});
+						b.show();
+					}
 				} catch (NoConnectionException e) {
 					e.printStackTrace();
 				} catch (TimeoutException e) {
@@ -109,26 +156,6 @@ public class CalculatorActivity extends Activity {
 				} finally {
 					field.setEnabled(true);
 				}
-			}
-		});
-		((Button)findViewById(R.id.viewOnWU)).setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent();
-				i.setAction(Intent.ACTION_VIEW);
-				i.setData(w.forecastUri);
-				startActivity(i);
-			}
-		});
-		((Button)findViewById(R.id.viewHistorical)).setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent();
-				i.setAction(Intent.ACTION_VIEW);
-				i.setData(w.historicUri);
-				startActivity(i);
 			}
 		});
 		ActionBar b = getActionBar();
@@ -169,12 +196,37 @@ public class CalculatorActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			startActivity(new Intent(CalculatorActivity.this, SettingsActivity.class));
 			return true;
 		}
 		else if (id == R.id.action_feedback) {
 			Intent i = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "devgregw@outlook.com", null));
 			i.putExtra(Intent.EXTRA_SUBJECT, "StrikeDistance Feedback Submission (Android)");
 			startActivity(Intent.createChooser(i, "Send feedback"));
+			return true;
+		}
+		else if (id == R.id.action_calculate) {
+			AlertDialog.Builder b = new AlertDialog.Builder(CalculatorActivity.this, AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+			b.setTitle("Result");
+			b.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+				}
+			});
+			b.setCancelable(true);
+			b.setMessage(
+					Main.calculate(
+							Double.parseDouble(
+								((EditText)findViewById(R.id.temperatureBox)).getText().toString()),
+							Double.parseDouble(
+								((EditText)findViewById(R.id.EditText01)).getText().toString()),
+							0,
+							0,
+							false,
+							null));
+			b.show();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

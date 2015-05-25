@@ -4,18 +4,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    RequestedTheme="Dark">
     <Page.BottomAppBar>
         <CommandBar x:Name="ButtonBar" Background="{StaticResource StrikeDistanceThemeBrush}" Foreground="{StaticResource StrikeDistanceForegroundBrush}" BorderBrush="White">
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="ReportButton" Label="send feedback" Click="ReportButton_Click"/>
-                <AppBarButton x:Name="SettingsButton" Label="settings" Click="SettingsButton_Click"/>
-                <AppBarButton x:Name="AboutButton" Label="about" Click="AboutButton_Click"/>
-                <AppBarButton x:Name="AppsButton" Label="more apps" Click="AppsButton_Click"/>
-                <AppBarButton x:Name="RateButton" Label="rate+review" Click="RateButton_Click"/>
+                <AppBarButton x:Name="ReportButton" Label="Send feedback" Click="ReportButton_Click"/>
+                <AppBarButton x:Name="RateButton" Label="Rate+review" Click="RateButton_Click"/>
+                <AppBarButton x:Name="AboutButton" Label="About StrikeDistance" Click="AboutButton_Click"/>
+                <AppBarButton x:Name="AppsButton" Label="More apps" Click="AppsButton_Click"/>
             </CommandBar.SecondaryCommands>
             <AppBarButton x:Name="CalculateButton" Label="calculate" Click="CalculateButton_Click" Icon="Calculator"/>
-            <AppBarButton x:Name="ClearAllButton" Icon="Clear" Label="reset all" Click="ClearAllButton_Click"/>
+            <AppBarButton x:Name="ClearAllButton" Icon="Clear" Label="Clear all" Click="ClearAllButton_Click"/>
+            <AppBarButton x:Name="RefreshButton" Icon="Refresh" Label="Refresh" Click="LocationButton_Click"/>
+            <AppBarButton x:Name="SettingsButton" Icon="Setting" Label="Settings" Click="SettingsButton_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Page.Transitions>
@@ -27,67 +29,67 @@
         <Grid.Background>
             <SolidColorBrush Color="Black"/>
         </Grid.Background>
-        <Grid VerticalAlignment="Top" Background="{StaticResource StrikeDistanceThemeBrush}" Height="46" Margin="0,-27,0,0">
+        <Grid VerticalAlignment="Top" Background="{StaticResource StrikeDistanceThemeBrush}" Height="48" Margin="0,-27,0,0">
             <TextBlock TextWrapping="Wrap" FontWeight="Black" FontSize="18" Text="CALCULATOR" Foreground="{StaticResource StrikeDistanceForegroundBrush}" VerticalAlignment="Bottom"/>
         </Grid>
-        <TextBlock Margin="0,27,0,0" TextWrapping="Wrap" Text="OUTSIDE TEMPERATURE" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="{ThemeResource PhoneForegroundBrush}"/>
-        <TextBox x:Name="TempBox" Margin="10,56,153,0" TextWrapping="Wrap" VerticalAlignment="Top" InputScope="Number" IsTextPredictionEnabled="False" PlaceholderText="please wait" Text="0" TabIndex="1" TabNavigation="Once" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}" Background="{ThemeResource TextBoxBackgroundThemeBrush}" BorderBrush="{ThemeResource TextBoxBorderThemeBrush}"/>
-        <AppBarButton x:Name="LocationButton" HorizontalAlignment="Right" Icon="Globe" Label="use my location" Margin="0,44,5,0" VerticalAlignment="Top" Click="LocationButton_Click" TabIndex="3" TabNavigation="Once" Foreground="{ThemeResource PhoneForegroundBrush}"/>
-        <AppBarButton x:Name="InvertButton" HorizontalAlignment="Right" Icon="Sync" Label="invert" Margin="0,44,81,0" VerticalAlignment="Top" Click="InvertButton_Click" TabIndex="2" Foreground="{ThemeResource PhoneForegroundBrush}"/>
-        <TextBlock Margin="0,117,0,0" TextWrapping="Wrap" Text="TIME BETWEEN FLASH AND BOOM" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="{ThemeResource PhoneForegroundBrush}"/>
-        <TextBox x:Name="TimeBox" Margin="10,146,153,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" InputScope="Number" IsTextPredictionEnabled="False" PlaceholderText="" TabIndex="4" TabNavigation="Once" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}" Background="{ThemeResource TextBoxBackgroundThemeBrush}" BorderBrush="{ThemeResource TextBoxBorderThemeBrush}"/>
-        <AppBarToggleButton x:Name="StopwatchButton" HorizontalAlignment="Right" Label="stopwatch" Margin="0,135,81,0" VerticalAlignment="Top" IsChecked="False" Checked="StopwatchButton_Checked" Unchecked="StopwatchButton_Unchecked" TabIndex="5" TabNavigation="Once" Foreground="{ThemeResource PhoneForegroundBrush}">
+        <TextBlock Margin="0,27,0,0" TextWrapping="Wrap" Text="OUTSIDE TEMPERATURE" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="#FFFFFF"/>
+        <TextBox x:Name="TempBox" Margin="10,56,153,0" TextWrapping="Wrap" VerticalAlignment="Top" InputScope="Number" IsTextPredictionEnabled="False" PlaceholderText="please wait" Text="0" TabIndex="1" TabNavigation="Once" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}" Background="{ThemeResource TextBoxBackgroundThemeBrush}" BorderBrush="{ThemeResource TextBoxBorderThemeBrush}" PreventKeyboardDisplayOnProgrammaticFocus="True"/>
+        <AppBarButton x:Name="LocationButton" HorizontalAlignment="Right" Icon="Globe" Label="use my location" Margin="0,44,5,0" VerticalAlignment="Top" Click="LocationButton_Click" TabIndex="3" TabNavigation="Once" Foreground="#FFFFFF"/>
+        <AppBarButton x:Name="InvertButton" HorizontalAlignment="Right" Icon="Sync" Label="invert" Margin="0,44,81,0" VerticalAlignment="Top" Click="InvertButton_Click" TabIndex="2" Foreground="#FFFFFF"/>
+        <TextBlock Margin="0,117,0,0" TextWrapping="Wrap" Text="TIME BETWEEN FLASH AND BOOM" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="#FFFFFF"/>
+        <TextBox x:Name="TimeBox" Margin="10,146,153,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" InputScope="Number" IsTextPredictionEnabled="False" PlaceholderText="" TabIndex="4" TabNavigation="Once" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}" Background="{ThemeResource TextBoxBackgroundThemeBrush}" BorderBrush="{ThemeResource TextBoxBorderThemeBrush}" PreventKeyboardDisplayOnProgrammaticFocus="True"/>
+        <AppBarToggleButton x:Name="StopwatchButton" HorizontalAlignment="Right" Label="stopwatch" Margin="0,135,81,0" VerticalAlignment="Top" IsChecked="False" Checked="StopwatchButton_Checked" Unchecked="StopwatchButton_Unchecked" TabIndex="5" TabNavigation="Once" Foreground="#FFFFFF">
             <AppBarToggleButton.Icon>
                 <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Clock"/>
             </AppBarToggleButton.Icon>
         </AppBarToggleButton>
-        <AppBarButton x:Name="StopwatchClearButton" HorizontalAlignment="Right" Icon="Clear" Label="clear" Margin="0,135,5,0" VerticalAlignment="Top" Click="StopwatchClearButton_Click" TabIndex="6" TabNavigation="Once" Foreground="{ThemeResource PhoneForegroundBrush}"/>
-        <TextBlock Margin="0,208,0,0" TextWrapping="Wrap" Text="WEATHER OVERVIEW" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="{ThemeResource PhoneForegroundBrush}"/>
+        <AppBarButton x:Name="StopwatchClearButton" HorizontalAlignment="Right" Icon="Clear" Label="clear" Margin="0,135,5,0" VerticalAlignment="Top" Click="StopwatchClearButton_Click" TabIndex="6" TabNavigation="Once" Foreground="#FFFFFF"/>
+        <TextBlock Margin="0,208,0,0" TextWrapping="Wrap" Text="WEATHER OVERVIEW" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="#FFFFFF"/>
         <ScrollViewer Margin="10,232,10,0">
             <StackPanel>
                 <ProgressBar x:Name="weatherbar" IsIndeterminate="True" Margin="0" Foreground="{StaticResource StrikeDistanceThemeBrush}" Height="5" Visibility="Collapsed" Background="{StaticResource StrikeDistanceThemeBrush}"/>
                 <Grid>
-                    <TextBlock Text="Latitude" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Latitude" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wLat" Text="latitude" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Longitude" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Longitude" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wLon" Text="longitude" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Elevation" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Elevation" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wEle" Text="elevation" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Current Conditions" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Current Conditions" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wCnd" Text="conditions" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Temperature" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Temperature" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wTmp" Text="temperature" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Feels like" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Feels like" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wFlk" Text="feelslike" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Humidity" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Humidity" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wHmd" Text="humidity" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Wind direction" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Wind direction" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wWdr" Text="winddirection" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Wind speed" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Wind speed" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wWsp" Text="windspeed" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Wind gust speed" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Wind gust speed" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wWgs" Text="windgustspeed" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <Grid>
-                    <TextBlock Text="Pressure" HorizontalAlignment="Left" FontSize="18.667"/>
+                    <TextBlock Foreground="#FFFFFF" Text="Pressure" HorizontalAlignment="Left" FontSize="18.667"/>
                     <TextBlock x:Name="wPsr" Text="pressure" TextAlignment="Right" HorizontalAlignment="Right" FontSize="18.667" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 </Grid>
                 <HyperlinkButton x:Name="wViewOnWU" Content="View on Wunderground" FontSize="21.333" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>

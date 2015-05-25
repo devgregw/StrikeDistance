@@ -6,14 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    RequestedTheme="Dark">
     <Page.Transitions>
         <TransitionCollection>
-            <NavigationThemeTransition/>
+            <EdgeUIThemeTransition Edge="Right"/>
         </TransitionCollection>
     </Page.Transitions>
     <Grid>
-        <Grid VerticalAlignment="Top" Background="{StaticResource StrikeDistanceThemeBrush}" Height="46" Margin="0,-27,0,0">
+        <Grid VerticalAlignment="Top" Background="{StaticResource StrikeDistanceThemeBrush}" Height="48" Margin="0,-27,0,0">
             <TextBlock TextWrapping="Wrap" FontWeight="Black" FontSize="18" Text="ABOUT" Foreground="{StaticResource StrikeDistanceForegroundBrush}" Margin="0,0,276,0" VerticalAlignment="Bottom"/>
         </Grid>
         <StackPanel Orientation="Horizontal" Margin="0,19,0,0" VerticalAlignment="Top">
@@ -40,6 +41,7 @@
                 <HyperlinkButton Content="Project page" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://greg.whatleycomputerservices.com/StrikeDistance" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 <HyperlinkButton Content="Source code" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight" NavigateUri="http://github.com/devgregw/StrikeDistance" Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
                 <HyperlinkButton x:ConnectionId='2' x:Name="raindrop" Content="Help send a raindrop" FontSize="18.667" FontFamily="Global User Interface" FontWeight="SemiLight"                        Foreground="{StaticResource StrikeDistanceThemeBrush}"/>
+                <ProgressBar x:Name="progressBar" Foreground="{ThemeResource StrikeDistanceThemeBrush}" VerticalAlignment="Stretch" IsIndeterminate="True" Visibility="Collapsed"/>
                 <TextBlock Foreground="White" Text="If StrikeDistance goes over Weather Underground's set usage limit, raindrops will cover it for me.  Weather Underground gives me one raindrop every week, but for every 2,500 clicks, they will give me one more.  Remember, if StrikeDistance exceeds their limit and I'm out of raindrops, StrikeDistance may fail to function.  StrikeDistance currently has a 500 call per day and a 10 call per minute limit." TextWrapping="Wrap" FontSize="18.667"/>
                 <Grid Height="4" Margin="15" Background="#FF1F1F1F"/>
                 <TextBlock Text="License" FontSize="32" FontWeight="Light" Foreground="{ThemeResource StrikeDistanceThemeBrush}"/>

@@ -6,7 +6,7 @@
     <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
-    <PackageIdentityName>9a4853bd-ebbe-4645-a2b8-2dda5c4931b4</PackageIdentityName>
+    <PackageIdentityName>9186d4d3-5c9d-4cb3-80ae-e5ec1e0ceca3</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\Gregory\GitHub Repositories\StrikeDistance\Windows\StrikeDistance-WindowsPhone\obj\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>

@@ -38,6 +38,7 @@ namespace StrikeDistance_WindowsPhone {
             ApplicationView.GetForCurrentView().SetDesiredBoundsMode(ApplicationViewBoundsMode.UseCoreWindow);
             int lc = SDEngine.Memory.Utility.UtilityMethods.Get("LaunchCount", 0);
             SDEngine.Memory.Utility.UtilityMethods.Set("LaunchCount", lc + 1);
+            lc += 1;
             var con = lc == 5 || lc == 10;
             try {
                 await Main.GetWeatherInformation(WUNDERGROUND_API_KEY, Manager.TempUnit, Manager.SpeedUnit, Manager.PressureUnit);

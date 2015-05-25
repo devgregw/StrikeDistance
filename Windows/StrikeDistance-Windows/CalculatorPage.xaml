@@ -10,12 +10,6 @@
 
     <Grid Background="{StaticResource StrikeDistanceBackground}">
         <StackPanel x:Name="BarPanel" Height="80" VerticalAlignment="Top" Background="{StaticResource StrikeDistanceTheme}" Orientation="Horizontal">
-            <StackPanel.ChildrenTransitions>
-                <TransitionCollection>
-                    <AddDeleteThemeTransition/>
-                    <EntranceThemeTransition/>
-                </TransitionCollection>
-            </StackPanel.ChildrenTransitions>
             <TextBlock x:Name="TitleBarT" Text="StrikeDistance" FontSize="72" FontWeight="Light" Foreground="{StaticResource StrikeDistanceBackground}" Width="420"/>
             <Image x:Name="TitleBarI" Source="Assets/SquareBig.png" Stretch="Fill"/>
             <Button x:Name="CalculateButton" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" Foreground="{StaticResource StrikeDistanceBackground}" BorderThickness="0" FontSize="24" FontWeight="SemiBold" Margin="20,0,0,0" Click="CalculateButton_Click">
