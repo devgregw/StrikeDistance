@@ -1,12 +1,18 @@
 ﻿using SDEngine.Memory;
 using System;
+using System.Diagnostics;
+using System.IO;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Phone.UI.Input;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Windows.Web.Http;
 
 namespace StrikeDistance_WindowsPhone
 {
@@ -33,6 +39,9 @@ namespace StrikeDistance_WindowsPhone
                     e.Handled = true;
                     frame.GoBack();
                 }
+            };
+            UnhandledException += (s, e) => {
+                e.Handled = true;
             };
         }
 

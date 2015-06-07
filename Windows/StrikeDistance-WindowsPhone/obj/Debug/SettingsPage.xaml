@@ -10,7 +10,7 @@
     RequestedTheme="Dark">
     <Page.Transitions>
         <TransitionCollection>
-            <EdgeUIThemeTransition Edge="Right"/>
+            <NavigationThemeTransition/>
         </TransitionCollection>
     </Page.Transitions>
     <Grid>

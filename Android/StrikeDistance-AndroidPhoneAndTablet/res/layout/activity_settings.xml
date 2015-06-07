@@ -1,0 +1,94 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+	android:layout_height="match_parent" android:layout_marginBottom="-16dp"
+	android:layout_marginLeft="-16dp" android:layout_marginRight="-16dp"
+	android:layout_marginTop="-16dp" android:background="@color/StrikeDistanceBackground"
+	android:paddingBottom="@dimen/activity_vertical_margin"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	tools:context="com.devgregw.strikedistance_androidphoneandtablet.SettingsActivity"
+	android:layout_alignParentBottom="true" android:layout_alignParentEnd="true"
+	android:layout_alignParentStart="true" android:layout_alignParentTop="true"
+	android:fadingEdgeLength="16dp"
+	android:scrollbarAlwaysDrawVerticalTrack="true" >
+
+	<LinearLayout android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp" android:orientation="vertical" >
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginTop="16dp"
+			android:text="@string/pref_1" android:textAppearance="?android:attr/textAppearanceLarge"
+			android:textColor="@color/StrikeDistanceTheme" android:textSize="25sp" />
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/temp_title"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textColor="@color/chrome" />
+
+		<Spinner android:id="@+id/tempSpinner" android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:prompt="@string/temp_title" />
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/dist_title"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textColor="@color/chrome" />
+
+		<Spinner android:id="@+id/distSpinner" android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:prompt="@string/dist_title" />
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/speed_title"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textColor="@color/chrome" />
+
+		<Spinner android:id="@+id/speedSpinner" android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:prompt="@string/speed_title" />
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/psr_title"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textColor="@color/chrome" />
+
+		<Spinner android:id="@+id/psrSpinner" android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:prompt="@string/psr_title" />
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginTop="16dp"
+			android:text="@string/pref_2" android:textAppearance="?android:attr/textAppearanceLarge"
+			android:textColor="@color/StrikeDistanceTheme" android:textSize="25sp" />
+
+		<CheckBox android:id="@+id/autoGet" android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:button="@drawable/checkboxbuttonselector"
+			android:gravity="center_vertical|start" android:text="@string/autoGet_title"
+			android:textColor="@color/white" android:textSize="20sp" />
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginTop="16dp"
+			android:text="@string/pref_3" android:textAppearance="?android:attr/textAppearanceLarge"
+			android:textColor="@color/StrikeDistanceTheme" android:textSize="25sp" />
+
+		<Switch android:id="@+id/vbMain" android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:layout_marginTop="16dp"
+			android:layout_marginBottom="16dp" android:text="@string/vbMain_title"
+			android:textColor="@color/white" android:textSize="20sp" />
+
+		<CheckBox android:id="@+id/vbUnitDetails"
+			android:layout_width="match_parent" android:layout_height="wrap_content"
+			android:button="@drawable/checkboxbuttonselector" android:text="@string/vbUnitDetails"
+			android:textColor="@color/white" android:textSize="20sp" />
+
+		<CheckBox android:id="@+id/vbConvMath" android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:button="@drawable/checkboxbuttonselector"
+			android:text="@string/vbConvMath" android:textColor="@color/white"
+			android:textSize="20sp" />
+
+		<CheckBox android:id="@+id/vbCalcMath" android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:button="@drawable/checkboxbuttonselector"
+			android:text="@string/vbCalcMath" android:textColor="@color/white"
+			android:textSize="20sp" android:layout_marginBottom="16dp" />
+
+	</LinearLayout>
+
+</ScrollView>

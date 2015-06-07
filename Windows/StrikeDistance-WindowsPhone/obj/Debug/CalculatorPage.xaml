@@ -14,10 +14,9 @@
                 <AppBarButton x:ConnectionId='3' x:Name="AboutButton" Label="About StrikeDistance"                          />
                 <AppBarButton x:ConnectionId='4' x:Name="AppsButton" Label="More apps"                         />
             </CommandBar.SecondaryCommands>
-            <AppBarButton x:ConnectionId='5' x:Name="CalculateButton" Label="calculate"                               Icon="Calculator"/>
+            <AppBarButton x:ConnectionId='5' x:Name="CalculateButton" Label="Calculate"                               Icon="Calculator"/>
             <AppBarButton x:ConnectionId='6' x:Name="ClearAllButton" Icon="Clear" Label="Clear all"                             />
-            <AppBarButton x:ConnectionId='7' x:Name="RefreshButton" Icon="Refresh" Label="Refresh"                             />
-            <AppBarButton x:ConnectionId='8' x:Name="SettingsButton" Icon="Setting" Label="Settings"                             />
+            <AppBarButton x:ConnectionId='7' x:Name="SettingsButton" Icon="Setting" Label="Settings"                             />
         </CommandBar>
     </Page.BottomAppBar>
     <Page.Transitions>
@@ -34,16 +33,16 @@
         </Grid>
         <TextBlock Margin="0,27,0,0" TextWrapping="Wrap" Text="OUTSIDE TEMPERATURE" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="#FFFFFF"/>
         <TextBox x:Name="TempBox" Margin="10,56,153,0" TextWrapping="Wrap" VerticalAlignment="Top" InputScope="Number" IsTextPredictionEnabled="False" PlaceholderText="please wait" Text="0" TabIndex="1" TabNavigation="Once" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}" Background="{ThemeResource TextBoxBackgroundThemeBrush}" BorderBrush="{ThemeResource TextBoxBorderThemeBrush}" PreventKeyboardDisplayOnProgrammaticFocus="True"/>
-        <AppBarButton x:ConnectionId='9' x:Name="LocationButton" HorizontalAlignment="Right" Icon="Globe" Label="use my location" Margin="0,44,5,0" VerticalAlignment="Top"                              TabIndex="3" TabNavigation="Once" Foreground="#FFFFFF"/>
-        <AppBarButton x:ConnectionId='10' x:Name="InvertButton" HorizontalAlignment="Right" Icon="Sync" Label="invert" Margin="0,44,81,0" VerticalAlignment="Top"                            TabIndex="2" Foreground="#FFFFFF"/>
+        <AppBarButton x:ConnectionId='8' x:Name="LocationButton" HorizontalAlignment="Right" Icon="Globe" Label="use my location" Margin="0,44,5,0" VerticalAlignment="Top"                              TabIndex="3" TabNavigation="Once" Foreground="#FFFFFF"/>
+        <AppBarButton x:ConnectionId='9' x:Name="InvertButton" HorizontalAlignment="Right" Icon="Sync" Label="invert" Margin="0,44,81,0" VerticalAlignment="Top"                            TabIndex="2" Foreground="#FFFFFF"/>
         <TextBlock Margin="0,117,0,0" TextWrapping="Wrap" Text="TIME BETWEEN FLASH AND BOOM" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="#FFFFFF"/>
         <TextBox x:Name="TimeBox" Margin="10,146,153,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" InputScope="Number" IsTextPredictionEnabled="False" PlaceholderText="" TabIndex="4" TabNavigation="Once" Foreground="{ThemeResource TextBoxButtonForegroundThemeBrush}" Background="{ThemeResource TextBoxBackgroundThemeBrush}" BorderBrush="{ThemeResource TextBoxBorderThemeBrush}" PreventKeyboardDisplayOnProgrammaticFocus="True"/>
-        <AppBarToggleButton x:ConnectionId='11' x:Name="StopwatchButton" HorizontalAlignment="Right" Label="stopwatch" Margin="0,135,81,0" VerticalAlignment="Top" IsChecked="False"                                                                         TabIndex="5" TabNavigation="Once" Foreground="#FFFFFF">
+        <AppBarToggleButton x:ConnectionId='10' x:Name="StopwatchButton" HorizontalAlignment="Right" Label="stopwatch" Margin="0,135,81,0" VerticalAlignment="Top" IsChecked="False"                                                                         TabIndex="5" TabNavigation="Once" Foreground="#FFFFFF">
             <AppBarToggleButton.Icon>
                 <SymbolIcon RenderTransformOrigin="0.5,0.5" Symbol="Clock"/>
             </AppBarToggleButton.Icon>
         </AppBarToggleButton>
-        <AppBarButton x:ConnectionId='12' x:Name="StopwatchClearButton" HorizontalAlignment="Right" Icon="Clear" Label="clear" Margin="0,135,5,0" VerticalAlignment="Top"                                    TabIndex="6" TabNavigation="Once" Foreground="#FFFFFF"/>
+        <AppBarButton x:ConnectionId='11' x:Name="StopwatchClearButton" HorizontalAlignment="Right" Icon="Clear" Label="clear" Margin="0,135,5,0" VerticalAlignment="Top"                                    TabIndex="6" TabNavigation="Once" Foreground="#FFFFFF"/>
         <TextBlock Margin="0,208,0,0" TextWrapping="Wrap" Text="WEATHER OVERVIEW" VerticalAlignment="Top" FontSize="20" FontWeight="Black" TextAlignment="Center" Foreground="#FFFFFF"/>
         <ScrollViewer Margin="10,232,10,0">
             <StackPanel>

@@ -49,7 +49,7 @@
     <string name="psr_key">psrUnit</string>
     <string name="pref_2">Automatic Functions</string>
     <string name="autoGet_key">autoGet</string>
-    <string name="autoGet_title">Automatically get weather data on startup</string>
+    <string name="autoGet_title">Get weather data on start</string>
     <string name="pref_3">Verbose Mode Settings</string>
     <string name="vbMain_key">vbMain</string>
     <string name="vbMain_title">Verbose Mode</string>
@@ -64,5 +64,7 @@
     <string name="vbData_title">Verbose Mode Data</string>
     <string name="vbData_key">vbData</string>
     <string name="title_activity_settings">SettingsActivity</string>
-	<string name="unavailable">Unavailable</string>
+    <string name="unavailable">Unavailable</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>

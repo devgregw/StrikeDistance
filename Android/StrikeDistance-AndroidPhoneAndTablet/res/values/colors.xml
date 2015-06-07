@@ -3,5 +3,6 @@
     <color name="StrikeDistanceTheme">#FFF200</color>
     <color name="StrikeDistanceBackground">#3C3C3C</color>
     <color name="white">#FFFFFF</color>
+    <color name="chrome">#99FFFFFF</color>
     
 </resources>

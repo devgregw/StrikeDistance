@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="8830TechPerson32.StrikeDistance" Publisher="CN=4282E973-60A6-4648-8237-09672F1DDD11" Version="2.1.515.23" />
+  <Identity Name="8830TechPerson32.StrikeDistance" Publisher="CN=4282E973-60A6-4648-8237-09672F1DDD11" Version="2.2.515.31" />
   <mp:PhoneIdentity PhoneProductId="9186d4d3-5c9d-4cb3-80ae-e5ec1e0ceca3" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>StrikeDistance</DisplayName>

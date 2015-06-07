@@ -7,13 +7,13 @@
             android:entries="@array/tempUnitsEntries"
             android:title="@string/temp_title"
             android:dialogTitle="@string/temp_title"
-            android:key="@string/temp_key"
+            android:key="tempUnit"
             android:entryValues="@array/tempUnitsValues"
             android:defaultValue="0"/>
         <ListPreference
             android:title="@string/dist_title"
             android:dialogTitle="@string/dist_title"
-            android:key="@string/dist_key"
+            android:key="distUnit"
             android:entryValues="@array/distUnitsValues"
             android:entries="@array/distUnitsEntries"
             android:defaultValue="0"/>
@@ -22,43 +22,43 @@
             android:entries="@array/speedUnitsEntries"
             android:title="@string/speed_title"
             android:dialogTitle="@string/speed_title"
-            android:key="@string/speed_key"
+            android:key="speedUnit"
             android:defaultValue="0"/>
         <ListPreference
             android:entryValues="@array/psrUnitsValues"
             android:entries="@array/psrUnitsEntries"
             android:title="@string/psr_title"
             android:dialogTitle="@string/psr_title"
-            android:key="@string/psr_key"
+            android:key="psrUnit"
             android:defaultValue="0"/>
     </PreferenceCategory>
     <PreferenceCategory
 		android:title="@string/pref_2">
         <CheckBoxPreference
-            android:key="@string/autoGet_key"
+            android:key="autoGet"
             android:defaultValue="true"
             android:title="@string/autoGet_title"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_3">
         <SwitchPreference
-            android:key="@string/vbMain_key"
+            android:key="vbMain"
             android:title="@string/vbMain_title"
             android:defaultValue="false"/>
         <CheckBoxPreference
-            android:key="@string/vbUnitDetails_key"
+            android:key="vbUnitDetails"
             android:title="@string/vbUnitDetails"
             android:defaultValue="false"
-            android:dependency="@string/vbMain_key"/>
+            android:dependency="vbMain"/>
         <CheckBoxPreference
-            android:key="@string/vbConvMath_key"
+            android:key="vbConvMath"
             android:title="@string/vbConvMath"
             android:defaultValue="false"
-            android:dependency="@string/vbMain_key"/>
+            android:dependency="vbMain"/>
         <CheckBoxPreference
-            android:key="@string/vbCalcMath_key"
+            android:key="vbCalcMath"
             android:title="@string/vbCalcMath"
             android:defaultValue="false"
-            android:dependency="@string/vbMain_key"/>
+            android:dependency="vbMain"/>
     </PreferenceCategory>
 </PreferenceScreen>

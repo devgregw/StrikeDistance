@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="8830TechPerson32.StrikeDistance" Publisher="CN=4282E973-60A6-4648-8237-09672F1DDD11" Version="2.1.515.23" ProcessorArchitecture="neutral" />
+  <Identity Name="8830TechPerson32.StrikeDistance" Publisher="CN=4282E973-60A6-4648-8237-09672F1DDD11" Version="2.2.515.31" ProcessorArchitecture="neutral" />
   <mp:PhoneIdentity PhoneProductId="9186d4d3-5c9d-4cb3-80ae-e5ec1e0ceca3" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>StrikeDistance</DisplayName>
@@ -42,7 +42,7 @@
     <build:Item Name="TargetFrameworkMoniker" Value="WindowsPhoneApp,Version=v8.1" />
     <build:Item Name="VisualStudio" Version="14.0" />
     <build:Item Name="VisualStudioEdition" Value="Microsoft Visual Studio Professional 2015 RC" />
-    <build:Item Name="OperatingSystem" Version="10.0.10122.0 (fbl_impressive.150513-1845)" />
+    <build:Item Name="OperatingSystem" Version="10.0.10130.0 (fbl_impressive.150522-2224)" />
     <build:Item Name="Microsoft.Build.AppxPackage.dll" Version="14.0.22823.1" />
     <build:Item Name="ProjectGUID" Value="{5D714886-054A-4C3E-A82A-A747D1C0DB73}" />
     <build:Item Name="ilc.exe" Version="1.0.22816.00 built by: PROJECTNREL" />

@@ -6,31 +6,33 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.MessageFormat;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import sdengine.convertions.Converter;
+import sdengine.convertions.enumerations.DistanceUnit;
+import sdengine.convertions.enumerations.TemperatureUnit;
+import sdengine.exceptions.NoConnectionException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import sdengine.convertions.Converter;
-import sdengine.convertions.enumerations.*;
-import sdengine.exceptions.NoConnectionException;
 
 enum endDistConvertion {
-	None,
-	MeterstoKilometers,
-	MeterstoMiles,
-	MeterstoMilestoFeet
+    None,
+    MeterstoKilometers,
+    MeterstoMiles,
+    MeterstoMilestoFeet
 }
 
 enum endTempConvertion {
-	None,
-	KelvintoCelsius,
-	FahrenheittoCelsius
+    None,
+    KelvintoCelsius,
+    FahrenheittoCelsius
 }
 
 public class Main {
@@ -70,110 +72,154 @@ public class Main {
 		
 		@Override
 		protected void onPostExecute(String json) {
-			
+
 		}
 	}
 	
 	private static Double getSpeedOfSound(Double c) {
-		return 331.5 + 0.6 * c;
+		return Converter.round(331.5 + 0.6 * c);
 	}
 	
 	private static Double getDistance(Double speedOfSound, Double time) {
-		return speedOfSound * time;
+		return Converter.round(speedOfSound * time);
 	}
 	
-	public static String calculate(Double temp, Double time, int tempUnit, int distUnit, boolean verboseMode, boolean[] verboseModeData) {
+	private static String format(String format, Object... args) {
+		return (new MessageFormat(format)).format(args);
+	}
+	
+	public static String calculate(Double temperature, Double time, int tempUnit, int distUnit, boolean verboseMode, boolean[] verboseModeData) {
 		endDistConvertion c = endDistConvertion.None;
-		endTempConvertion t = endTempConvertion.None;
-		Double newTemp, result;
-		String finalDist = "";
-		switch (tempUnit) {
-		case 0:
-			newTemp = Converter.convert(TemperatureUnit.Fahrenheit, TemperatureUnit.Celsius, temp);
-			t = endTempConvertion.FahrenheittoCelsius;
-		case 2:
-			newTemp = Converter.convert(TemperatureUnit.Kelvin, TemperatureUnit.Celsius, temp);
-			t = endTempConvertion.KelvintoCelsius;
-		default:
-			newTemp = temp;
-			t = endTempConvertion.None;
-		}
-		result = getDistance(getSpeedOfSound(temp), time);
-		Double originalDist = result;
-		switch (distUnit) {
-		case 0:
-			result = Converter.convert(DistanceUnit.Meters, DistanceUnit.Miles, result);
-			if (result < 1) {
-				result = Converter.convert(DistanceUnit.Miles,  DistanceUnit.Feet, result);
-				if (result == 1) {
-					finalDist = "foot";
-				}
-				else {
-					finalDist = "feet";
-				}
-				c = endDistConvertion.MeterstoMilestoFeet;
-			}
-			else {
-				if (result == 1) {
-					finalDist = "mile";
-				}
-				else {
-					finalDist = "miles";
-				}
-				c = endDistConvertion.MeterstoMiles;
-			}
-		case 1:
-			if (result >= 1000) {
-				result = Converter.convert(DistanceUnit.Meters,  DistanceUnit.Kilometers, result);
-				if (result == 1) {
-					finalDist = "kilometer";
-				}
-				else {
-					finalDist = "kilometers";
-				}
-				c = endDistConvertion.MeterstoKilometers;
-			}
-			else {
-				if (result == 1) {
-					finalDist = "meter";
-				}
-				else {
-					finalDist = "meters";
-				}
-				c = endDistConvertion.None;
-			}
-		}
-		result = Converter.round(result);
-		String mainMsg, unitMsg, convMsg, calcMsg, tempConvEqu = "", distConvEqu = "", finalMsg;
-		mainMsg = String.format("The lightning struck approximately %s %s away.", String.valueOf(result), finalDist);
-		unitMsg = String.format("\n\nTemperature unit: %s\nDistance unit: %s", (tempUnit == 0) ? "Fahrenheit" : (tempUnit == 1) ? "Celsius" : "Kelvin", (distUnit == 0) ? "Feet and Miles" : "Meters and Kilometers");
-		switch (t) {
-		case FahrenheittoCelsius:
-			tempConvEqu = String.format("Convert Fahrenheit to Celsius: (%s - 32) * 5 / 9 = %s", String.valueOf(temp), String.valueOf(newTemp));
-		case KelvintoCelsius:
-			tempConvEqu = String.format("Convert Kelvin to Celsius: %s - 273.15 = %s", String.valueOf(temp), String.valueOf(newTemp));
-		case None:
-			tempConvEqu = "Temperature already on Celsius; no math done";
-		}
-		switch (c) {
-		case MeterstoKilometers:
-			distConvEqu = String.format("Convert Meters to Kilometers: %s / 1000 = %s", String.valueOf(originalDist), String.valueOf(result));
-		case MeterstoMiles:
-			distConvEqu = String.format("Convert Meters to Miles: %s / 0.00062137 = %s", String.valueOf(originalDist), String.valueOf(result));
-		case MeterstoMilestoFeet:
-			distConvEqu = String.format("Convert Meters to Miles then Feet: %s / 0.00062137 = %s / 5280 = %s", String.valueOf(originalDist), String.valueOf(originalDist / 0.00062137), String.valueOf(result));
-		case None:
-			distConvEqu = "Distance set to Meters and Kilometers; no math done";
-		}
-		convMsg = String.format("\n\n%s\n%s", tempConvEqu, distConvEqu);
-		calcMsg = String.format("\n\nSpeed of sound: 331.5 + 0.6 * %s = %s\nTime: %s\nDistance: Speed of sound * time\n%s * %s = %s\nDistance = %s", String.valueOf(newTemp), String.valueOf(getSpeedOfSound(newTemp)), String.valueOf(time), String.valueOf(getSpeedOfSound(newTemp)), String.valueOf(time), String.valueOf(getDistance(getSpeedOfSound(newTemp), time)), String.valueOf(getDistance(getSpeedOfSound(newTemp),time)));
-		finalMsg = mainMsg;
-		if (verboseMode) {
-			finalMsg += (verboseModeData[0]) ? unitMsg : "";
-			finalMsg += (verboseModeData[1]) ? convMsg : "";
-			finalMsg += (verboseModeData[2]) ? calcMsg : "";
-		}
-		return finalMsg;
+        endTempConvertion t = endTempConvertion.None;
+        double temp, res;
+        int tempunit, distunit;
+        String finaldist = "";
+        tempunit = tempUnit;
+        distunit = distUnit;
+        switch (tempunit) {
+            case 0:
+                temp = Converter.convert(TemperatureUnit.Fahrenheit, TemperatureUnit.Celsius, temperature);
+                t = endTempConvertion.FahrenheittoCelsius;
+                break;
+            case 2:
+                temp = Converter.convert(TemperatureUnit.Kelvin, TemperatureUnit.Celsius, temperature);
+                t = endTempConvertion.KelvintoCelsius;
+                break;
+            default:
+                temp = temperature;
+                t = endTempConvertion.None;
+                break;
+        }
+        res = getDistance(getSpeedOfSound(temp), time);
+        double originaDist = res;
+        switch (distunit) {
+            case 0:
+                res = Converter.convert(DistanceUnit.Meters, DistanceUnit.Miles, res);
+                if (res < 1) {
+                    res = Converter.convert(DistanceUnit.Miles, DistanceUnit.Feet, res);
+                    if (res == 1)
+                        finaldist = "foot";
+                    else
+                        finaldist = "feet";
+                    c = endDistConvertion.MeterstoMilestoFeet;
+                }
+                else {
+                    if (res == 1)
+                        finaldist = "mile";
+                    else
+                        finaldist = "miles";
+                    c = endDistConvertion.MeterstoMiles;
+                }
+                break;
+            case 1:
+                if (res >= 1000) {
+                    res = Converter.convert(DistanceUnit.Meters, DistanceUnit.Kilometers, res);
+                    if (res == 1)
+                        finaldist = "kilometer";
+                    else
+                        finaldist = "kilometers";
+                    c = endDistConvertion.MeterstoKilometers;
+                }
+                else {
+                    if (res == 1)
+                        finaldist = "meter";
+                    else
+                        finaldist = "meters";
+                    c = endDistConvertion.None;
+                }
+                break;
+        }
+        res = Converter.round(res);
+        String mainMsg, unitMsg, convMsg, calcMsg, tempConvEqu = "", distConvEqu = "", finalMsg;
+        mainMsg = format("The lightning struck approximately {0} {1} away.", res, finaldist);
+        unitMsg = format(
+            "\n\nTemperature unit: {0}\nDistance unit: {1}",
+            (tempunit == 0) ?
+                "Fahrenheit" :
+                (tempunit == 1) ?
+                    "Celsius" :
+                    "Kelvin",
+            (distunit == 0) ?
+                "Feet and Miles" :
+                "Meters and Kilometers");
+        switch (t) {
+            case FahrenheittoCelsius:
+                tempConvEqu = format(
+                    "Convert Fahrenheit to Celsius: ({0} - 32) * 5 / 9 = {1}",
+                    temperature,
+                    temp);
+                break;
+            case KelvintoCelsius:
+                tempConvEqu = format(
+                    "Convert Kelvin to Celsius: {0} - 273.15 = {1}",
+                    temperature,
+                    temp);
+                break;
+            case None:
+                tempConvEqu = "Temperature already in Celsius; no math done";
+                break;
+        }
+        switch (c) {
+            case MeterstoKilometers:
+                distConvEqu = format(
+                    "Convert Meters to Kilometers: {0} / 1000 = {1}",
+                    originaDist,
+                    res);
+                break;
+            case MeterstoMiles:
+                distConvEqu = format(
+                    "Convert Meters to Miles: {0} / 0.00062137 = {1}",
+                    originaDist,
+                    res);
+                break;
+            case MeterstoMilestoFeet:
+                distConvEqu = format(
+                    "Convert Meters to Miles then Feet: {0} / 0.00062137 = {1} / 5280 = {2}",
+                    originaDist,
+                    originaDist / 0.00062137,
+                    res);
+                break;
+            case None:
+                distConvEqu = "Distance set to meters and kilometers; no math done";
+                break;
+        }
+        convMsg = format(
+            "\n\n{0}\n{1}",
+            tempConvEqu,
+            distConvEqu);
+        calcMsg = format(
+            "\n\nSpeed of sound = 331.5 + 0.6 * {0} = {1}\nTime = {2}\nDistance = Speed of sound * time\n{1} * {2} = {3}\nDistance = {3}",
+            temp,
+            getSpeedOfSound(temp),
+            time,
+            getDistance(getSpeedOfSound(temp), time));
+        finalMsg = mainMsg;
+        if (verboseMode) {
+            finalMsg += (verboseModeData[0]) ? unitMsg : "";
+            finalMsg += (verboseModeData[1]) ? convMsg : "";
+            finalMsg += (verboseModeData[2]) ? calcMsg : "";
+        }
+        return finalMsg;
 	}
 	
 	public static boolean checkNetworkState(Context c) {
@@ -195,19 +241,3 @@ public class Main {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

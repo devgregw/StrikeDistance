@@ -1,11 +1,14 @@
 ﻿using SDEngine;
 using SDEngine.Memory;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Email;
 using Windows.ApplicationModel.Store;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Popups;
@@ -107,7 +110,30 @@ namespace StrikeDistance_WindowsPhone {
             statusBar.ForegroundColor = (Application.Current.Resources["StrikeDistanceForegroundBrush"] as SolidColorBrush).Color;
             TimeBox.Text = Manager.Time.ToString();
             UpdateWeather();
+            if (SDEngine.Memory.Utility.UtilityMethods.Get("unhandledException", false)) {
+                var dialog = new ContentDialog() {
+                    Title = "Send Crash Report",
+                    Content = new TextBlock() {
+                        Text = "It seems StrikeDistance crashed last time it was used.\n\nTo help resolve these problems, would you like to send a report?  Crash data was already collected when the problem occurred, so all you have to do is send the message and add any extra details."
+                    },
+                    PrimaryButtonText = "Okay",
+                    SecondaryButtonText = "Ignore"
+                };
+                dialog.PrimaryButtonClick += async (s, e) => {
+                    var msg = new EmailMessage() {
+                        Body = "Add any details that may be useful: \n\nCrash data [DO NOT EDIT ANYTHING BELOW]:\n" + SDEngine.Memory.Utility.UtilityMethods.Get("exceptionXml", ""),
+                        Subject = "Crash Report (StrikeDistance 2.2.515.30)"
+                    };
+                    msg.To.Add(new EmailRecipient("devgregw@outlook.com"));
+                    await EmailManager.ShowComposeNewEmailAsync(msg);
+                    await new MessageDialog("The report has been sent.", "Success").ShowAsync();
+                    dialog.Hide();
+                };
+                await dialog.ShowAsync();
+                SDEngine.Memory.Utility.UtilityMethods.Set("unhandledException", false);
+            }
             if (args.Parameter != null && args.NavigationMode == NavigationMode.New) {
+                Frame.BackStack.Clear();
                 if ((bool)args.Parameter == true) {
                     var dlg = new ContentDialog() {
                         Title = "Help improve StrikeDistance?",
@@ -134,7 +160,7 @@ namespace StrikeDistance_WindowsPhone {
                         };
                         await dlg2.ShowAsync();
                     };
-                    dlg.SecondaryButtonClick += (s, e) => {
+                    dlg.SecondaryButtonClick += async (s, e) => {
                         var dlg2 = new ContentDialog() {
                             Title = "What about this?",
                             Content = new TextBlock() {
@@ -147,6 +173,7 @@ namespace StrikeDistance_WindowsPhone {
                         dlg2.PrimaryButtonClick += async (s2, e2) => {
                             await SendFeedback();
                         };
+                        await dlg2.ShowAsync();
                     };
                     await dlg.ShowAsync();
                 }
@@ -307,13 +334,20 @@ namespace StrikeDistance_WindowsPhone {
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Frame.Navigate(typeof(SettingsPage)))
-                throw new Exception("Failed to create initial page");
+            Frame.Navigate(typeof(SettingsPage));
         }
 
-        private async void AboutButton_Click(object sender, RoutedEventArgs e)
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => Frame.Navigate(typeof(AboutPage)));
+            Frame.Navigate(typeof(AboutPage));
+        }
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e) {
+            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(Exception));
+            System.IO.StringWriter w = new System.IO.StringWriter();
+            serializer.Serialize(w, new Exception("message"));
+            SDEngine.Memory.Utility.UtilityMethods.Set("exceptionXml", w.ToString());
+            SDEngine.Memory.Utility.UtilityMethods.Set("unhandledException", true);
         }
 
         private async void AppsButton_Click(object sender, RoutedEventArgs e)

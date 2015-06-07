@@ -27,6 +27,7 @@ public final class R {
     public static final class color {
         public static final int StrikeDistanceBackground=0x7f080001;
         public static final int StrikeDistanceTheme=0x7f080000;
+        public static final int chrome=0x7f080003;
         public static final int white=0x7f080002;
     }
     public static final class dimen {
@@ -41,11 +42,14 @@ public final class R {
         public static final int activity_vertical_margin=0x7f090001;
     }
     public static final class drawable {
-        public static final int ic_action_calculate=0x7f020000;
-        public static final int ic_action_clear=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int ic_logo=0x7f020003;
-        public static final int ic_overflow_new=0x7f020004;
+        public static final int checkbox_checked=0x7f020000;
+        public static final int checkbox_unchecked=0x7f020001;
+        public static final int checkboxbuttonselector=0x7f020002;
+        public static final int ic_action_calculate=0x7f020003;
+        public static final int ic_action_clear=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int ic_logo=0x7f020006;
+        public static final int ic_overflow_new=0x7f020007;
     }
     public static final class id {
         public static final int EditText01=0x7f0b0006;
@@ -54,11 +58,13 @@ public final class R {
         public static final int action1_1=0x7f0b0002;
         public static final int action1_2=0x7f0b0003;
         public static final int action2_2=0x7f0b0005;
-        public static final int action_calculate=0x7f0b0023;
-        public static final int action_clear=0x7f0b0024;
-        public static final int action_feedback=0x7f0b0025;
-        public static final int action_settings=0x7f0b0022;
+        public static final int action_calculate=0x7f0b002c;
+        public static final int action_clear=0x7f0b002d;
+        public static final int action_feedback=0x7f0b002e;
+        public static final int action_settings=0x7f0b002b;
+        public static final int autoGet=0x7f0b0026;
         public static final int conditions=0x7f0b0011;
+        public static final int distSpinner=0x7f0b0023;
         public static final int elevation=0x7f0b0012;
         public static final int feelslike=0x7f0b0015;
         public static final int humidity=0x7f0b0017;
@@ -76,11 +82,18 @@ public final class R {
         public static final int latitiude=0x7f0b000b;
         public static final int longitude=0x7f0b0013;
         public static final int pressure=0x7f0b001f;
+        public static final int psrSpinner=0x7f0b0025;
         public static final int scrollView1=0x7f0b0009;
+        public static final int speedSpinner=0x7f0b0024;
+        public static final int tempSpinner=0x7f0b0022;
         public static final int temperature=0x7f0b0010;
         public static final int temperatureBox=0x7f0b0001;
         public static final int textView1=0x7f0b0000;
         public static final int toggleButton1=0x7f0b0007;
+        public static final int vbCalcMath=0x7f0b002a;
+        public static final int vbConvMath=0x7f0b0029;
+        public static final int vbMain=0x7f0b0027;
+        public static final int vbUnitDetails=0x7f0b0028;
         public static final int viewHistorical=0x7f0b0021;
         public static final int viewOnWU=0x7f0b0020;
         public static final int winddirection=0x7f0b001b;
@@ -89,6 +102,9 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_calculator=0x7f030000;
+        public static final int activity_settings=0x7f030001;
+        public static final int spinner_dropdown_item=0x7f030002;
+        public static final int spinner_item=0x7f030003;
     }
     public static final class menu {
         public static final int calculator=0x7f0a0000;
@@ -117,33 +133,34 @@ public final class R {
         public static final int header1=0x7f050005;
         public static final int header2=0x7f050008;
         public static final int header3=0x7f05000c;
+        public static final int hello_world=0x7f050040;
         public static final int humidity=0x7f050014;
         public static final int latitude=0x7f05000e;
         public static final int longitude=0x7f05000f;
         public static final int pref_1=0x7f05001c;
         public static final int pref_2=0x7f05002e;
         public static final int pref_3=0x7f050031;
-        public static final int pref_default_display_name=0x7f050044;
-        public static final int pref_description_social_recommendations=0x7f050042;
+        public static final int pref_default_display_name=0x7f050045;
+        public static final int pref_description_social_recommendations=0x7f050043;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f050046;
+        public static final int pref_header_data_sync=0x7f050047;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f050040;
+        public static final int pref_header_general=0x7f050041;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f050049;
-        public static final int pref_ringtone_silent=0x7f05004c;
-        public static final int pref_title_add_friends_to_messages=0x7f050045;
-        public static final int pref_title_display_name=0x7f050043;
-        public static final int pref_title_new_message_notifications=0x7f05004a;
-        public static final int pref_title_ringtone=0x7f05004b;
-        public static final int pref_title_social_recommendations=0x7f050041;
-        public static final int pref_title_sync_frequency=0x7f050047;
-        public static final int pref_title_system_sync_settings=0x7f050048;
-        public static final int pref_title_vibrate=0x7f05004d;
+        public static final int pref_header_notifications=0x7f05004a;
+        public static final int pref_ringtone_silent=0x7f05004d;
+        public static final int pref_title_add_friends_to_messages=0x7f050046;
+        public static final int pref_title_display_name=0x7f050044;
+        public static final int pref_title_new_message_notifications=0x7f05004b;
+        public static final int pref_title_ringtone=0x7f05004c;
+        public static final int pref_title_social_recommendations=0x7f050042;
+        public static final int pref_title_sync_frequency=0x7f050048;
+        public static final int pref_title_system_sync_settings=0x7f050049;
+        public static final int pref_title_vibrate=0x7f05004e;
         public static final int pressure=0x7f050018;
         public static final int psr_0=0x7f050024;
         public static final int psr_1=0x7f050025;
@@ -229,10 +246,11 @@ public final class R {
         public static final int buttonsty=0x7f060004;
     }
     public static final class xml {
-        public static final int pref_data_sync=0x7f040000;
-        public static final int pref_general=0x7f040001;
-        public static final int pref_headers=0x7f040002;
-        public static final int pref_notification=0x7f040003;
-        public static final int preferences=0x7f040004;
+        public static final int hidden_preferences=0x7f040000;
+        public static final int pref_data_sync=0x7f040001;
+        public static final int pref_general=0x7f040002;
+        public static final int pref_headers=0x7f040003;
+        public static final int pref_notification=0x7f040004;
+        public static final int preferences=0x7f040005;
     }
 }

@@ -14,9 +14,8 @@
                 <AppBarButton x:Name="AboutButton" Label="About StrikeDistance" Click="AboutButton_Click"/>
                 <AppBarButton x:Name="AppsButton" Label="More apps" Click="AppsButton_Click"/>
             </CommandBar.SecondaryCommands>
-            <AppBarButton x:Name="CalculateButton" Label="calculate" Click="CalculateButton_Click" Icon="Calculator"/>
+            <AppBarButton x:Name="CalculateButton" Label="Calculate" Click="CalculateButton_Click" Icon="Calculator"/>
             <AppBarButton x:Name="ClearAllButton" Icon="Clear" Label="Clear all" Click="ClearAllButton_Click"/>
-            <AppBarButton x:Name="RefreshButton" Icon="Refresh" Label="Refresh" Click="LocationButton_Click"/>
             <AppBarButton x:Name="SettingsButton" Icon="Setting" Label="Settings" Click="SettingsButton_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
