@@ -216,3 +216,5 @@ pip-log.txt
 .mr.developer.cfg
 *.db
 *.suo
+/Web/nbproject/private/
+/Web-old/nbproject/private/

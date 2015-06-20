@@ -15,12 +15,10 @@ import sdengine.convertions.Converter;
 import sdengine.convertions.enumerations.DistanceUnit;
 import sdengine.convertions.enumerations.TemperatureUnit;
 import sdengine.exceptions.NoConnectionException;
+import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
 
 enum endDistConvertion {
     None,
@@ -42,17 +40,21 @@ public class Main {
 		
 	}
 	
-	class AsyncWeatherInformation extends AsyncTask<Intent, Void, String> {
+	class AsyncWeatherInformation extends AsyncTask<Object, Void, String> {
 		
-		protected String doInBackground(Intent... params) {
+		ProgressDialog dlg;
+		Boolean show;
+		
+		protected String doInBackground(Object... params) {
+			Context context = (Context)params[3];
+			show = (Boolean)params[4];
+			if (show) dlg = ProgressDialog.show(context, "Getting weather data...", "This shouldn't take long.", true, false);
 			StringBuilder sb = new StringBuilder();
-			Bundle data = params[0].getExtras();
-			Double lat = data.getDouble("lat");
-			Double lon = data.getDouble("lon");
-			String apiKey = data.getString("apiKey");
+			Double lat = (Double)params[0];
+			Double lon = (Double)params[1];
+			String apiKey = (String)params[2];
 			try {
 				URL u = new URL(String.format("http://api.wunderground.com/api/%s/conditions/q/%s,%s.json", apiKey, String.valueOf(Converter.round(lat)), String.valueOf(Converter.round(lon))));
-				Log.d("sdengine", u.toExternalForm());
 				HttpURLConnection c = (HttpURLConnection)u.openConnection();
 				InputStream in = new BufferedInputStream(c.getInputStream());
 				BufferedReader br = new BufferedReader( new InputStreamReader(in));
@@ -68,11 +70,19 @@ public class Main {
 				e.printStackTrace();
 				return null;
 			}
+			finally {
+				if (show && dlg != null) dlg.dismiss();
+			}
 		}
 		
 		@Override
-		protected void onPostExecute(String json) {
+		protected void onPreExecute() {
+			super.onPreExecute();
+		}
 
+		@Override
+		protected void onPostExecute(String result) {
+			super.onPostExecute(result);
 		}
 	}
 	
@@ -208,7 +218,7 @@ public class Main {
             tempConvEqu,
             distConvEqu);
         calcMsg = format(
-            "\n\nSpeed of sound = 331.5 + 0.6 * {0} = {1}\nTime = {2}\nDistance = Speed of sound * time\n{1} * {2} = {3}\nDistance = {3}",
+            "\n\nSpeed of sound = 331.5 + 0.6 * {0} °C = {1} meters/second\nTime = {2} seconds\nDistance = Speed of sound * time\n{1} meters/second * {2} seconds = {3} meters",
             temp,
             getSpeedOfSound(temp),
             time,
@@ -227,13 +237,9 @@ public class Main {
 		return m.getActiveNetworkInfo().isConnected();
 	}
 	
-	public static WeatherInformation getWeatherInformation(Context context, Double lat, Double lon, String apiKey, int tempUnit, int psrUnit, int speedUnit) throws NoConnectionException, TimeoutException, InterruptedException, ExecutionException {
+	public static WeatherInformation getWeatherInformation(Context context, Boolean dialog, Double lat, Double lon, String apiKey, int tempUnit, int psrUnit, int speedUnit) throws NoConnectionException, TimeoutException, InterruptedException, ExecutionException {
 		if (checkNetworkState(context)) {
-			Intent i = new Intent();
-			i.putExtra("lat", lat);
-			i.putExtra("lon", lon);
-			i.putExtra("apiKey", apiKey);
-			AsyncTask<Intent, Void, String> a = new Main().new AsyncWeatherInformation().execute(i);
+			AsyncTask<Object, Void, String> a = new Main().new AsyncWeatherInformation().execute(lat, lon, apiKey, context, dialog);
 			return new WeatherInformation(a.get(2, TimeUnit.MINUTES), tempUnit, speedUnit, psrUnit);
 		}
 		else {

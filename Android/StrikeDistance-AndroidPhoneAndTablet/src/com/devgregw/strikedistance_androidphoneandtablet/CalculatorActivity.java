@@ -29,6 +29,9 @@ public class CalculatorActivity extends Activity {
 
 	EditText temperatureBox;
 	EditText timeBox;
+	LocationManager man;
+	LocationListener listener;
+	Activity act;
 
 	class StrikeDistanceLocationListener implements LocationListener {
 		@Override
@@ -64,7 +67,41 @@ public class CalculatorActivity extends Activity {
 		}
 	}
 
-	double latitude, longitude;
+	public class LocationButtonListener implements View.OnClickListener {
+		@Override
+		public void onClick(View v) {
+			EditText field = (EditText) findViewById(R.id.temperatureBox);
+			try {
+				field.setEnabled(false);
+				if (latitude == 0.0 && longitude == 0.0) {
+					Location l = man
+							.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+					if (l != null) {
+						latitude = l.getLatitude();
+						longitude = l.getLongitude();
+					}
+				}
+				WeatherInformationSaver.setWeatherInformation(Main
+						.getWeatherInformation(
+								CalculatorActivity.this, Boolean.TRUE, latitude,
+								longitude, "6d5bf5f013871a92",
+								tempUnit, speedUnit, psrUnit));
+				updateWeather();
+			} catch (NoConnectionException e) {
+				e.printStackTrace();
+			} catch (TimeoutException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				e.printStackTrace();
+			} finally {
+				field.setEnabled(true);
+			}
+		}
+	};
+	
+	Double latitude = 0.0, longitude = 0.0;
 	int tempUnit, distUnit, speedUnit, psrUnit;
 	boolean verboseMode;
 	boolean[] verboseModeData;
@@ -162,6 +199,7 @@ public class CalculatorActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calculator);
+		act = this;
 		temperatureBox = (EditText) findViewById(R.id.temperatureBox);
 		timeBox = (EditText) findViewById(R.id.EditText01);
 		SharedPreferences pref = getSharedPreferences("strikedistance_preferences", Context.MODE_PRIVATE);
@@ -171,43 +209,10 @@ public class CalculatorActivity extends Activity {
 		psrUnit = pref.getInt("psrUnit", 0);
 		verboseMode = pref.getBoolean("vbMain", false);
 		verboseModeData = new boolean[] { pref.getBoolean("vbUnitDetails", false), pref.getBoolean("vbConvMath", false), pref.getBoolean("vbCalcMath", false) };
-		final LocationManager man = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-		LocationListener listener = new StrikeDistanceLocationListener();
+		man = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		listener = new StrikeDistanceLocationListener();
 		man.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1, 0, listener);
-		((Button) findViewById(R.id.action1_1))
-				.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						EditText field = (EditText) findViewById(R.id.temperatureBox);
-						try {
-							field.setEnabled(false);
-							if (latitude == 0.0 && longitude == 0.0) {
-								Location l = man
-										.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-								if (l != null) {
-									latitude = l.getLatitude();
-									longitude = l.getLongitude();
-								}
-							}
-							WeatherInformationSaver.setWeatherInformation(Main
-									.getWeatherInformation(
-											getApplicationContext(), latitude,
-											longitude, "6d5bf5f013871a92",
-											tempUnit, speedUnit, psrUnit));
-							updateWeather();
-						} catch (NoConnectionException e) {
-							e.printStackTrace();
-						} catch (TimeoutException e) {
-							e.printStackTrace();
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						} catch (ExecutionException e) {
-							e.printStackTrace();
-						} finally {
-							field.setEnabled(true);
-						}
-					}
-				});
+		((Button) findViewById(R.id.action1_1)).setOnClickListener(new LocationButtonListener());
 		getActionBar().setLogo(R.drawable.ic_logo);
 	}
 
