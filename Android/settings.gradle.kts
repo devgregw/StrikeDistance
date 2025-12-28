@@ -21,5 +21,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "StrikeDistance"
+rootProject.name = "Android"
 include(":app")
+project(":app").name = "StrikeDistance"
